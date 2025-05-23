@@ -11,14 +11,20 @@ $bx-anthracit-05: #a0a0a0;
 $bx-anthracit-06: #b3b3b3;
 $bx-blue-ice: #f9fcff;
 $bx-green: #16c68d;
+$bx-red: #e87a7a;
 $bx-green-apple: #6aba61;
 $bx-orange: #e6b555;
 $bx-red-fire: #f44336;
-$bx-red: #e87a7a;
 
-$brand-blue: #2c5067;
-$brand-blue-04: #8096a4;
-$brand-turkis: #328aa8;
+$brand-orange: #e66926;
+$brand-orange-06: #F0A57D;
+$brand-orange-rgb: 230, 105, 38;
+$brand-anthracit: #52565c;
+$brand-anthracit-light-1: #383B40;
+$brand-anthracit-light-2: #73787e;
+$brand-font-1: #757575;
+$brand-font-2: #a3a6ac;
+$brand-font-3: #dfe0e2;
 
 
 // Generally Angular Variables
@@ -27,20 +33,21 @@ $brand-turkis: #328aa8;
   --error: #{$bx-red-fire};
   --warning: #{$bx-orange};
   --success: #{$bx-green-apple};
-  --highlight: #{$brand-turkis};
-  --primary: #{$bx-blue-ice};
-  --secondary: #{$brand-turkis};
+
+  --highlight: #{$brand-orange};
+  --primary: #{$brand-anthracit};
+  --secondary: #{$brand-anthracit-light-2};
 
   --icon-default: #{$bx-anthracit};
   --icon-invert: #{$bx-white};
   --icon-disabled: #{$bx-anthracit-05};
-  --icon-highlight: #{$brand-blue-04};
+  --icon-highlight: var(--highlight);
 
   --font-default: #{$bx-anthracit};
   --font-invert: #{$bx-white};
   --font-disabled: #{$bx-anthracit-05};
-  --font-highlight: #{$bx-anthracit-06};
-  --font-placeholder: #{$brand-blue-04};
+  --font-highlight: var(--highlight);
+  --font-placeholder: #{$brand-font-3};
 
   --body-background: #{$bx-gray};
   --main-header-background: #{$bx-white};
@@ -52,9 +59,8 @@ $brand-turkis: #328aa8;
   --button-danger: #{$bx-red};
 
   --scrollbar-track: #{$bx-white-11};
-  --scrollbar-thumb: #{$brand-turkis};
+  --scrollbar-thumb: var(--highlight);
 }
-
 
 // Generally TAG-CSS
 // *****************
@@ -66,6 +72,7 @@ $brand-turkis: #328aa8;
 
 body {
   background-color: #f0f0f0;
+
 }
 
 
