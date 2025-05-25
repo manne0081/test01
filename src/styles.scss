@@ -30,6 +30,15 @@ $brand-font-3: #dfe0e2;
 // Generally Angular Variables
 // ***************************
 :root {
+  --primary-color: #2e7d32;
+  --secondary-color: #f4f4f4;
+  --text-color: #333333;
+  --border-color: #cccccc;
+  --background-color: #ffffff;
+
+
+
+
   --error: #{$bx-red-fire};
   --warning: #{$bx-orange};
   --success: #{$bx-green-apple};
@@ -65,15 +74,18 @@ $brand-font-3: #dfe0e2;
 // Generally TAG-CSS
 // *****************
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 
 body {
-  background-color: #f0f0f0;
-
+    font-family: Arial, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
+
+
 
 
 :host {
