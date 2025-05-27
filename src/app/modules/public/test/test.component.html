@@ -177,8 +177,27 @@
 </div> -->
 
 
-<div class="container">
-  <div class="header">Header</div>
-  <div class="main">Main Content</div>
-  <div class="footer">Footer</div>
+<div class="page-container">
+
+  <header>
+      <div class="logo" [routerLink]="['/home']">🌲 Klaus Köhler Forst- und Gartentechnik</div>
+      <nav>
+          <a href="#">Über uns</a>
+          <a href="https://www.koehler-forsttechnik.de/" target="_blank">Produkte</a>
+          <a [routerLink]="['/auth']" class="login-button">Login</a>
+      </nav>
+  </header>
+
+  <main class="hero-bg">
+      <div class="hero-content">
+          <h1><span class="icon">🌲</span> Für Wald & Garten – mit Leidenschaft</h1>
+          <p>Professionelle Technik für Forstwirte, Landschaftsbauer und alle, die draußen Großes leisten.</p>
+          <a href="#kontakt" class="cta">Jetzt Kontakt aufnehmen</a>
+      </div>
+  </main>
+
+  <footer>
+      <p>&copy; 2025 Forst & Garten Vertrieb GmbH</p>
+  </footer>
+
 </div>

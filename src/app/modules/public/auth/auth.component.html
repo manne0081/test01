@@ -1,1 +1,37 @@
-<p>auth works!</p>
+<div class="container">
+
+  <header>
+      <div class="logo" [routerLink]="['/home']">🌲 Klaus Köhler Forst- und Gartentechnik</div>
+      <nav>
+        <a href="#">Über uns</a>
+        <a href="https://www.koehler-forsttechnik.de/" target="_blank">Produkte</a>
+        <a href="login.html" class="login-button">Login</a>
+      </nav>
+  </header>
+
+  <main class="login-bg">
+    <div style="display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh;background-color: #f0f2f5;;">
+      <div class="auth-container">
+          <form class="login-form">
+              <h2>Login</h2>
+              <div class="input-group">
+                  <label for="username">Benutzername</label>
+                  <input type="text" id="username" name="username" required>
+              </div>
+              <div class="input-group">
+                  <label for="password">Passwort</label>
+                  <input type="password" id="password" name="password" required>
+              </div>
+              <button type="submit" >Einloggen</button>
+              <!-- [routerLink]="['/dashboard']" -->
+              <p class="message">Noch kein Konto? <a href="#">Registrieren</a></p>
+          </form>
+      </div>
+  </div>
+  </main>
+
+  <footer>
+      <p>&copy; 2025 Forst & Garten Vertrieb GmbH</p>
+  </footer>
+
+</div>
