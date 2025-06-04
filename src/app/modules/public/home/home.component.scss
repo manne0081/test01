@@ -1,12 +1,5 @@
 @import '../../../../styles.scss';
 
-.page-container {
-  //background-color: darksalmon;
-  display: flex;
-  flex-direction: column;
-  height: 100vh; /* nimmt die volle Fensterhöhe ein */
-}
-
 
 // Header
 // ******
@@ -23,33 +16,38 @@ header {
   box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 16px 0 rgba(0, 0, 0, 0.18);
   z-index: 10;
   // opacity: 0.1;
-}
 
-header .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 
-nav a {
-  color: var(--background-color);
-  text-decoration: none;
-  margin-left: 1rem;
+  nav a {
+    color: var(--background-color);
+    text-decoration: none;
+    margin-left: 1rem;
+  }
 }
 
 
 // Content
 // *******
 .hero-bg {
-  height: 100%;
-  margin: 60px 0 56px 0;
-  background: url('https://www.koehler-forsttechnik.de/s/img/background.jpg?1744521158') no-repeat center center / cover;
-  background: url('https://www.koehler-forsttechnik.de/s/img/emotionheader.jpg?1612298705.920px.400px') no-repeat center center / cover;
-  background-color: rgba(255,255,255,0.88);
-  background-blend-mode: lighten;
+  position: absolute;
+  top: 60px;
+  bottom: 48px;
+  left: 0;
+  right: 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  background: url('https://www.koehler-forsttechnik.de/s/img/background.jpg?1744521158') no-repeat center center / cover;
+  background: url('https://www.koehler-forsttechnik.de/s/img/emotionheader.jpg?1612298705.920px.400px') no-repeat center center / cover;
+  background-color: rgba(255,255,255,0.88);
+  background-blend-mode: lighten;
   padding: 2rem;
   color: rgb(54, 54, 54);
   color: white;
@@ -96,15 +94,18 @@ nav a {
 // Footer
 // ******
 footer {
+  background-color: var(--border-color);
   position: fixed;
   bottom: 0;
   width: 100vw;
-  height: 56px;
-  text-align: center;
-  padding: 1rem;
-  background-color: var(--border-color);
-  margin-top: 3rem;
+  height: 48px;
   box-shadow: 0 -2px 8px 0 rgba(0, 0, 0, 0.2), 0 -4px 16px 0 rgba(0, 0, 0, 0.18);
   z-index: 10;
-  // opacity: 0.1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // text-align: center;
+
+  // opacity: 0.4;
 }

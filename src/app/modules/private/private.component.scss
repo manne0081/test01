@@ -1,0 +1,19 @@
+.app-structure {
+    background-color: var(--app-background);
+    display: grid;
+    grid-template-rows: 52px auto;
+    height: 100vh;
+    overflow: visible;
+
+    header {
+        background-color: white;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+
+    main {
+        background-color: #EDF0F5;
+        display: flex;
+        flex-direction: row;
+    }
+}
