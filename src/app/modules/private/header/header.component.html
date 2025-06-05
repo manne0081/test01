@@ -2,7 +2,10 @@
 
     <i class="icon-menu" *ngIf="!isMenuCollapsed" (click)="toggleMenuStatus()"></i>
     <i class="icon-more-vert" *ngIf="isMenuCollapsed" (click)="toggleMenuStatus()"></i>
-
+    <div style="display: flex;">
+        <p style="font-size: 2rem; margin-top: -8px">🌲</p>
+        <p style="font-size: 1.2rem; margin-top: 2px;"> Klaus Köhler Forst- und Gartentechnik</p>
+    </div>
     <p [routerLink]="['/home']">logout</p>
 
 </div>

@@ -1,21 +1,23 @@
 <div class="container expand" *ngIf="!menuIsCollapsed">
     <ul>
-        <li>Favoriten</li>
-        <li>Dashboard</li>
-        <li>Workspace</li>
-        <li>Team</li>
-        <li>Kunden</li>
-        <li>Projekte</li>
+        <li class="pre-active">Favoriten</li>
+        <li class="active">Dashboard</li>
+        <li class="post-active">Workspace</li>
+        <li class="">Team</li>
+        <li class="">Kunden</li>
+        <li class="">Projekte</li>
+        <li style="height: 100vh;"></li>
     </ul>
 </div>
 
 <div class="container collapsed" *ngIf="menuIsCollapsed">
     <ul>
-        <li><i class="icon-star"></i></li>
-        <li><i class="icon-grid"></i></li>
-        <li><i class="icon-box-filled"></i></li>
+        <li class="pre-active"><i class="icon-star"></i></li>
+        <li class="active"><i class="icon-grid"></i></li>
+        <li class="post-active"><i class="icon-box-filled"></i></li>
         <li><i class="icon-group"></i></li>
         <li><i class="icon-building"></i></li>
         <li><i class="icon-cubes"></i></li>
+        <li style="height: 100vh;"></li>
     </ul>
 </div>

@@ -12,7 +12,6 @@ export class PrivateService {
     private isMenuCollapsed = new BehaviorSubject<boolean>(false);
 
     setIsMenuCollapsed(status: boolean): void {
-        console.log("set 1: " + status);
         this.isMenuCollapsed.next(status);
     }
 

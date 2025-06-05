@@ -1,15 +1,27 @@
 .container {
-    background-color: #004787;
-    background-color: var(--primary-color);
     height: 100%;
 }
 
 li {
+    background-color: var(--primary-color);
     height: 36px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
     color: white;
+}
+
+li.active {
+    background-color: transparent;
+    color: darkslategray;
+}
+
+li.pre-active {
+    border-radius: 0 0 8px 0;
+}
+
+li.post-active {
+    border-radius: 0 8px 0 0;
 }
 
 .container.expand {
@@ -24,11 +36,14 @@ li {
 
 .container.collapsed {
     width: 52px;
-    display: flex;
-    justify-content: space-around;
 
     ul {
+        width: 52px;
+
         li {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
             font-size: 1.4rem;
         }
     }
