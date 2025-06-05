@@ -1,6 +1,6 @@
 <div class="container">
-    <p *ngIf="!menuIsCollapsed" (click)="toggleMenuStatus()">expand</p>
-    <p *ngIf="menuIsCollapsed" (click)="toggleMenuStatus()">collapsed</p>
-    {{ menuIsCollapsed }}
+    <p *ngIf="!isMenuCollapsed" (click)="toggleMenuStatus()">expand</p>
+    <p *ngIf="isMenuCollapsed" (click)="toggleMenuStatus()">collapsed</p>
     <p [routerLink]="['/home']">logout</p>
 </div>
+

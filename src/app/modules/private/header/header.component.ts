@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PrivateService } from '../private.service';
 import { CommonModule } from '@angular/common';
@@ -10,25 +10,26 @@ import { CommonModule } from '@angular/common';
         CommonModule,
 		RouterModule,
 	],
-    providers: [
-        PrivateService,
-    ],
 	templateUrl: './header.component.html',
 	styleUrl: './header.component.scss'
 })
 
-export class HeaderComponent {
-    menuIsCollapsed!:boolean;
+export class HeaderComponent implements OnInit{
+    isMenuCollapsed!:boolean;
 
     constructor(
         private privateService: PrivateService,
-    ) {}
+    ) {
+        this.privateService.getIsMenuCollapsed().subscribe(data => {
+            this.isMenuCollapsed = data;
+        });
+    }
+
+    ngOnInit(): void {
+    }
 
     toggleMenuStatus(): void {
-        this.menuIsCollapsed = !this.menuIsCollapsed;
-        this.privateService.setIsMenuCollapsed(this.menuIsCollapsed);
-
-        this.privateService.test2();
-
+        this.isMenuCollapsed = !this.isMenuCollapsed;
+        this.privateService.setIsMenuCollapsed(this.isMenuCollapsed); // <-- Status an Service senden!
     }
 }

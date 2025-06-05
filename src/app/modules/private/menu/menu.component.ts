@@ -1,37 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { PrivateService } from '../private.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-menu',
     standalone: true,
     imports: [
-    ],
-    providers: [
-        PrivateService,
+        CommonModule,
     ],
     templateUrl: './menu.component.html',
     styleUrl: './menu.component.scss'
 })
 
 export class MenuComponent implements OnInit {
-    isMenuCollapsed:any;
+    menuIsCollapsed?: boolean;
 
     constructor(
         private privateService: PrivateService,
     ) {
-        console.log("MenuComponent constructed");
-        this.privateService.test$.subscribe(data => {
-            console.log("get 1: ", data);
-            this.isMenuCollapsed = data;
-        });
-
         this.privateService.getIsMenuCollapsed().subscribe(data => {
-            console.log("get 2: ", data);
+            this.menuIsCollapsed = data;
         });
     }
 
     ngOnInit(): void {
-        console.log("MenuComponent initialized");
-        this.privateService.test2();
     }
 }

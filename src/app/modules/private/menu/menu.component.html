@@ -1,4 +1,4 @@
-<div class="container expand">
+<div class="container expand" *ngIf="!menuIsCollapsed">
     <ul>
         <li>Favoriten</li>
         <li>Dashboard</li>
@@ -9,7 +9,7 @@
     </ul>
 </div>
 
-<div class="container collapsed">
+<div class="container collapsed" *ngIf="menuIsCollapsed">
     <ul>
         <li><img src="../../../../assets/logo-systaro.png" alt=""></li>
         <li><img src="../../../../assets/logo-systaro.png" alt=""></li>
@@ -19,5 +19,3 @@
         <li><img src="../../../../assets/logo-systaro.png" alt=""></li>
     </ul>
 </div>
-
-{{ isMenuCollapsed }}
