@@ -1,6 +1,15 @@
 .container {
+    // background-color: lime;
     display: flex;
     justify-content: space-between;
-    padding: 4px 8px;
+    padding: 0px 8px;
+    height: 52px;
+    align-items: center;
 
+
+    i {
+        // background-color: orange;
+        font-size: 2rem;
+        padding-left: 2px;
+    }
 }

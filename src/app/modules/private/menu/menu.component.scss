@@ -1,15 +1,35 @@
+.container {
+    background-color: #004787;
+    background-color: var(--primary-color);
+    height: 100%;
+}
+
+li {
+    height: 36px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
 .container.expand {
     min-width: 200px;
+
+    ul {
+        li {
+            padding-left: 12px;
+        }
+    }
 }
 
 .container.collapsed {
-    min-width: 48px;
+    width: 52px;
+    display: flex;
+    justify-content: space-around;
+
     ul {
         li {
-            img {
-                height: 28px;
-
-            }
+            font-size: 1.4rem;
         }
     }
 }
