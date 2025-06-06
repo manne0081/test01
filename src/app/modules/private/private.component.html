@@ -1,14 +1,42 @@
 <div class="app-structure">
 
 	<!-- HEADER -->
-	<header>
+	<header class="header-container">
 		<app-header></app-header>
 	</header>
 
     <!-- MAIN -->
     <main>
-        <app-menu></app-menu>
-        <div style="padding: 4px 8px;">test</div>
+        <app-menu class="menu-container"></app-menu>
+
+        <div class="content-structure">
+
+            <div class="content-header">
+                <div class="breadcrumbs">
+                    Breadcrumbs
+                </div>
+                <div class="second-menu">
+                    2nd Menu
+                </div>
+            </div>
+
+            <div class="filter-section">
+                Filter-Section
+            </div>
+
+            <div class="content-container">
+
+                <div class="quicklinks-container">Quicklinks</div>
+
+                <div class="content-container">
+                    <router-outlet />
+                </div>
+
+                <div class="add-info-container">Add-Info</div>
+
+            </div>
+        </div>
+
     </main>
 
 </div>

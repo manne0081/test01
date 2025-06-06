@@ -69,6 +69,11 @@ $brand-font-3: #dfe0e2;
 
     --scrollbar-track: #{$bx-white-11};
     --scrollbar-thumb: var(--highlight);
+
+    --header-height: 52px;
+    --menu-width: 200px;
+    --quicklinks-width: 200px;
+    --add-info-width: 200px;
 }
 
 // Generally TAG-CSS
@@ -77,13 +82,15 @@ $brand-font-3: #dfe0e2;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 body {
     font-family: Arial, sans-serif;
     background-color: var(--secondary-color);
     color: var(--text-color);
+    width: 100%;
+    height: 100%;
 }
 
 
