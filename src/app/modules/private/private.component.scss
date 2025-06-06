@@ -25,7 +25,7 @@
             margin-left: var(--menu-width);
             padding: 4px 8px;
             display: flex;
-            height: 89%;                //todo > Keine Ahnung wie es hier richtig wäre
+            height: 88%;                //todo > Keine Ahnung wie es hier richtig wäre
             flex-direction: column;
 
             .content-header {
@@ -47,6 +47,7 @@
             .filter-section {
                 background-color: white;
                 box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.08);
+                border: 1px solid #e2e2e2;
                 border-radius: 6px;
                 padding: 8px 8px;
                 margin-bottom: 8px;
