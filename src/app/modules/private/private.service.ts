@@ -6,9 +6,6 @@ import { BehaviorSubject } from "rxjs";
 })
 
 export class PrivateService {
-    // private menuStatus = new BehaviorSubject<string>("expand");
-    // menuStatus$ = this.menuStatus.asObservable();
-
     private isMenuCollapsed = new BehaviorSubject<boolean>(false);
 
     setIsMenuCollapsed(status: boolean): void {
