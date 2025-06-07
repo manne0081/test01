@@ -1,0 +1,36 @@
+<div class="quicklink-header">
+
+    <div class="headline-wrapper">
+        <span>My Quicklinks</span>
+        <div class="icon-add add-button"></div>
+    </div>
+
+    <div class="searching-wrapper">
+        <input type="text" placeholder="Searching...">
+        <div class="icon-cancel"></div>
+    </div>
+
+</div>
+
+<div class="quicklink-items-wrapper example-list" cdkDropList
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListAutoScrollDisabled]="false"
+        [cdkDropListAutoScrollStep]="10">
+
+    <div class="quicklink-item-container example-box" cdkDrag *ngFor="let q of quicklinks; let n = index">
+
+        <div class="quicklink-drag" cdkDragHandle>
+            <span class="icon-fullscreen"></span>
+        </div>
+
+        <div class="quicklink-value">
+            {{ q }}
+        </div>
+
+        <div class="quicklink-more">
+            <span class="icon-more-vert"></span>
+        </div>
+
+    </div>
+
+</div>

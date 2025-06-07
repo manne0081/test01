@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { QuicklinksComponent } from './quicklinks/quicklinks.component';
 
 @Component({
     selector: 'app-private',
@@ -13,6 +14,7 @@ import { CommonModule } from '@angular/common';
         RouterModule,
         HeaderComponent,
         MenuComponent,
+        QuicklinksComponent,
     ],
     templateUrl: './private.component.html',
     styleUrl: './private.component.scss'
