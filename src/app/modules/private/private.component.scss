@@ -112,6 +112,7 @@
                 color: var(--text-color);
                 width: 200px;
                 border-radius: 6px;
+                padding-bottom: 4px;
                 overflow: auto;
 
                 .quicklinks-header {
@@ -119,13 +120,12 @@
                     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
                     position: fixed;
                     width: 194px;
-                    height: 32px;
-                    padding: 4px 8px;
+                    padding: 8px 8px;
                     border-radius: 6px 6px 0 0;
                 }
 
                 .quicklinks-wrapper {
-                    margin-top: 36px;
+                    margin-top: 42px;
 
                     .quicklink-item {
                         padding: 2px 8px;
@@ -171,6 +171,7 @@
                 color: var(--text-color);
                 width: 200px;
                 border-radius: 6px;
+                padding-bottom: 4px;
                 overflow: auto;
 
                 .addinfo-header {
@@ -178,13 +179,12 @@
                     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
                     position: fixed;
                     width: 194px;
-                    height: 32px;
-                    padding: 4px 8px;
+                    padding: 8px 8px;
                     border-radius: 6px 6px 0 0;
                 }
 
                 .addinfo-wrapper {
-                    margin-top: 36px;
+                    margin-top: 42px;
 
                     .addinfo-item {
                         padding: 2px 8px;
