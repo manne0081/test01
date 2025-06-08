@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from '../../private/header/header.component';
 import { MenuComponent } from '../../private/menu/menu.component';
+import {TextFieldModule} from '@angular/cdk/text-field';
 
 @Component({
     selector: 'app-test',
@@ -10,7 +11,7 @@ import { MenuComponent } from '../../private/menu/menu.component';
     imports: [
         RouterModule,
         HeaderComponent,
-        MenuComponent,
+        TextFieldModule,
     ],
     templateUrl: './test.component.html',
     styleUrl: './test.component.scss'

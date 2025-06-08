@@ -7,35 +7,18 @@
 
     <!-- MAIN -->
     <main>
-        <app-menu class="menu-container"></app-menu>
 
-        <div class="content-structure">
-
-            <div class="content-header">
-                <div class="breadcrumbs">
-                    Breadcrumbs
-                </div>
-                <div class="second-menu">
-                    2nd Menu
-                </div>
-            </div>
-
-            <div class="filter-section">
-                Filter-Section
-            </div>
-
-            <div class="content-container">
-
-                <div class="quicklinks-container">Quicklinks</div>
-
-                <div class="content-container">
-                    <router-outlet />
-                </div>
-
-                <div class="add-info-container">Add-Info</div>
-
-            </div>
-        </div>
+        <!-- <mat-form-field>
+            <mat-label>Font size</mat-label>
+            <mat-select #fontSize value="16px" (selectionChange)="triggerResize()">
+                <mat-option value="10px">10px</mat-option>
+                <mat-option value="12px">12px</mat-option>
+                <mat-option value="14px">14px</mat-option>
+                <mat-option value="16px">16px</mat-option>
+                <mat-option value="18px">18px</mat-option>
+                <mat-option value="20px">20px</mat-option>
+            </mat-select>
+        </mat-form-field> -->
 
     </main>
 
