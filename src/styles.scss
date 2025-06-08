@@ -1,5 +1,6 @@
 // Import Font from IcoMoon
 // ************************
+//@use '@angular/material' as mat;
 
 // CSS VARIABLES
 // *************
@@ -102,7 +103,7 @@ $brand-font-3: #dfe0e2;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 body {

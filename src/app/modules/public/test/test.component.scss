@@ -1,95 +1,47 @@
-.app-structure {
-    background-color: var(--app-background);
-    overflow: visible;
+// .app-structure {
+//     background-color: var(--app-background);
+//     overflow: visible;
 
-    .header-container {
-        background-color: white;
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 12px 0 rgba(0, 0, 0, 0.1);
-        width: 100vw;
-        position: fixed;
-        top: 0;
-        z-index: 100;
-    }
+    // .header-container {
+    //     background-color: white;
+    //     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+    //     width: 100vw;
+    //     position: fixed;
+    //     top: 0;
+    //     z-index: 100;
+    // }
 
-    main {
-        background-color: #EDF0F5;
-        // background-color: lime;
-        margin-top: var(--header-height);
-        height: calc(100vh - var(--header-height));
+    // }
 
-        .menu-container {
-            position: fixed;
-        }
+main {
+    background-color: #a4acb9;
+    // background-color: lime;
+    // margin-top: var(--header-height);
+    height: calc(100vh - 60px);
+    position: relative;
+}
 
-        .content-structure {
-            margin-left: var(--menu-width);
-            padding: 4px 8px;
-            display: flex;
-            height: 88%; //todo > Keine Ahnung wie es hier richtig wäre
-            flex-direction: column;
+.my-dropdown {
+    background: white;
+    border: 1px solid #ccc;
+    min-width: 120px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    position: relative;
+    padding: 8px 0;
 
-            .content-header {
-                margin-bottom: 8px;
-                padding-left: 6px;
+    // background: red !important;
+    // color: white;
+    // z-index: 9999 !important;
+    // position: relative;
 
-                .breadcrumbs {
-                    font-size: .8rem;
-                    margin: 2px 0px;
-                }
+}
 
-                .second-menu {
-                    color: var(--primary-color);
-                    font-weight: 500;
-                    font-size: 1.1rem;
-                }
-            }
+.my-dropdown>div {
+    padding: 8px 16px;
+    cursor: pointer;
+}
 
-            .filter-section {
-                background-color: white;
-                box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.08);
-                border: 1px solid #e2e2e2;
-                border-radius: 6px;
-                padding: 8px 8px;
-                margin-bottom: 8px;
-            }
-
-            .content-container {
-                flex: 1 0 auto;
-                // background-color: lime;
-                padding: 0 0 6px 0;
-                display: flex;
-                flex-direction: row;
-                height: 100%;
-
-                div {
-                    border-radius: 6px;
-                    padding: 4px 8px;
-                    height: 100%;
-                }
-
-                ;
-
-                .quicklinks-container {
-                    background-color: white;
-                    background-color: darkgoldenrod;
-                    margin-right: 8px;
-                    width: var(--quicklinks-width);
-                }
-
-                .content-container {
-                    background-color: white;
-                    background-color: darkcyan;
-                    flex: 1;
-                }
-
-                .add-info-container {
-                    background-color: white;
-                    background-color: darkkhaki;
-                    margin-left: 8px;
-                    width: var(--add-info-width);
-                }
-
-            }
-        }
-    }
+.my-dropdown>div:hover {
+    background: #f0f0f0;
 }
