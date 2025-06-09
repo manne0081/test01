@@ -8,14 +8,19 @@
     <!-- MAIN -->
     <main>
 
-        <button (click)="openDropdown(trigger)" #trigger>Dropdown öffnen</button>
+        <!-- This button triggers the overlay and is it's origin -->
+        <button (click)="isOpen = !isOpen" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+            {{isOpen ? "Close" : "Open"}}
+        </button>
 
-        <ng-template #dropdownMenu>
-            <div class="my-dropdown">
-                <div (click)="select('Option 1')">Option 1</div>
-                <div (click)="select('Option 2')">Option 2</div>
-                <div (click)="select('Option 3')">Option 3</div>
-            </div>
+        <!-- This template displays the overlay content and is connected to the button -->
+        <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen"
+            (detach)="isOpen = false">
+            <ul class="example-list">
+                <li routerLink="/home">Home</li>
+                <li routerLink="/dashboard">Dashboard</li>
+                <li>Item 3</li>
+            </ul>
         </ng-template>
 
     </main>
