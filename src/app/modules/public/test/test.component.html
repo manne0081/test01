@@ -10,7 +10,7 @@
 
         <!-- This button triggers the overlay and is it's origin -->
         <button (click)="isOpen = !isOpen" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
-            {{isOpen ? "Close" : "Open"}}
+            {{ buttonTitle }}
         </button>
 
         <!-- This template displays the overlay content and is connected to the button -->
@@ -19,7 +19,7 @@
             <ul class="example-list">
                 <li routerLink="/home">Home</li>
                 <li routerLink="/dashboard">Dashboard</li>
-                <li>Item 3</li>
+                <li (click)="chooseOption('Title')">Title</li>
             </ul>
         </ng-template>
 

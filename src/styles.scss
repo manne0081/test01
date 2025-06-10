@@ -85,6 +85,7 @@ $brand-font-3: #dfe0e2;
     --add-info-width: 200px;
 }
 
+
 // Generally TAG-CSS
 // *****************
 :host {
@@ -94,24 +95,37 @@ $brand-font-3: #dfe0e2;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    // display: block;
-    // height: 100vh;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    // overflow: hidden;
 }
 
 body {
-    font-family: Arial, sans-serif;
     background-color: var(--secondary-color);
     color: var(--text-color);
     width: 100%;
-    // height: 100%;
+}
+
+input {
+    text-decoration: none;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+button {
+    background-color: rgb(235, 235, 235);
+    border: 1px solid #b9b9b9;
+    color: #707070;
+    border-radius: 4px;
+    padding: 4px 8px;
+
+    :hover {
+        cursor: pointer;
+    }
 }
 
 

@@ -17,29 +17,27 @@
             <div class="second-menu">2nd Menu</div>
         </div>
 
-        <div class="filter">Filter</div>
+        <div class="filter-container">
+            <button [ngClass]="{'active': isQuicklinksVisible}">
+                <div (click)="toggleQuicklinks()">Quicklinks</div>
+            </button>
+            <button [ngClass]="{'active': isAddInfoVisible}">
+                <div (click)="toggleAddInfo()">AddInfo</div>
+            </button>
+
+        </div>
 
         <div class="content-container">
 
-            <aside class="quicklinks-container">
-                <!-- <div class="quicklinks-header">
-                    Quicklinks
-                </div>
-                <div class="quicklinks-wrapper">
-                    <div class="quicklink-item" *ngFor="let i of [].constructor(50); let n = index">
-                        Quicklink {{n + 1}}
-                    </div>
-                </div> -->
-
+            <aside class="quicklinks-container" *ngIf="isQuicklinksVisible">
                 <app-quicklinks></app-quicklinks>
-
             </aside>
 
             <div class="tile-container">
                 <router-outlet />
             </div>
 
-            <aside class="addinfo-container">
+            <aside class="addinfo-container" *ngIf="isAddInfoVisible">
                 <div class="addinfo-header">
                     AddInfo-Header
                 </div>

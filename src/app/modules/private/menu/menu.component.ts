@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PrivateService } from '../private.service';
 import { CommonModule } from '@angular/common';
+
+import { PrivateService } from '../private.service';
 
 @Component({
     selector: 'app-menu',

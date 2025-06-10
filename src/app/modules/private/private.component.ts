@@ -5,6 +5,7 @@ import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { QuicklinksComponent } from './quicklinks/quicklinks.component';
+import { PrivateService } from './private.service';
 
 @Component({
     selector: 'app-private',
@@ -21,5 +22,27 @@ import { QuicklinksComponent } from './quicklinks/quicklinks.component';
 })
 
 export class PrivateComponent {
+    isQuicklinksVisible?: boolean;
+    isAddInfoVisible?: boolean;
 
+    constructor(
+        private privateService: PrivateService,
+    ) {
+        this.privateService.getIsQuicklinksVisible().subscribe(data => {
+            this.isQuicklinksVisible = data;
+        });
+        this.privateService.getIsAddInfoVisible().subscribe(data => {
+            this.isAddInfoVisible = data;
+        });
+    }
+
+    toggleQuicklinks(): void {
+        this.isQuicklinksVisible = !this.isQuicklinksVisible;
+        this.privateService.setIsQuicklinksVisible(this.isQuicklinksVisible);
+    }
+
+    toggleAddInfo(): void {
+        this.isAddInfoVisible = !this.isAddInfoVisible;
+        this.privateService.setIsAddInfoVisible(this.isAddInfoVisible);
+    }
 }

@@ -17,7 +17,7 @@ import { DragDropModule, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-
 })
 
 export class QuicklinksComponent {
-    quicklinks = Array.from({ length: 50 }, (_, i) => `Quicklink ${i + 1}`);
+    quicklinks = Array.from({ length: 30 }, (_, i) => `Quicklink ${i + 1}`);
 
 
 

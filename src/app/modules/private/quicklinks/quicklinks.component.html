@@ -17,14 +17,14 @@
         [cdkDropListAutoScrollDisabled]="false"
         [cdkDropListAutoScrollStep]="10">
 
-    <div class="quicklink-item-container example-box" cdkDrag *ngFor="let q of quicklinks; let n = index">
+    <div class="quicklink-item-container example-box" cdkDrag *ngFor="let quicklink of quicklinks; let n = index">
 
         <div class="quicklink-drag" cdkDragHandle>
             <span class="icon-fullscreen"></span>
         </div>
 
         <div class="quicklink-value">
-            {{ q }}
+            {{ quicklink }}
         </div>
 
         <div class="quicklink-more">

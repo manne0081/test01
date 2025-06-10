@@ -7,7 +7,7 @@
     width: 194px;
     height: 76px;
     padding: 8px 8px;
-    border-radius: 0 0 2px 2px;
+    border-radius: 6px 0 2px 2px;
     position: fixed;
     z-index: 1;
 
@@ -38,7 +38,7 @@
     }
 
     .searching-wrapper {
-        background-color: rgb(225, 225, 225);
+        background-color: rgb(235, 235, 235);
         border: 1px solid #b9b9b9;
         border-radius: 4px;
         display: flex;
@@ -95,19 +95,17 @@
             justify-content: space-around;
 
             span {
-                font-size: .92rem;
+                padding-top: 2px;
+                font-size: .88rem;
                 color: #aaa;
             }
         }
 
         .quicklink-value {
-
             // background-color: orange;
-            span {
-                font-size: .92rem;
-                color: lime;
-                color: #818181;
-            }
+            color: #949494;
+            font-size: .88rem;
+
         }
 
         .quicklink-more {
@@ -136,9 +134,7 @@
         }
 
         .quicklink-value {
-            span {
-                color: #5e5e5e;
-            }
+            color: #5e5e5e;
         }
 
         .quicklink-more {
