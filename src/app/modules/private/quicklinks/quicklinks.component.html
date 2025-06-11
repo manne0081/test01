@@ -1,7 +1,7 @@
 <div class="quicklink-header">
 
     <div class="headline-wrapper">
-        <span>My Quicklinks</span>
+        <span>Quicklinks</span>
         <div class="icon-add add-button"></div>
     </div>
 
@@ -17,7 +17,7 @@
         [cdkDropListAutoScrollDisabled]="false"
         [cdkDropListAutoScrollStep]="10">
 
-    <div class="quicklink-item-container example-box" cdkDrag *ngFor="let quicklink of quicklinks; let n = index">
+    <!-- <div class="quicklink-item-container example-box" cdkDrag *ngFor="let quicklink of quicklinks; let n = index">
 
         <div class="quicklink-drag" cdkDragHandle>
             <span class="icon-fullscreen"></span>
@@ -31,6 +31,33 @@
             <span class="icon-more-vert"></span>
         </div>
 
-    </div>
+    </div> -->
 
+    <cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
+
+        <!-- This is the tree node template for leaf nodes -->
+        <cdk-tree-node *cdkTreeNodeDef="let node" [style.display]="shouldRender(node) ? 'flex' : 'none'"
+            class="example-tree-node" cdkDrag style="padding-left: 36px">  <!-- cdkTreeNodePadding -->
+
+            <!-- use a disabled button to provide padding for tree leaf -->
+            <i class="icon-fullscreen" style="margin-right: 4px"></i>
+            {{node.name}}
+        </cdk-tree-node>
+
+        <!-- This is the tree node template for expandable nodes -->
+        <cdk-tree-node *cdkTreeNodeDef="let node; when: hasChild"
+            [style.display]="shouldRender(node) ? 'flex' : 'none'" class="example-tree-node" style="margin-top: 4px;"> <!-- cdkTreeNodePadding -->
+
+            <button cdkTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name"
+                (click)="node.isExpanded = !node.isExpanded" [style.visibility]="node.expandable ? 'visible' : 'hidden'" style="background-color: transparent; border: none;">    <!-- style="background-color: yellow;" -->
+
+                <i ngClass="{{ treeControl.isExpanded(node) ? 'icon-chevron-down' : 'icon-chevron-right' }}" style="position: relative; top: 1px;">    <!-- class="icon-chevron-down" -->
+                    <!-- {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}} -->
+                </i>
+            </button>
+            {{node.name}}
+        </cdk-tree-node>
+
+    </cdk-tree>
 </div>
+

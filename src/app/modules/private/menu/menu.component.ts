@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { PrivateService } from '../private.service';
 
@@ -8,6 +9,7 @@ import { PrivateService } from '../private.service';
     standalone: true,
     imports: [
         CommonModule,
+        RouterModule,
     ],
     templateUrl: './menu.component.html',
     styleUrl: './menu.component.scss'

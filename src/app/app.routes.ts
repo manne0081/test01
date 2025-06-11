@@ -12,6 +12,7 @@ import { PrivateComponent } from './modules/private/private.component';
 import { DashboardComponent } from './modules/private/dashboard/dashboard.component';
 import { AngularComponent } from './modules/public/angular/angular.component';
 import { StructureComponent } from './modules/public/structure/structure.component';
+import { ClientsComponent } from './modules/private/clients/clients.component';
 
 
 export const routes: Routes = [
@@ -24,8 +25,9 @@ export const routes: Routes = [
 
     { path: '', component: PrivateComponent,
         children: [
-        	  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+            { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', component: DashboardComponent },
+            { path: 'clients', component: ClientsComponent },
         ]
 	  },
 
