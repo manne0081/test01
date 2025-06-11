@@ -1,10 +1,10 @@
 <div class="container expand" *ngIf="!menuIsCollapsed">
     <ul>
         <li class="pre-active">Favoriten</li>
-        <li class="active" routerLink="/dashboard">Dashboard</li>
+        <li class="active" (click)="chooseMenuItem('dashboard')">Dashboard</li>
         <li class="post-active">Workspace</li>
         <li class="">Team</li>
-        <li class="" routerLink="/clients">Kunden</li>
+        <li class="" (click)="chooseMenuItem('clients')">Kunden</li>
         <li class="">Projekte</li>
         <li style="height: 100vh;"></li>
     </ul>
@@ -13,10 +13,10 @@
 <div class="container collapsed" *ngIf="menuIsCollapsed">
     <ul>
         <li class="pre-active"><i class="icon-star"></i></li>
-        <li class="active"><i class="icon-grid"></i></li>
+        <li class="active" (click)="chooseMenuItem('dashboard')"><i class="icon-grid"></i></li>
         <li class="post-active"><i class="icon-box-filled"></i></li>
         <li><i class="icon-group"></i></li>
-        <li><i class="icon-building"></i></li>
+        <li  (click)="chooseMenuItem('clients')"><i class="icon-building"></i></li>
         <li><i class="icon-cubes"></i></li>
         <li style="height: 100vh;"></li>
     </ul>

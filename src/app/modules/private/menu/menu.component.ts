@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 import { PrivateService } from '../private.service';
 
@@ -20,6 +20,7 @@ export class MenuComponent implements OnInit {
 
     constructor(
         private privateService: PrivateService,
+        private router: Router,
     ) {
         this.privateService.getIsMenuCollapsed().subscribe(data => {
             this.menuIsCollapsed = data;
@@ -27,5 +28,24 @@ export class MenuComponent implements OnInit {
     }
 
     ngOnInit(): void {
+    }
+
+
+    chooseMenuItem(title: string): void {
+        this.navigate(title);
+
+        switch (title) {
+            case 'dashboard':
+                this.privateService.setBreadcrumbs("Dashboard");
+                break;
+            case 'clients':
+                this.privateService.setBreadcrumbs("Kunden");
+                break;
+        }
+    }
+
+
+    navigate(route: string): void {
+        this.router.navigate(['/', route]);
     }
 }

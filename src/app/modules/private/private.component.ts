@@ -24,6 +24,7 @@ import { PrivateService } from './private.service';
 export class PrivateComponent {
     isQuicklinksVisible?: boolean;
     isAddInfoVisible?: boolean;
+    breadcrumbs!: string;
 
     constructor(
         private privateService: PrivateService,
@@ -33,6 +34,9 @@ export class PrivateComponent {
         });
         this.privateService.getIsAddInfoVisible().subscribe(data => {
             this.isAddInfoVisible = data;
+        });
+        this.privateService.getBreadcrumbs().subscribe(data => {
+            this.breadcrumbs = data;
         });
     }
 

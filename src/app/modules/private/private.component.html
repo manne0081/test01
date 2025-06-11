@@ -12,12 +12,17 @@
 
     <div class="content-structure">
 
-        <div class="content-header">
-            <div class="breadcrumbs">Breadcrumbs</div>
-            <div class="second-menu">2nd Menu</div>
+        <div class="content-header" *ngIf="breadcrumbs != 'Dashboard'">    <!-- *ngIf="breadcrumbs != 'Dashboard'" -->
+            <div class="breadcrumbs">{{ breadcrumbs }}</div>
+
+            <!-- If team -->
+            <div class="second-menu" *ngIf="breadcrumbs == 'Kunden'">
+                <p class="active">Mitarbeiter</p>
+                <p>Zeitmodelle</p>
+            </div>
         </div>
 
-        <div class="filter-container">
+        <div class="filter-container" *ngIf="breadcrumbs != 'Dashboard'">
             <button [ngClass]="{'active': isQuicklinksVisible}">
                 <div (click)="toggleQuicklinks()">Quicklinks</div>
             </button>
@@ -29,7 +34,7 @@
 
         <div class="content-container">
 
-            <aside class="quicklinks-container" *ngIf="isQuicklinksVisible">
+            <aside class="quicklinks-container" *ngIf="isQuicklinksVisible && breadcrumbs != 'Dashboard'">
                 <app-quicklinks></app-quicklinks>
             </aside>
 

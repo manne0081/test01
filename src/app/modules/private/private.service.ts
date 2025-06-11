@@ -9,6 +9,7 @@ export class PrivateService {
     private isMenuCollapsed = new BehaviorSubject<boolean>(false);
     private isQuicklinksVisible = new BehaviorSubject<boolean>(true);
     private isAddInfoVisible = new BehaviorSubject<boolean>(false);
+    private breadcrumbs = new BehaviorSubject<string>('Breadcrumbs');
 
     // SETTER
     // ++++++
@@ -22,6 +23,10 @@ export class PrivateService {
 
     setIsAddInfoVisible(status: boolean): void {
         this.isAddInfoVisible.next(status);
+    }
+
+    setBreadcrumbs(title: string): void {
+        this.breadcrumbs.next(title);
     }
 
     // GETTER
@@ -38,7 +43,9 @@ export class PrivateService {
         return this.isAddInfoVisible.asObservable();
     }
 
-
+    getBreadcrumbs() {
+        return this.breadcrumbs.asObservable();
+    }
 
 
 
