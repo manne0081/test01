@@ -12,7 +12,7 @@
 
 </div>
 
-<div class="quicklink-items-wrapper example-list" cdkDropList
+<!-- <div class="quicklink-items-wrapper example-list" cdkDropList
         (cdkDropListDropped)="drop($event)"
         [cdkDropListAutoScrollDisabled]="false"
         [cdkDropListAutoScrollStep]="10">
@@ -22,16 +22,40 @@
         <div class="quicklink-drag" cdkDragHandle>
             <span class="icon-fullscreen"></span>
         </div>
-
         <div class="quicklink-value">
             {{ quicklink }}
         </div>
-
         <div class="quicklink-more">
             <span class="icon-more-vert"></span>
         </div>
-
     </div>
+</div> -->
 
+<div style="margin-top: 80px;"> <!-- background-color: lime; -->
+
+    <!-- TreeNode expandable -->
+    <ul class="tree" style="margin-left: 6px;"> <!-- background-color: darkcyan; -->
+        <li *ngFor="let branch of tree">
+
+            <div class="branch-header" (click)="toggle(branch)" style="margin-bottom: 2px;"> <!-- background-color: yellow; -->
+                <!-- <span style="color: #5c5c5c; font-size: .8rem;">{{ branch.expanded ? '▼' : '▶' }}</span> -->
+                <i class="icon-chevron-down" *ngIf="branch.expanded"></i>
+                <i class="icon-chevron-right" *ngIf="!branch.expanded"></i>
+                {{ branch.name }}
+            </div>
+
+            <!-- TreeNode dragable -->
+            <ul *ngIf="branch.expanded" style="margin-left: 20px; margin-bottom: 12px; list-style: none;"> <!-- background-color: darkkhaki; -->
+                <li class="leaves" cdkDropList [cdkDropListData]="branch.children || []" (cdkDropListDropped)="drop2($event, branch)">
+
+                    <div class="leaf" *ngFor="let leaf of branch.children" cdkDrag>
+                        <!-- <span class="drag-handle" cdkDragHandle>::</span> -->
+                        <span class="icon-fullscreen" style="color: #646464; font-size: .8rem;" cdkDragHandle></span>
+                        <span style="color: #646464; margin-left: 4px;">{{ leaf.name }}</span>
+                    </div>
+
+                </li>
+            </ul>
+        </li>
+    </ul>
 </div>
-
