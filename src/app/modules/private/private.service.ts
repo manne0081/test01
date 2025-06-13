@@ -11,6 +11,11 @@ export class PrivateService {
     private isAddInfoVisible = new BehaviorSubject<boolean>(false);
     private breadcrumbs = new BehaviorSubject<string>('Breadcrumbs');
 
+    constructor(
+
+    ) {
+
+    }
     // SETTER
     // ++++++
     setIsMenuCollapsed(status: boolean): void {

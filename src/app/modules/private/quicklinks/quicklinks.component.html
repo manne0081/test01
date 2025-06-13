@@ -55,7 +55,7 @@
 
                     <div class="tree-node" *ngFor="let leaf of branch.children" cdkDrag>
                         <span cdkDragHandle>
-                            <i class="icon-fullscreen" *ngIf="branch.name!='Standard'"></i>
+                            <i class="icon-hand" *ngIf="branch.name!='Standard'"></i>
                         </span>
                         <span>{{ leaf.name }}</span>
                     </div>

@@ -1,3 +1,26 @@
-<div>
-    <p>dashboard works!</p>
-</div>
+Date-Pipe <br>
+<p>Today is {{ today | date }}</p>
+<p>Or if you prefer, {{ today | date:'fullDate' }}</p>
+<p>The time is {{ today | date:'h:mm a z' }}</p>
+<p>In german it is {{ today | date: 'EEEE, dd.MM.yyyy - HH:mm:ss' }}</p>
+
+<br>
+Number-Pipe: <br>
+{{ pi }} <br>
+{{ pi | number }} <br>
+{{ pi | number: '4.1-5' }} <br>
+
+<br>
+Currency-Pipe: <br>
+<!--output '$0.26'-->
+<p>A: {{ a | currency }}</p>
+<!--output 'CA$0.26'-->
+<p>A: {{ a | currency: 'EUR' }}</p>
+<!--output 'CAD0.26'-->
+<p>A: {{ a | currency: 'EUR' : 'code' }}</p>
+<!--output 'CA$0,001.35'-->
+<p>B: {{ b | currency: 'EUR' : 'symbol' : '4.2-2' }}</p>
+<!--output '$0,001.35'-->
+<p>B: {{ b | currency: 'EUR' : 'symbol-narrow' : '4.2-2' }}</p>
+<!--output 'CLP1' because CLP has no cents-->
+<p>B: {{ b | currency: 'EUR' }}</p>

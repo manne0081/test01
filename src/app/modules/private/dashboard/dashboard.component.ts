@@ -12,5 +12,8 @@ import { CommonModule } from '@angular/common';
 })
 
 export class DashboardComponent {
-
+    today: number = Date.now();
+    pi: number = 3.14159265359;
+    a: number = 0.259;
+    b: number = 1.3495;
 }
