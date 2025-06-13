@@ -59,15 +59,11 @@ export class QuicklinksComponent {
     constructor(
     ) {}
 
-    drop(event: CdkDragDrop<string[]>) {
-        moveItemInArray(this.quicklinks, event.previousIndex, event.currentIndex);
-    }
-
     toggle(node: TreeNode) {
         node.expanded = !node.expanded;
     }
 
-    drop2(event: CdkDragDrop<TreeNode[]>, parent: TreeNode) {
+    drop(event: CdkDragDrop<TreeNode[]>, parent: TreeNode) {
         if (!parent.children) return;
         moveItemInArray(parent.children, event.previousIndex, event.currentIndex);
     }
