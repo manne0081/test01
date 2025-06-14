@@ -1,23 +1,76 @@
-<div class="container expand" *ngIf="!menuIsCollapsed">
+<!-- <div class="container" [ngClass]="{'expand': !menuIsCollapsed, 'collapsed': menuIsCollapsed}">
     <ul>
-        <li class="pre-active">Favoriten</li>
-        <li class="active" (click)="chooseMenuItem('dashboard')">Dashboard</li>
-        <li class="post-active">Workspace</li>
-        <li class="">Team</li>
-        <li class="" (click)="chooseMenuItem('clients')">Kunden</li>
-        <li class="">Projekte</li>
-        <li style="height: 100vh;"></li>
-    </ul>
-</div>
 
-<div class="container collapsed" *ngIf="menuIsCollapsed">
+        <li [ngClass]="{'pre-active': activeMenuItem == 'dashboard'}">
+            <i class="icon-star"></i>
+            <span class="menu-text">Favoriten</span>
+        </li>
+
+        <li [ngClass]="{'active': activeMenuItem == 'dashboard',
+                        'pre-active': activeMenuItem == 'workspace'}"
+            (click)="chooseMenuItem('dashboard')">
+
+            <i class="icon-grid"></i>
+            <span class="menu-text">Dashboard</span>
+        </li>
+
+        <li [ngClass]="{'active': activeMenuItem == 'Workspace',
+                        'pre-active': activeMenuItem == 'team',
+                        'post-active': activeMenuItem == 'dashboard'}">
+            <i class="icon-box-filled"></i>
+            <span class="menu-text">Workspace</span>
+        </li>
+
+        <li [ngClass]="{'active': activeMenuItem == 'team',
+                        'pre-active': activeMenuItem == 'clients',
+                        'post-active': activeMenuItem == 'workspace'}">
+            <i class="icon-group"></i>
+            <span class="menu-text">Team</span>
+        </li>
+
+        <li [ngClass]="{'active': activeMenuItem == 'clients'}"
+            (click)="chooseMenuItem('clients')">
+
+            <i class="icon-building"></i>
+            <span class="menu-text">Kunden</span>
+        </li>
+
+        <li [ngClass]="{'active': activeMenuItem == 'projects',
+                        'post-active': activeMenuItem == 'clients'}">
+            <i class="icon-cubes"></i>
+            <span class="menu-text">Projekte</span>
+        </li>
+        {{ activeMenuItem }}
+        <li style="height: 100vh;" [ngClass]="{'post-active': activeMenuItem == 'projects'}"></li>
+    </ul>
+</div> -->
+
+
+
+
+
+<div class="container" [ngClass]="{'expand': !menuIsCollapsed, 'collapsed': menuIsCollapsed}">
     <ul>
-        <li class="pre-active"><i class="icon-star"></i></li>
-        <li class="active" (click)="chooseMenuItem('dashboard')"><i class="icon-grid"></i></li>
-        <li class="post-active"><i class="icon-box-filled"></i></li>
-        <li><i class="icon-group"></i></li>
-        <li  (click)="chooseMenuItem('clients')"><i class="icon-building"></i></li>
-        <li><i class="icon-cubes"></i></li>
-        <li style="height: 100vh;"></li>
+        <li [ngClass]="{
+            'pre-active': activeMenuItem == 'dashboard'}">
+            <i class="icon-star"></i>
+            <span class="menu-text">Favoriten</span>
+        </li>
+    </ul>
+
+    <ul>
+        <li *ngFor="let item of menuItems; let i = index"
+            [ngClass]="{
+                'active': i === activeMenuIndex,
+                'pre-active': i === activeMenuIndex - 1,
+                'post-active': i === activeMenuIndex + 1
+            }"
+            (click)="chooseMenuItem(item.key)">
+
+            <i [class]="item.icon"></i>
+            <span class="menu-text">{{ item.label }}</span>
+        </li>
+        <!-- Optional: Platzhalter für Höhe -->
+        <li style="height: 100vh;" [ngClass]="{'post-active': activeMenuIndex === menuItems.length - 1}"></li>
     </ul>
 </div>

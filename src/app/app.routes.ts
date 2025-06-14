@@ -13,6 +13,9 @@ import { DashboardComponent } from './modules/private/dashboard/dashboard.compon
 import { AngularComponent } from './modules/public/angular/angular.component';
 import { StructureComponent } from './modules/public/structure/structure.component';
 import { ClientsComponent } from './modules/private/clients/clients.component';
+import { WorkspaceComponent } from './modules/private/workspace/workspace.component';
+import { TeamComponent } from './modules/private/team/team.component';
+import { ProjectsComponent } from './modules/private/projects/projects.component';
 
 
 export const routes: Routes = [
@@ -27,7 +30,10 @@ export const routes: Routes = [
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', component: DashboardComponent },
+            { path: 'workspace', component: WorkspaceComponent },
+            { path: 'team', component: TeamComponent },
             { path: 'clients', component: ClientsComponent },
+            { path: 'projects', component: ProjectsComponent },
         ]
 	  },
 

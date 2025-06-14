@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class RoutingService {
+    currentRoute = new BehaviorSubject<string>('');
 
     constructor(
         private router: Router,

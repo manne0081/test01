@@ -1,19 +1,39 @@
 .container {
-    width: var(--menu-width);
     height: 100%;
+    width: 200px;
+    overflow: hidden;
+
+    /* Animation für Breite */
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container.expand {
+    width: 200px;
+}
+
+.container.collapsed {
+    width: 52px;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
 }
 
 li {
     background-color: var(--primary-color);
+    color: white;
     height: 36px;
     font-size: 1.1rem;
     display: flex;
     align-items: center;
-    color: white;
+
+    /* Animation für Breite */
+    transition: background-color 0.2s, color 0.2s;
 }
 
 li.active {
-    background-color: transparent;
+    background-color: #f4f4f4;
     color: darkslategray;
 }
 
@@ -25,28 +45,34 @@ li.post-active {
     border-radius: 0 6px 0 0;
 }
 
-.container.expand {
-    min-width: 200px;
-
-    ul {
-        li {
-            padding-left: 12px;
-        }
-    }
+li i {
+    min-width: 32px;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-left: 10px;
+    margin-right: 0.5rem;
+    transition: color 0.2s;
 }
 
-.container.collapsed {
-    width: 52px;
-
-    ul {
-        width: 52px;
-
-        li {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            font-size: 1.4rem;
-        }
-    }
+.menu-text {
+    /* Text-Animation */
+    display: inline-block;
+    white-space: nowrap;
+    opacity: 1;
+    max-width: 200px;
+    transition: opacity 0.2s, max-width 0.3s;
+    overflow: hidden;
 }
 
+.container.collapsed .menu-text {
+    opacity: 0;
+    max-width: 0;
+    pointer-events: none;
+    transition: opacity 0.1s, max-width 0.2s;
+}
+
+.container.expand .menu-text {
+    opacity: 1;
+    max-width: 200px;
+    transition: opacity 0.2s 0.1s, max-width 0.3s;
+}

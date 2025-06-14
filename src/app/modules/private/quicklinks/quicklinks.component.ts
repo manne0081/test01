@@ -33,25 +33,25 @@ export class QuicklinksComponent {
           name: 'Standard',
           expanded: true,
           children: [
-            { name: 'Leaf 1' },
-            { name: 'Leaf 2' },
-            { name: 'Leaf 3' },
-            { name: 'Leaf 4' },
+            { name: 'Quicklink 1' },
+            { name: 'Quicklink 2' },
+            { name: 'Quicklink 3' },
+            { name: 'Quicklink 4' },
           ]
         },
         {
           name: 'Favoriten',
           expanded: true,
           children: [
-            { name: 'Leaf 5' },
-            { name: 'Leaf 6' },
-            { name: 'Leaf 7' },
-            { name: 'Leaf 8' },
-            { name: 'Leaf 9' },
-            { name: 'Leaf 10' },
-            { name: 'Leaf 11' },
-            { name: 'Leaf 12' },
-            { name: 'Leaf 13' },
+            { name: 'Quicklink 5' },
+            { name: 'Quicklink 6' },
+            { name: 'Quicklink 7' },
+            { name: 'Quicklink 8' },
+            { name: 'Quicklink 9' },
+            { name: 'Quicklink 10' },
+            { name: 'Quicklink 11' },
+            { name: 'Quicklink 12' },
+            { name: 'Quicklink 13' },
           ]
         }
     ];

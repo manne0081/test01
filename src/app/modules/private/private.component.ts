@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
@@ -21,7 +21,9 @@ import { PrivateService } from './private.service';
     styleUrl: './private.component.scss'
 })
 
-export class PrivateComponent {
+export class PrivateComponent implements OnInit {
+    currentRoute?: string;
+    isDashbaord?: boolean;
     isQuicklinksVisible?: boolean;
     isAddInfoVisible?: boolean;
     breadcrumbs!: string;
@@ -29,6 +31,12 @@ export class PrivateComponent {
     constructor(
         private privateService: PrivateService,
     ) {
+        this.privateService.getCurrentRoute().subscribe(data => {
+            this.currentRoute = data;
+        });
+        this.privateService.getisDashboard().subscribe(data => {
+            this.isDashbaord = data;
+        });
         this.privateService.getIsQuicklinksVisible().subscribe(data => {
             this.isQuicklinksVisible = data;
         });
@@ -38,6 +46,12 @@ export class PrivateComponent {
         this.privateService.getBreadcrumbs().subscribe(data => {
             this.breadcrumbs = data;
         });
+
+        console.log('route: ', this.currentRoute);
+    }
+
+    ngOnInit(): void {
+
     }
 
     toggleQuicklinks(): void {
