@@ -41,7 +41,7 @@
 
         <div class="content-container">
 
-            <aside class="quicklinks-container" *ngIf="isQuicklinksVisible && breadcrumbs != 'Dashboard'">
+            <aside class="quicklinks-container" *ngIf="isQuicklinksVisible && currentRoute!= '/dashboard'">
                 <app-quicklinks></app-quicklinks>
             </aside>
 
