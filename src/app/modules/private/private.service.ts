@@ -10,9 +10,9 @@ import { RouteTrackerService } from "../../core/services/route-tracker.service";
 })
 
 export class PrivateService {
-    private isMenuCollapsed = new BehaviorSubject<boolean>(false);
-    private isDashboard = new BehaviorSubject<boolean>(true);
     private currentRoute = new BehaviorSubject<string>('');
+    private isMenuCollapsed = new BehaviorSubject<boolean>(false);
+    private isDashboard = new BehaviorSubject<boolean | undefined>(undefined);
     private isQuicklinksVisible = new BehaviorSubject<boolean>(true);
     private isAddInfoVisible = new BehaviorSubject<boolean>(false);
     private breadcrumbs = new BehaviorSubject<string>('Breadcrumbs');
@@ -28,15 +28,28 @@ export class PrivateService {
         private cookieService: CookieService,
     ) {
         this.routeTracker.currentUrl$.subscribe(url => {
-            console.log('currentUrl: ', url);
+            console.log('currentRoute: ', url);
             this.currentRoute.next(url);
 
             switch (url) {
-                case '/clients':
-                    this.setBreadcrumbs('Kunden');
+                case '/dashboard':
+                    this.setIsDashboard(true);
+                    break;
+                case '/workspace':
+                    this.setIsDashboard(false);
+                    this.setBreadcrumbs('Workspace');
                     break;
                 case '/team':
+                    this.setIsDashboard(false);
                     this.setBreadcrumbs('Team');
+                    break;
+                case '/clients':
+                    this.setIsDashboard(false);
+                    this.setBreadcrumbs('Kunden');
+                    break;
+                case '/projects':
+                    this.setIsDashboard(false);
+                    this.setBreadcrumbs('Projekte');
                     break;
             }
 

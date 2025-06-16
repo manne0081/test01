@@ -51,22 +51,37 @@ export class MenuComponent implements OnInit {
 
     chooseMenuItem(key: string): void {
         this.activeMenuItem = key;
-        this.navigate(key);
 
         switch (key) {
             case 'dashboard':
-                // this.privateService.setBreadcrumbs("Dashboard");
                 this.privateService.setIsDashboard(true);
+                this.navigate(key);
                 break;
 
+            case 'workspace':
+                this.navigate('tasks');
+                this.privateService.setIsDashboard(false);
+                break;
+
+            case 'team':
+                this.navigate(key);
+                this.privateService.setIsDashboard(false);
+            break;
+
             case 'clients':
-                // this.privateService.setBreadcrumbs("Kunden");
+                this.navigate(key);
+                this.privateService.setIsDashboard(false);
+            break;
+
+            case 'projects':
+                this.navigate(key);
                 this.privateService.setIsDashboard(false);
             break;
         }
     }
 
     navigate(route: string): void {
+        console.log('setRoute: ', route);
         this.router.navigate(['/', route]);
     }
 }

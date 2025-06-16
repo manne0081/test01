@@ -15,16 +15,30 @@
         <div class="content-header" *ngIf="!isDashbaord">    <!-- *ngIf="breadcrumbs != 'Dashboard'" -->
             <div class="breadcrumbs">{{ breadcrumbs }}</div>
 
+            <!-- If workspace -->
+            <div class="second-menu" *ngIf="currentRoute == '/tasks' || currentRoute == '/calendar' || currentRoute == '/messages'">
+                <p class="active" routerLink="/tasks">Aufgaben</p>
+                <p>|</p>
+                <p routerLink="/tasks">Kalender</p>
+                <p>|</p>
+                <p routerLink="/tasks">Nachrichten</p>
+            </div>
+
             <!-- If team -->
             <div class="second-menu" *ngIf="currentRoute == '/team'">
                 <p class="active">Mitarbeiter</p>
+                <p>|</p>
                 <p>Zeitmodelle</p>
             </div>
 
             <!-- If clients -->
             <div class="second-menu" *ngIf="currentRoute == '/clients'">
                 <p class="active">Kunden</p>
-                <!-- <p>Zeitmodelle</p> -->
+            </div>
+
+            <!-- If projects -->
+            <div class="second-menu" *ngIf="currentRoute == '/projects'">
+                <p class="active">Projekte</p>
             </div>
 
         </div>

@@ -46,8 +46,6 @@ export class PrivateComponent implements OnInit {
         this.privateService.getBreadcrumbs().subscribe(data => {
             this.breadcrumbs = data;
         });
-
-        console.log('route: ', this.currentRoute);
     }
 
     ngOnInit(): void {
