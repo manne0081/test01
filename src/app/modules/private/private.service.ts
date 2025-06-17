@@ -35,13 +35,21 @@ export class PrivateService {
                 case '/dashboard':
                     this.setIsDashboard(true);
                     break;
-                case '/workspace':
+                case '/tasks':
                     this.setIsDashboard(false);
-                    this.setBreadcrumbs('Workspace');
+                    this.setBreadcrumbs('Workspace > Aufgaben');
+                    break;
+                case '/calendar':
+                    this.setIsDashboard(false);
+                    this.setBreadcrumbs('Workspace > Kalender');
+                    break;
+                case '/messages':
+                    this.setIsDashboard(false);
+                    this.setBreadcrumbs('Workspace > Nachrichten');
                     break;
                 case '/team':
                     this.setIsDashboard(false);
-                    this.setBreadcrumbs('Team');
+                    this.setBreadcrumbs('Team > Mitarbeiter');
                     break;
                 case '/clients':
                     this.setIsDashboard(false);

@@ -17,6 +17,8 @@ import { WorkspaceComponent } from './modules/private/workspace/workspace.compon
 import { TeamComponent } from './modules/private/team/team.component';
 import { ProjectsComponent } from './modules/private/projects/projects.component';
 import { TasksComponent } from './modules/private/workspace/tasks/tasks.component';
+import { CalendarComponent } from './modules/private/workspace/calendar/calendar.component';
+import { MessagesComponent } from './modules/private/workspace/messages/messages.component';
 
 
 export const routes: Routes = [
@@ -33,8 +35,8 @@ export const routes: Routes = [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'workspace', component: TasksComponent },
             { path: 'tasks', component: TasksComponent },
-            { path: 'calendar', component: WorkspaceComponent },
-            { path: 'messages', component: WorkspaceComponent },
+            { path: 'calendar', component: CalendarComponent },
+            { path: 'messages', component: MessagesComponent },
             { path: 'team', component: TeamComponent },
             { path: 'clients', component: ClientsComponent },
             { path: 'projects', component: ProjectsComponent },

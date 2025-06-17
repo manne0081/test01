@@ -5,7 +5,10 @@
 // CSS VARIABLES
 // *************
 $bx-white: #ffffff;
-$bx-white-11: #e6e6e6;
+$bx-white-108: hsl(0, 0%, 92%);
+$bx-white-110: hsl(0, 0%, 90%);
+$bx-white-120: hsl(0, 0%, 80%);
+$bx-white-166: hsl(0, 0%, 44%);
 $bx-gray: #edf0f5;
 $bx-gray-11: #d5d8dd;
 $bx-anthracit: #404040;
@@ -41,6 +44,8 @@ $brand-font-3: #dfe0e2;
     --border-color: #cccccc;
     --background-color: #ffffff;
 
+
+
     --error: #{$bx-red-fire};
     --warning: #{$bx-orange};
     --success: #{$bx-green-apple};
@@ -60,23 +65,30 @@ $brand-font-3: #dfe0e2;
     --font-highlight: var(--highlight);
     --font-placeholder: #{$brand-font-3};
 
-
-
     --body-bg: #{$bx-gray};
     --header-bg: #{$bx-white};
     --menu-item-bg: #{var(--primary-color)};
     --menu-item-color: #{var(--text-color-invert)};
 
-
-
     --bottom-menu-background: #{$bx-white};
-    --filter-item-background: #{$bx-white-11};
-    --input-background: #{$bx-white-11};
-    --button-default: #{$bx-anthracit-05};
-    --button-highlight: #{$bx-green};
-    --button-danger: #{$bx-red};
+    --filter-item-background: #{$bx-white-110};
+    --input-background: #{$bx-white-110};
 
-    --scrollbar-track: #{$bx-white-11};
+    // BUTTONS
+    // #######
+    --button-default-bg: #{$bx-white-110};
+    --button-default-border: #{$bx-white-120};
+    --button-default-color: #{$bx-white-166};
+    --button-default-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.08);
+
+    --button-highlight-bg: #{$bx-green};
+
+    --button-danger-bg: #{$bx-red};
+
+
+
+
+    --scrollbar-track: #{$bx-white-110};
     --scrollbar-thumb: var(--highlight);
 
     --header-height: 48px;
@@ -84,7 +96,6 @@ $brand-font-3: #dfe0e2;
     --quicklinks-width: 200px;
     --add-info-width: 200px;
 }
-
 
 // Generally TAG-CSS
 // *****************
@@ -118,15 +129,26 @@ input {
 }
 
 button {
-    background-color: rgb(235, 235, 235);
+    background-color: #ebebeb;
     border: 1px solid #b9b9b9;
     color: #707070;
+    box-shadow: var(--button-default-shadow);
     border-radius: 4px;
     padding: 4px 8px;
 
     :hover {
         cursor: pointer;
     }
+}
+
+.button-2 {
+    background-color: var(--button-default-bg);
+    border: 1px solid var(--button-default-border);
+    color: var(--button-default-color);
+    box-shadow: var(--button-default-shadow);
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: inline-block;
 }
 
 
