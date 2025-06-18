@@ -25,15 +25,17 @@
             </div>
 
             <!-- If team -->
-            <div class="second-menu" *ngIf="currentRoute == '/team'">
+            <div class="second-menu" *ngIf="currentRoute == '/employee'">
                 <p class="active">Mitarbeiter</p>
                 <p>|</p>
-                <p>Zeitmodelle</p>
+                <p>Arbeitszeiten</p>
             </div>
 
             <!-- If clients -->
             <div class="second-menu" *ngIf="currentRoute == '/clients'">
-                <p class="active">Kunden</p>
+                <p routerLink="/clients" class="active">Kunden</p>
+                <p>|</p>
+                <p routerLink="/">Lieferanten</p>
             </div>
 
             <!-- If projects -->

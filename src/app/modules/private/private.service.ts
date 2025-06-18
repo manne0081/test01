@@ -47,13 +47,13 @@ export class PrivateService {
                     this.setIsDashboard(false);
                     this.setBreadcrumbs('Workspace > Nachrichten');
                     break;
-                case '/team':
+                case '/employee':
                     this.setIsDashboard(false);
                     this.setBreadcrumbs('Team > Mitarbeiter');
                     break;
                 case '/clients':
                     this.setIsDashboard(false);
-                    this.setBreadcrumbs('Kunden');
+                    this.setBreadcrumbs('Partner > Kunden');
                     break;
                 case '/projects':
                     this.setIsDashboard(false);

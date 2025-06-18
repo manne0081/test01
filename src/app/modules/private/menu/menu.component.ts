@@ -20,7 +20,7 @@ export class MenuComponent implements OnInit {
         { key: 'dashboard', label: 'Dashboard', icon: 'icon-grid' },
         { key: 'workspace', label: 'Workspace', icon: 'icon-box-filled' },
         { key: 'team', label: 'Team', icon: 'icon-group' },
-        { key: 'clients', label: 'Kunden', icon: 'icon-building' },
+        { key: 'partner', label: 'Partner', icon: 'icon-building' },
         { key: 'projects', label: 'Projekte', icon: 'icon-cubes' }
     ];
     menuIsCollapsed?: boolean;
@@ -33,9 +33,18 @@ export class MenuComponent implements OnInit {
         this.privateService.getIsMenuCollapsed().subscribe(data => {
             this.menuIsCollapsed = data;
         });
-        // this.privateService.getCurrentRoute().subscribe(data => {
-        //     this.activeMenuItem = data;
-        // });
+        this.privateService.getCurrentRoute().subscribe(data => {
+            console.log('route', data);
+            if (data == '/tasks' || data == '/calendar' || data == '/messages') {
+                this.activeMenuItem = 'workspace';
+            }
+            if (data == '/employee') {
+                this.activeMenuItem = 'team';
+            }
+            if (data == '/clients') {
+                this.activeMenuItem = 'partner';
+            }
+        });
     }
 
     ngOnInit(): void {
@@ -64,12 +73,12 @@ export class MenuComponent implements OnInit {
                 break;
 
             case 'team':
-                this.navigate(key);
+                this.navigate('employee');
                 this.privateService.setIsDashboard(false);
             break;
 
-            case 'clients':
-                this.navigate(key);
+            case 'partner':
+                this.navigate('clients');
                 this.privateService.setIsDashboard(false);
             break;
 
