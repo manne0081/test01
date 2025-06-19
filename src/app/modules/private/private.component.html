@@ -17,30 +17,30 @@
 
             <!-- If workspace -->
             <div class="second-menu" *ngIf="currentRoute == '/tasks' || currentRoute == '/calendar' || currentRoute == '/messages'">
-                <p class="active" routerLink="/tasks">Aufgaben</p>
+                <p routerLink="/tasks" routerLinkActive="active">Aufgaben</p>
                 <p>|</p>
-                <p routerLink="/calendar">Kalender</p>
+                <p routerLink="/calendar" routerLinkActive="active">Kalender</p>
                 <p>|</p>
-                <p routerLink="/messages">Nachrichten</p>
+                <p routerLink="/messages" routerLinkActive="active">Nachrichten</p>
             </div>
 
             <!-- If team -->
             <div class="second-menu" *ngIf="currentRoute == '/employee'">
-                <p class="active">Mitarbeiter</p>
+                <p routerLink="/employee" routerLinkActive="active">Mitarbeiter</p>
                 <p>|</p>
-                <p>Arbeitszeiten</p>
+                <p routerLinkActive="active">Arbeitszeiten</p>
             </div>
 
             <!-- If clients -->
             <div class="second-menu" *ngIf="currentRoute == '/clients'">
-                <p routerLink="/clients" class="active">Kunden</p>
+                <p routerLink="/clients" routerLinkActive="active">Kunden</p>
                 <p>|</p>
-                <p>Lieferanten</p>
+                <p routerLinkActive="active">Lieferanten</p>
             </div>
 
             <!-- If projects -->
             <div class="second-menu" *ngIf="currentRoute == '/projects'">
-                <p class="active">Projekte</p>
+                <p routerLinkActive="active">Projekte</p>
             </div>
 
         </div>
