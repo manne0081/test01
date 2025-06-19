@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
-import {ArrayDataSource} from '@angular/cdk/collections';
-import {FlatTreeControl, CdkTreeModule} from '@angular/cdk/tree';
+// import { CdkTreeModule } from '@angular/cdk/tree';
 
 /** Flat node with expandable and level information */
 interface TreeNode {
@@ -20,14 +19,15 @@ interface TreeNode {
         CommonModule,
         FormsModule,
         DragDropModule,
-        CdkTreeModule,
+        // CdkTreeModule,
     ],
     templateUrl: './quicklinks.component.html',
-    styleUrl: './quicklinks.component.scss'
+    styleUrl: './quicklinks.component.scss',
+
 })
 
 export class QuicklinksComponent {
-    quicklinks = Array.from({ length: 30 }, (_, i) => `Quicklink ${i + 1}`);
+    // quicklinks = Array.from({ length: 30 }, (_, i) => `Quicklink ${i + 1}`);
     tree: TreeNode[] = [
         {
           name: 'Standard',
@@ -52,6 +52,23 @@ export class QuicklinksComponent {
             { name: 'Quicklink 11' },
             { name: 'Quicklink 12' },
             { name: 'Quicklink 13' },
+            { name: 'Quicklink 14' },
+            { name: 'Quicklink 15' },
+            { name: 'Quicklink 16' },
+            { name: 'Quicklink 17' },
+            { name: 'Quicklink 18' },
+            { name: 'Quicklink 19' },
+            { name: 'Quicklink 20' },
+            { name: 'Quicklink 21' },
+            { name: 'Quicklink 22' },
+            { name: 'Quicklink 23' },
+            { name: 'Quicklink 24' },
+            { name: 'Quicklink 25' },
+            { name: 'Quicklink 26' },
+            { name: 'Quicklink 27' },
+            { name: 'Quicklink 28' },
+            { name: 'Quicklink 29' },
+            { name: 'Quicklink 30' },
           ]
         }
     ];

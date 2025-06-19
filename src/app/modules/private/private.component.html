@@ -19,9 +19,9 @@
             <div class="second-menu" *ngIf="currentRoute == '/tasks' || currentRoute == '/calendar' || currentRoute == '/messages'">
                 <p routerLink="/tasks" routerLinkActive="active">Aufgaben</p>
                 <p>|</p>
-                <p routerLink="/calendar" routerLinkActive="active">Kalender</p>
-                <p>|</p>
                 <p routerLink="/messages" routerLinkActive="active">Nachrichten</p>
+                <p>|</p>
+                <p routerLink="/calendar" routerLinkActive="active">Kalender</p>
             </div>
 
             <!-- If team -->
@@ -46,26 +46,29 @@
         </div>
 
         <div class="filter-container" *ngIf="!isDashbaord">
-            <button [ngClass]="{'active': isQuicklinksVisible}">
-                <div (click)="toggleQuicklinks()">Quicklinks</div>
+            <button [ngClass]="{'active': isQuicklinksVisible}" (click)="toggleQuicklinks()">
+                <div>Quicklinks</div>
             </button>
-            <button [ngClass]="{'active': isAddInfoVisible}">
-                <div (click)="toggleAddInfo()">AddInfo</div>
+            <button [ngClass]="{'active': isAddInfoVisible}" (click)="toggleAddInfo()">
+                <div>AddInfo</div>
             </button>
-
         </div>
 
         <div class="content-container">
 
-            <aside class="quicklinks-container" *ngIf="isQuicklinksVisible && currentRoute!= '/dashboard'">
-                <app-quicklinks></app-quicklinks>
+            <aside class="quicklinks-container" *ngIf="isQuicklinksVisible && currentRoute!= '/dashboard'"
+                @fadeInOut-left
+            >
+            <app-quicklinks></app-quicklinks>
             </aside>
 
             <div class="tile-container">
                 <router-outlet />
             </div>
 
-            <aside class="addinfo-container" *ngIf="isAddInfoVisible">
+            <aside class="addinfo-container" *ngIf="isAddInfoVisible"
+                @fadeInOut-right
+            >
                 <div class="addinfo-header">
                     AddInfo-Header
                 </div>

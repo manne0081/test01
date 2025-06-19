@@ -92,5 +92,9 @@ export class MenuComponent implements OnInit {
     navigate(route: string): void {
         console.log('setRoute: ', route);
         this.router.navigate(['/', route]);
+        // setTimeout(() => {
+        //     this.router.navigate(['/', route]);
+        // }, 300); // 300ms Verzögerung
+
     }
 }

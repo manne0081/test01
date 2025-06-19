@@ -117,6 +117,10 @@
             display: flex;
             justify-content: space-between;
 
+            button:hover {
+                cursor: pointer;
+            }
+
             .active {
                 background-color: rgb(128, 179, 128);
                 color: white;
@@ -139,23 +143,6 @@
                 width: 200px;
                 border-radius: 6px;
                 overflow: auto;
-
-                // .quicklinks-header {
-                //     background: white;
-                //     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-                //     position: fixed;
-                //     width: 194px;
-                //     padding: 8px 8px;
-                //     border-radius: 6px 6px 0 0;
-                // }
-
-                // .quicklinks-wrapper {
-                //     margin-top: 42px;
-
-                //     .quicklink-item {
-                //         padding: 2px 8px;
-                //     }
-                // }
             }
 
             .tile-container {
