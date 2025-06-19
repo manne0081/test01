@@ -55,12 +55,13 @@
         </div>
 
         <div class="content-container">
-
-            <aside class="quicklinks-container" *ngIf="isQuicklinksVisible && currentRoute!= '/dashboard'"
-                @fadeInOut-left
-            >
-            <app-quicklinks></app-quicklinks>
-            </aside>
+            <div class="quicklinks-outer-container" *ngIf="currentRoute!= '/dashboard'">
+                <aside class="quicklinks-container" *ngIf="isQuicklinksVisible"
+                    @fadeInOut-left
+                >
+                <app-quicklinks></app-quicklinks>
+                </aside>
+            </div>
 
             <div class="tile-container">
                 <router-outlet />
