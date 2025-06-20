@@ -24,40 +24,6 @@
     /* Menu */
     .menu-container {
         background: var(--body-bg);
-
-        // .menu-item-container {
-        //     background-color: var(--menu-item-bg);
-        //     color: var(--menu-item-color);
-        //     height: 40px;
-        //     display: flex;
-        //     align-items: center;
-        //     padding: 0 8px;
-
-        //     :hover {
-        //         background-color: lime;
-        //     }
-        // }
-
-        // .menu-item-container.pre-active {
-        //     border-radius: 0 0 6px 0;
-        // }
-
-        // .menu-item-container.active {
-        //     background-color: transparent;
-        //     color: var(--menu-item-bg);
-        // }
-
-        // .menu-item-container.post-active {
-        //     border-radius: 0 6px 0 0;
-        // }
-
-        // .menu-item-container.placeholder {
-        //     height: 100%;
-        // }
-
-        // .menu-item-container:hover:not(.placeholder, .active) {
-        //     cursor: pointer;
-        // }
     }
 
     /* Content */
@@ -183,6 +149,7 @@
                 border: 1px solid #ececec;
                 color: var(--text-color);
                 width: 200px;
+                height: 100%;
                 border-radius: 6px;
                 padding-bottom: 4px;
                 overflow: auto;

@@ -1,4 +1,4 @@
-<div class="grid-container" style="padding-right: 4px;">
+<div class="grid-container" style="">
 
     <div class="task-container" *ngFor="let task of taskItems" (click)="onSelectTask($event, task)"
         [ngClass]="{ 'selected': task.id === selectedItemId }">

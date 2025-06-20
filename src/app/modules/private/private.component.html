@@ -67,18 +67,20 @@
                 <router-outlet />
             </div>
 
-            <aside class="addinfo-container" *ngIf="isAddInfoVisible"
-                @fadeInOut-right
-            >
-                <div class="addinfo-header">
-                    AddInfo-Header
-                </div>
-                <div class="addinfo-wrapper">
-                    <div class="addinfo-item" *ngFor="let i of [].constructor(50); let n = index">
-                        Info {{n + 1}}
+            <div class="add-info-outer-container" *ngIf="currentRoute!= '/dashboard'">
+                <aside class="addinfo-container" *ngIf="isAddInfoVisible"
+                    @fadeInOut-right
+                >
+                    <div class="addinfo-header">
+                        AddInfo-Header
                     </div>
-                </div>
-            </aside>
+                    <div class="addinfo-wrapper">
+                        <div class="addinfo-item" *ngFor="let i of [].constructor(50); let n = index">
+                            Info {{n + 1}}
+                        </div>
+                    </div>
+                </aside>
+            </div>
         </div>
     </div>
 </div>
