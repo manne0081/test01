@@ -16,11 +16,10 @@ import { ClientsComponent } from './modules/private/clients/clients.component';
 import { WorkspaceComponent } from './modules/private/workspace/workspace.component';
 import { TeamComponent } from './modules/private/team/team.component';
 import { ProjectsComponent } from './modules/private/projects/projects.component';
-import { TasksComponent } from './modules/private/workspace/tasks/tasks.component';
+import { TaskListComponent } from './modules/private/workspace/tasks/task-list/task-list.component';
 import { CalendarComponent } from './modules/private/workspace/calendar/calendar.component';
 import { MessagesComponent } from './modules/private/workspace/messages/messages.component';
 import { EmployeeComponent } from './modules/private/team/employee/employee.component';
-
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -34,8 +33,8 @@ export const routes: Routes = [
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', component: DashboardComponent },
-            { path: 'workspace', component: TasksComponent },
-            { path: 'tasks', component: TasksComponent },
+            { path: 'workspace', component: TaskListComponent },
+            { path: 'tasks', component: TaskListComponent },
             { path: 'calendar', component: CalendarComponent },
             { path: 'messages', component: MessagesComponent },
             { path: 'team', component: EmployeeComponent },

@@ -44,8 +44,6 @@ $brand-font-3: #dfe0e2;
     --border-color: #cccccc;
     --background-color: #ffffff;
 
-
-
     --error: #{$bx-red-fire};
     --warning: #{$bx-orange};
     --success: #{$bx-green-apple};
@@ -86,8 +84,6 @@ $brand-font-3: #dfe0e2;
     --button-danger-bg: #{$bx-red};
 
 
-
-
     --scrollbar-track: #{$bx-white-110};
     --scrollbar-thumb: var(--highlight);
 
@@ -119,6 +115,10 @@ body {
     background-color: var(--secondary-color);
     color: var(--text-color);
     width: 100%;
+}
+
+p, span {
+    // color: var(--font-default);
 }
 
 input {

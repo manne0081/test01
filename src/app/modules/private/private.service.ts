@@ -14,7 +14,7 @@ export class PrivateService {
     private isMenuCollapsed = new BehaviorSubject<boolean>(false);
     private isDashboard = new BehaviorSubject<boolean | undefined>(undefined);
     private isQuicklinksVisible = new BehaviorSubject<boolean>(true);
-    private isAddInfoVisible = new BehaviorSubject<boolean>(false);
+    private isAddInfoVisible = new BehaviorSubject<boolean>(true);
     private breadcrumbs = new BehaviorSubject<string>('Breadcrumbs');
 
     // todo
