@@ -8,8 +8,9 @@ import { DragDropModule, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-
 /** Flat node with expandable and level information */
 interface TreeNode {
     name: string;
-    children?: TreeNode[];
     expanded?: boolean;
+    children?: TreeNode[];
+    value?: string;
 }
 
 @Component({
@@ -33,45 +34,49 @@ export class QuicklinksComponent {
           name: 'Standard',
           expanded: true,
           children: [
-            { name: 'Quicklink 1' },
-            { name: 'Quicklink 2' },
-            { name: 'Quicklink 3' },
-            { name: 'Quicklink 4' },
+            { name: 'Google', value: 'https://www.google.com' },
+            { name: 'Wikipedia', value: 'https://de.wikipedia.org' },
+            { name: 'YouTube', value: 'https://www.youtube.com' },
+            { name: 'GitHub', value: 'https://github.com' },
           ]
         },
         {
           name: 'Favoriten',
           expanded: true,
           children: [
-            { name: 'Quicklink 5' },
-            { name: 'Quicklink 6' },
-            { name: 'Quicklink 7' },
-            { name: 'Quicklink 8' },
-            { name: 'Quicklink 9' },
-            { name: 'Quicklink 10' },
-            { name: 'Quicklink 11' },
-            { name: 'Quicklink 12' },
-            { name: 'Quicklink 13' },
-            { name: 'Quicklink 14' },
-            { name: 'Quicklink 15' },
-            { name: 'Quicklink 16' },
-            { name: 'Quicklink 17' },
-            { name: 'Quicklink 18' },
-            { name: 'Quicklink 19' },
-            { name: 'Quicklink 20' },
-            { name: 'Quicklink 21' },
-            { name: 'Quicklink 22' },
-            { name: 'Quicklink 23' },
-            { name: 'Quicklink 24' },
-            { name: 'Quicklink 25' },
-            { name: 'Quicklink 26' },
-            { name: 'Quicklink 27' },
-            { name: 'Quicklink 28' },
-            { name: 'Quicklink 29' },
-            { name: 'Quicklink 30' },
+            { name: 'Stack Overflow', value: 'https://stackoverflow.com' },
+            { name: 'Gmail', value: 'https://mail.google.com' },
+            { name: 'Amazon', value: 'https://www.amazon.de' },
+            { name: 'Twitter', value: 'https://twitter.com' },
+            { name: 'LinkedIn', value: 'https://www.linkedin.com' },
+            { name: 'Spotify', value: 'https://www.spotify.com' },
+            { name: 'Reddit', value: 'https://www.reddit.com' },
+            { name: 'Dropbox', value: 'https://www.dropbox.com' },
+            { name: 'Netflix', value: 'https://www.netflix.com' },
+            { name: 'eBay', value: 'https://www.ebay.de' },
+            { name: 'Pinterest', value: 'https://www.pinterest.de' },
+            { name: 'Instagram', value: 'https://www.instagram.com' },
+            { name: 'Facebook', value: 'https://www.facebook.com' },
+            { name: 'Xing', value: 'https://www.xing.com' },
+            { name: 'Heise', value: 'https://www.heise.de' },
+            { name: 'Tagesschau', value: 'https://www.tagesschau.de' },
+            { name: 'SZ', value: 'https://www.sueddeutsche.de' },
+            { name: 'FAZ', value: 'https://www.faz.net' },
+            { name: 'Zeit Online', value: 'https://www.zeit.de' },
+            { name: 'ARD Mediathek', value: 'https://www.ardmediathek.de' },
+            { name: 'ZDF Mediathek', value: 'https://www.zdf.de/mediathek' },
+            { name: 'Booking', value: 'https://www.booking.com' },
+            { name: 'TripAdvisor', value: 'https://www.tripadvisor.de' },
+            { name: 'Twitch', value: 'https://www.twitch.tv' },
+            { name: 'Coursera', value: 'https://www.coursera.org' },
+            { name: 'Udemy', value: 'https://www.udemy.com' },
+            { name: 'Codecademy', value: 'https://www.codecademy.com' },
+            { name: 'Replit', value: 'https://replit.com' },
+            { name: 'OpenAI', value: 'https://openai.com' },
+            { name: 'Perplexity', value: 'https://www.perplexity.ai' },
           ]
         }
-    ];
+      ];
 
     constructor(
     ) {}

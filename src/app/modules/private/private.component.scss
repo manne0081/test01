@@ -106,9 +106,10 @@
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
                 border: 1px solid #ececec;
                 color: var(--text-color);
-                width: 200px;
+                width: 240px;
                 border-radius: 6px;
-                overflow: auto;
+                overflow-y: auto;
+                overflow-x: hidden;
                 height: 100%;
             }
 
@@ -118,7 +119,8 @@
                 overflow: auto;
                 min-width: 0;
                 margin: 0 8px;
-                // display: flex;
+                display: inline-block;
+                transition: width 0.3s cubic-bezier(.4, 0, .2, 1);
 
                 .tile-item {
                     background-color: white;
@@ -140,7 +142,6 @@
                     bottom: 0px;
                     margin-right: 2px;
                 }
-
             }
 
             .addinfo-container {
@@ -152,7 +153,8 @@
                 height: 100%;
                 border-radius: 6px;
                 padding-bottom: 4px;
-                overflow: auto;
+                overflow-y: auto;
+                overflow-x: hidden;
 
                 .addinfo-header {
                     background: white;
