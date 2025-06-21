@@ -16,17 +16,10 @@ export interface Task {
     createdAt: Date;                            // Datum und Uhrzeit, wann das Ticket erstellt wurde
     dueDate?: Date;                             // Optionales Fälligkeitsdatum für das Ticket
     attachments?: string[];                     // Liste der Dateipfade oder URLs für Anhänge (optional)
-    note?: Comment[];                       // Liste von Kommentaren zum Ticket (optional)
-}
-
-export interface Comment {
-    user: string;               // Name oder ID des Benutzers, der den Kommentar hinterlässt
-    message: string;            // Inhalt des Kommentars
-    timestamp: Date;            // Datum und Uhrzeit des Kommentars
 }
 
 export const taskFieldNames: (keyof Task)[] = ['id', 'title', 'description', 'creator', 'status', 'priority',
-    'category', 'assignedTo', 'createdAt', 'dueDate', 'attachments', 'note'
+    'category', 'assignedTo', 'createdAt', 'dueDate', 'attachments'
 ];
 
 export const TASK_MOCK: Task[] = [
@@ -43,13 +36,6 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Lisa Schmidt',
         createdAt: new Date('2024-01-01T09:00:00'),
         dueDate: new Date('2024-01-05'),
-        note: [
-        {
-            user: 'Lisa Schmidt',
-            message: 'Überprüfung des Benutzerkontos läuft.',
-            timestamp: new Date('2024-01-01T10:00:00')
-        }
-        ],
         attachments: ['screenshot1.png']
     },
     {
@@ -65,13 +51,6 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Peter Müller',
         createdAt: new Date('2024-01-02T08:30:00'),
         dueDate: new Date('2024-01-10'),
-        note: [
-        {
-            user: 'Peter Müller',
-            message: 'Kontakt mit dem Kunden zur Korrekturaufnahme.',
-            timestamp: new Date('2024-01-02T09:15:00')
-        }
-        ],
         attachments: []
     },
     {
@@ -87,7 +66,6 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Max Mustermann',
         createdAt: new Date('2024-01-03T10:00:00'),
         dueDate: new Date('2024-01-07'),
-        note: [],
         attachments: ['error_log.txt']
     },
     {
@@ -103,13 +81,6 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Frank Meyer',
         createdAt: new Date('2024-01-04T11:00:00'),
         dueDate: new Date('2024-01-20'),
-        note: [
-        {
-            user: 'Frank Meyer',
-            message: 'Das neue Feature wurde implementiert und getestet.',
-            timestamp: new Date('2024-01-15T14:00:00')
-        }
-        ],
         attachments: []
     },
     {
@@ -125,7 +96,6 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Lisa Schmidt',
         createdAt: new Date('2024-01-05T09:30:00'),
         dueDate: new Date('2024-01-08'),
-        note: [],
         attachments: ['performance_report.pdf']
     },
     {
@@ -141,13 +111,6 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Peter Müller',
         createdAt: new Date('2024-01-06T08:00:00'),
         dueDate: new Date('2024-01-12'),
-        note: [
-        {
-            user: 'Peter Müller',
-            message: 'Prüfung der E-Mail-Einstellungen gestartet.',
-            timestamp: new Date('2024-01-06T09:00:00')
-        }
-        ],
         attachments: []
     },
     {
@@ -163,7 +126,6 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Anna Bauer',
         createdAt: new Date('2024-01-07T10:30:00'),
         dueDate: new Date('2024-02-01'),
-        note: [],
         attachments: ['design_mockup.pdf']
     },
     {
@@ -179,13 +141,6 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Jens Bauer',
         createdAt: new Date('2024-01-08T09:00:00'),
         dueDate: new Date('2024-01-15'),
-        note: [
-        {
-            user: 'Jens Bauer',
-            message: 'Planung der Migration läuft.',
-            timestamp: new Date('2024-01-08T10:00:00')
-        }
-        ],
         attachments: []
     },
     {
@@ -201,7 +156,6 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Frank Meyer',
         createdAt: new Date('2024-01-09T11:00:00'),
         dueDate: new Date('2024-01-13'),
-        note: [],
         attachments: ['payment_issue_report.pdf']
     },
     {
@@ -217,13 +171,6 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Lisa Schmidt',
         createdAt: new Date('2024-01-10T12:00:00'),
         dueDate: new Date('2024-01-30'),
-        note: [
-        {
-            user: 'Lisa Schmidt',
-            message: 'Datenschutzerklärung wurde angepasst.',
-            timestamp: new Date('2024-01-28T14:30:00')
-        }
-        ],
         attachments: ['new_privacy_policy.pdf']
     },
     {
@@ -239,13 +186,6 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Maximilian Bauer',
         createdAt: new Date('2024-02-01T09:00:00'),
         dueDate: new Date('2024-02-15'),
-        note: [
-            {
-                user: 'Maximilian Bauer',
-                message: 'Dokument zur Prüfung erhalten.',
-                timestamp: new Date('2024-02-01T10:15:00')
-            }
-        ],
         attachments: ['privacy_policy_review.pdf']
     },
     {
@@ -261,13 +201,6 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Jonas Meier',
         createdAt: new Date('2024-02-16T08:30:00'),
         dueDate: new Date('2024-02-20'),
-        note: [
-            {
-                user: 'Jonas Meier',
-                message: 'Begonnen mit der Integration ins CMS.',
-                timestamp: new Date('2024-02-16T10:00:00')
-            }
-        ],
         attachments: ['datenschutzerklaerung_final.pdf']
     },
     {
@@ -283,31 +216,6 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Sophie Keller',
         createdAt: new Date('2024-03-01T11:00:00'),
         dueDate: new Date('2024-03-15'),
-        note: [
-            {
-                user: 'Sophie Keller',
-                message: 'Teilnehmerliste vorbereitet.',
-                timestamp: new Date('2024-03-02T09:45:00')
-            }
-        ],
         attachments: ['schulungsunterlagen.pdf']
     },
-];
-
-
-
-export interface TimeStamp {
-    id: number;  // Verknüpfte ID, z.B. die ID des Kunden, Projekts oder Tasks
-    task?: Task;
-    partner?: Partner;
-    project?: Projects;
-    start: Date;
-    pause?: Date;
-    stop?: Date;
-}
-
-export const TIMESTAMP_MOCK: TimeStamp[] = [
-    // Beispielzeitstempel
-    { id: 0, start: new Date('2023-01-01T10:00:00') },
-    { id: 1, start: new Date('2023-01-01T11:00:00'), pause: new Date('2023-01-01T11:30:00') },
 ];

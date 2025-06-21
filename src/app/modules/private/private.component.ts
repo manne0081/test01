@@ -77,10 +77,20 @@ export class PrivateComponent implements OnInit {
     toggleQuicklinks(): void {
         this.isQuicklinksVisible = !this.isQuicklinksVisible;
         this.privateService.setIsQuicklinksVisible(this.isQuicklinksVisible);
+        if (this.isQuicklinksVisible) {
+            this.privateService.setCookie('isQuicklinksVisible', 'true');
+        } else {
+            this.privateService.setCookie('isQuicklinksVisible', 'false');
+        }
     }
 
     toggleAddInfo(): void {
         this.isAddInfoVisible = !this.isAddInfoVisible;
         this.privateService.setIsAddInfoVisible(this.isAddInfoVisible);
+        if (this.isAddInfoVisible) {
+            this.privateService.setCookie('isAddInfoVisible', 'true');
+        } else {
+            this.privateService.setCookie('isAddInfoVisible', 'false');
+        }
     }
 }

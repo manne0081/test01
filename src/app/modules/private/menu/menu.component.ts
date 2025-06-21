@@ -33,8 +33,9 @@ export class MenuComponent implements OnInit {
         this.privateService.getIsMenuCollapsed().subscribe(data => {
             this.menuIsCollapsed = data;
         });
+
         this.privateService.getCurrentRoute().subscribe(data => {
-            console.log('route', data);
+            // console.log('route', data);
             if (data == '/tasks' || data == '/calendar' || data == '/messages') {
                 this.activeMenuItem = 'workspace';
             }
@@ -90,11 +91,7 @@ export class MenuComponent implements OnInit {
     }
 
     navigate(route: string): void {
-        console.log('setRoute: ', route);
+        // console.log('setRoute: ', route);
         this.router.navigate(['/', route]);
-        // setTimeout(() => {
-        //     this.router.navigate(['/', route]);
-        // }, 300); // 300ms Verzögerung
-
     }
 }

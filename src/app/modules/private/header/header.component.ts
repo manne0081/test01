@@ -31,5 +31,10 @@ export class HeaderComponent implements OnInit{
     toggleMenuStatus(): void {
         this.isMenuCollapsed = !this.isMenuCollapsed;
         this.privateService.setIsMenuCollapsed(this.isMenuCollapsed); // <-- Status an Service senden!
+        if (this.isMenuCollapsed) {
+            this.privateService.setCookie('isMenuCollapsed', 'true');
+        } else {
+            this.privateService.setCookie('isMenuCollapsed', 'false');
+        }
     }
 }
