@@ -16,6 +16,11 @@ export interface Task {
     createdAt: Date;                            // Datum und Uhrzeit, wann das Ticket erstellt wurde
     dueDate?: Date;                             // Optionales Fälligkeitsdatum für das Ticket
     attachments?: string[];                     // Liste der Dateipfade oder URLs für Anhänge (optional)
+
+    createdFrom?: string;
+    createdDate?: string;
+    modifiedFrom?: string;
+    modifiedDate?: string;
 }
 
 export const taskFieldNames: (keyof Task)[] = ['id', 'title', 'description', 'creator', 'status', 'priority',
@@ -36,7 +41,11 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Lisa Schmidt',
         createdAt: new Date('2024-01-01T09:00:00'),
         dueDate: new Date('2024-01-05'),
-        attachments: ['screenshot1.png']
+        attachments: ['screenshot1.png'],
+        createdFrom: 'Claudia Huber',
+        createdDate: '14.07.2024',
+        modifiedFrom: 'Thomas König',
+        modifiedDate: '01.09.2024',
     },
     {
         id: 1,
@@ -51,7 +60,11 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Peter Müller',
         createdAt: new Date('2024-01-02T08:30:00'),
         dueDate: new Date('2024-01-10'),
-        attachments: []
+        attachments: [],
+        createdFrom: 'Julian Maier',
+        createdDate: '11.06.2024',
+        modifiedFrom: 'Sabine Roth',
+        modifiedDate: '17.08.2024',
     },
     {
         id: 2,
@@ -66,7 +79,11 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Max Mustermann',
         createdAt: new Date('2024-01-03T10:00:00'),
         dueDate: new Date('2024-01-07'),
-        attachments: ['error_log.txt']
+        attachments: ['error_log.txt'],
+        createdFrom: 'Laura Becker',
+        createdDate: '28.05.2024',
+        modifiedFrom: 'Karl Zimmermann',
+        modifiedDate: '04.09.2024',
     },
     {
         id: 3,
@@ -81,7 +98,11 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Frank Meyer',
         createdAt: new Date('2024-01-04T11:00:00'),
         dueDate: new Date('2024-01-20'),
-        attachments: []
+        attachments: [],
+        createdFrom: 'Tobias Klein',
+        createdDate: '02.07.2024',
+        modifiedFrom: 'Daniela Hofmann',
+        modifiedDate: '12.09.2024',
     },
     {
         id: 4,
@@ -96,7 +117,11 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Lisa Schmidt',
         createdAt: new Date('2024-01-05T09:30:00'),
         dueDate: new Date('2024-01-08'),
-        attachments: ['performance_report.pdf']
+        attachments: ['performance_report.pdf'],
+        createdFrom: 'Franziska Lehmann',
+        createdDate: '30.06.2024',
+        modifiedFrom: 'Lukas Brandt',
+        modifiedDate: '22.08.2024',
     },
     {
         id: 5,
@@ -111,7 +136,11 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Peter Müller',
         createdAt: new Date('2024-01-06T08:00:00'),
         dueDate: new Date('2024-01-12'),
-        attachments: []
+        attachments: [],
+        createdFrom: 'Miriam König',
+        createdDate: '05.07.2024',
+        modifiedFrom: 'Stefan Schröder',
+        modifiedDate: '10.09.2024',
     },
     {
         id: 6,
@@ -126,7 +155,11 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Anna Bauer',
         createdAt: new Date('2024-01-07T10:30:00'),
         dueDate: new Date('2024-02-01'),
-        attachments: ['design_mockup.pdf']
+        attachments: ['design_mockup.pdf'],
+        createdFrom: 'Nina Weber',
+        createdDate: '17.06.2024',
+        modifiedFrom: 'Jan Böhm',
+        modifiedDate: '07.08.2024',
     },
     {
         id: 7,
@@ -141,7 +174,11 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Jens Bauer',
         createdAt: new Date('2024-01-08T09:00:00'),
         dueDate: new Date('2024-01-15'),
-        attachments: []
+        attachments: [],
+        createdFrom: 'Ralf Wagner',
+        createdDate: '03.07.2024',
+        modifiedFrom: 'Katharina Scholz',
+        modifiedDate: '25.08.2024',
     },
     {
         id: 8,
@@ -156,7 +193,11 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Frank Meyer',
         createdAt: new Date('2024-01-09T11:00:00'),
         dueDate: new Date('2024-01-13'),
-        attachments: ['payment_issue_report.pdf']
+        attachments: ['payment_issue_report.pdf'],
+        createdFrom: 'Lisa Hoffmann',
+        createdDate: '12.07.2024',
+        modifiedFrom: 'Alexander Koch',
+        modifiedDate: '29.08.2024',
     },
     {
         id: 9,
@@ -171,7 +212,11 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Lisa Schmidt',
         createdAt: new Date('2024-01-10T12:00:00'),
         dueDate: new Date('2024-01-30'),
-        attachments: ['new_privacy_policy.pdf']
+        attachments: ['new_privacy_policy.pdf'],
+        createdFrom: 'Tim Jansen',
+        createdDate: '21.06.2024',
+        modifiedFrom: 'Eva Schäfer',
+        modifiedDate: '03.09.2024',
     },
     {
         id: 10,
@@ -186,7 +231,11 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Maximilian Bauer',
         createdAt: new Date('2024-02-01T09:00:00'),
         dueDate: new Date('2024-02-15'),
-        attachments: ['privacy_policy_review.pdf']
+        attachments: ['privacy_policy_review.pdf'],
+        createdFrom: 'Monika Krüger',
+        createdDate: '07.07.2024',
+        modifiedFrom: 'Björn Peters',
+        modifiedDate: '20.09.2024',
     },
     {
         id: 11,
@@ -201,7 +250,11 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Jonas Meier',
         createdAt: new Date('2024-02-16T08:30:00'),
         dueDate: new Date('2024-02-20'),
-        attachments: ['datenschutzerklaerung_final.pdf']
+        attachments: ['datenschutzerklaerung_final.pdf'],
+        createdFrom: 'Florian Berger',
+        createdDate: '10.07.2024',
+        modifiedFrom: 'Carina Frank',
+        modifiedDate: '14.09.2024',
     },
     {
         id: 12,
@@ -216,6 +269,10 @@ export const TASK_MOCK: Task[] = [
         assignedTo: 'Sophie Keller',
         createdAt: new Date('2024-03-01T11:00:00'),
         dueDate: new Date('2024-03-15'),
-        attachments: ['schulungsunterlagen.pdf']
-    },
+        attachments: ['schulungsunterlagen.pdf'],
+        createdFrom: 'Vanessa Arnold',
+        createdDate: '23.06.2024',
+        modifiedFrom: 'Michael Lorenz',
+        modifiedDate: '05.09.2024',
+    }
 ];

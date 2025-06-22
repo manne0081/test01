@@ -12,10 +12,13 @@
 
     <div class="content-structure">
 
-        <div class="content-header" *ngIf="!isDashbaord">    <!-- *ngIf="breadcrumbs != 'Dashboard'" -->
+        <!-- Content-Header => Breadcrumbs and second Navigation -->
+        <!-- ################################################### -->
+        <div class="content-header" *ngIf="!isDashbaord">
+
             <div class="breadcrumbs">{{ breadcrumbs }}</div>
 
-            <!-- If workspace -->
+            <!-- 2nd Navigation for workspace -->
             <div class="second-menu" *ngIf="currentRoute == '/tasks' || currentRoute == '/calendar' || currentRoute == '/messages'">
                 <p routerLink="/tasks" routerLinkActive="active">Aufgaben</p>
                 <p>|</p>
@@ -24,63 +27,68 @@
                 <p routerLink="/calendar" routerLinkActive="active">Kalender</p>
             </div>
 
-            <!-- If team -->
+            <!-- 2nd Navigation for team -->
             <div class="second-menu" *ngIf="currentRoute == '/employee'">
                 <p routerLink="/employee" routerLinkActive="active">Mitarbeiter</p>
                 <p>|</p>
                 <p routerLinkActive="active">Arbeitszeiten</p>
             </div>
 
-            <!-- If clients -->
+            <!-- 2nd Navigation for clients -->
             <div class="second-menu" *ngIf="currentRoute == '/clients'">
                 <p routerLink="/clients" routerLinkActive="active">Kunden</p>
                 <p>|</p>
                 <p routerLinkActive="active">Lieferanten</p>
             </div>
 
-            <!-- If projects -->
+            <!-- 2nd Navigation for projects -->
             <div class="second-menu" *ngIf="currentRoute == '/projects'">
                 <p routerLinkActive="active">Projekte</p>
             </div>
 
         </div>
 
+        <!-- Filter-Element => Quicklinks- and AddInfo- Toggle-Button / Searching / Filtering / Sorting -->
+        <!-- ########################################################################################## -->
         <div class="filter-container" *ngIf="!isDashbaord">
+
+            <!-- Quicklinks Toggle-Button -->
             <button [ngClass]="{'active': isQuicklinksVisible}" (click)="toggleQuicklinks()">
                 <div>Quicklinks</div>
             </button>
+
+
+
+            <!-- AddInfo Toggle-Button -->
             <button [ngClass]="{'active': isAddInfoVisible}" (click)="toggleAddInfo()">
                 <div>AddInfo</div>
             </button>
         </div>
 
+
+        <!-- Content-Container => Quicklinks / Object-Tiles / AddInfo / Actions -->
+        <!-- ################################################################## -->
         <div class="content-container">
+
+            <!-- Quicklinks -->
             <div class="quicklinks-outer-container" *ngIf="currentRoute!= '/dashboard'">
-                <aside class="quicklinks-container" *ngIf="isQuicklinksVisible"
-                    @fadeInOut-left
-                >
-                <app-quicklinks></app-quicklinks>
+                <aside class="quicklinks-container" *ngIf="isQuicklinksVisible" @fadeInOut-left>
+                    <app-quicklinks></app-quicklinks>
                 </aside>
             </div>
 
+            <!-- TILE-CONTAINER -->
             <div class="tile-container">
                 <router-outlet />
             </div>
 
+            <!-- AddInfo -->
             <div class="add-info-outer-container" *ngIf="currentRoute!= '/dashboard'">
-                <aside class="addinfo-container" *ngIf="isAddInfoVisible"
-                    @fadeInOut-right
-                >
-                    <div class="addinfo-header">
-                        AddInfo-Header
-                    </div>
-                    <div class="addinfo-wrapper">
-                        <div class="addinfo-item" *ngFor="let i of [].constructor(50); let n = index">
-                            Info {{n + 1}}
-                        </div>
-                    </div>
+                <aside class="addinfo-container" *ngIf="isAddInfoVisible" @fadeInOut-right>
+                    <app-add-info></app-add-info>
                 </aside>
             </div>
+
         </div>
     </div>
 </div>

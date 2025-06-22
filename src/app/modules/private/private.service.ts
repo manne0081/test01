@@ -17,6 +17,7 @@ export class PrivateService {
     private isQuicklinksVisible = new BehaviorSubject<boolean>(true);
     private isAddInfoVisible = new BehaviorSubject<boolean>(false);
     private breadcrumbs = new BehaviorSubject<string>('Breadcrumbs');
+    private selectedObject = new BehaviorSubject<any>('');
 
     // todo
     // What i have to save in cookies
@@ -115,6 +116,11 @@ export class PrivateService {
 
     setBreadcrumbs(title: string): void {
         this.breadcrumbs.next(title);
+        this.selectedObject.next('');
+    }
+
+    setSelectedObject(selectedObject: any): void {
+        this.selectedObject.next(selectedObject);
     }
 
     /**
@@ -158,6 +164,10 @@ export class PrivateService {
 
     getBreadcrumbs() {
         return this.breadcrumbs.asObservable();
+    }
+
+    getSelectedObject(): any {
+        return this.selectedObject.asObservable();
     }
 
     /**

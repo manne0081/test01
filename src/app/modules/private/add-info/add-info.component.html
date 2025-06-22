@@ -1,0 +1,32 @@
+<div class="add-info-container">
+
+    <!-- ADD-INFO - HEADER -->
+    <!-- +++++++++++++++++ -->
+    <div class="add-info-header">
+        <div class="headline-wrapper">
+            <span>Zusatzinformationen</span>
+        </div>
+    </div>
+
+    <!-- ADD-INFO - STRUCTURE -->
+    <!-- ++++++++++++++++++++ -->
+    <div class="item-wrapper">
+
+        <!-- TreeNode expandable -->
+        <ul *ngIf="addInfoItems">
+
+            <!-- <li *ngFor="let branch of tree"> -->
+            <li *ngIf="addInfoItems">
+                <div class="item-container">
+                    <p>ID: {{ addInfoItems.id }}</p>
+                </div>
+                <div class="item-container">
+                    <p><i class="icon-add"></i>{{ addInfoItems.createdFrom }} {{ addInfoItems.createdDate }}</p>
+                </div>
+                <div class="item-container">
+                    <p><i class="icon-edit"></i>{{ addInfoItems.modifiedFrom }} {{ addInfoItems.modifiedDate }}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

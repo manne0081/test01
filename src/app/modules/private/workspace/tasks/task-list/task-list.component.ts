@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Task, TASK_MOCK } from '../../../../../mock/tasks'
+import { PrivateService } from '../../../private.service';
 
 @Component({
     selector: 'app-task-list',
@@ -17,7 +18,9 @@ export class TaskListComponent {
     taskItems: Task[] = [];
     selectedItemId: number | null = null;
 
-    constructor() {
+    constructor(
+        private privateService: PrivateService,
+    ) {
         this.taskItems = TASK_MOCK;
     }
 
@@ -26,7 +29,7 @@ export class TaskListComponent {
      * @param item
      */
     onSelectTask(event: Event, item: any):void {
-        this.selectedItemId = item.id                       // Needed for UI
-        // this.workspaceService.setSelectedObject(item);      // Needed for AddInfoArea
+        this.selectedItemId = item.id;      // Needed for UI
+        this.privateService.setSelectedObject(item);
     }
 }

@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { trigger, transition, style, animate, state } from '@angular/animations';
 
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { QuicklinksComponent } from './quicklinks/quicklinks.component';
+import { AddInfoComponent } from './add-info/add-info.component';
+
 import { PrivateService } from './private.service';
 
 @Component({
@@ -18,6 +20,7 @@ import { PrivateService } from './private.service';
         HeaderComponent,
         MenuComponent,
         QuicklinksComponent,
+        AddInfoComponent,
     ],
     templateUrl: './private.component.html',
     styleUrl: './private.component.scss',
