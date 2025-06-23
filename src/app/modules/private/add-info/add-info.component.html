@@ -21,10 +21,10 @@
                     <p>ID: {{ addInfoItems.id }}</p>
                 </div>
                 <div class="item-container">
-                    <p><i class="icon-add"></i>{{ addInfoItems.createdFrom }} {{ addInfoItems.createdDate }}</p>
+                    <p><i class="icon-add"></i>{{ addInfoItems.createdDate }} {{ truncateText(addInfoItems.createdFrom, 16) }}</p>
                 </div>
                 <div class="item-container">
-                    <p><i class="icon-edit"></i>{{ addInfoItems.modifiedFrom }} {{ addInfoItems.modifiedDate }}</p>
+                    <p><i class="icon-edit"></i>{{ addInfoItems.modifiedDate }} {{ addInfoItems.modifiedFrom }}</p>
                 </div>
             </li>
         </ul>
