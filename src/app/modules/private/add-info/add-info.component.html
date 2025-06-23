@@ -10,23 +10,62 @@
 
     <!-- ADD-INFO - STRUCTURE -->
     <!-- ++++++++++++++++++++ -->
-    <div class="item-wrapper">
+    <div class="item-wrapper" *ngIf="addInfoItems">
 
         <!-- TreeNode expandable -->
-        <ul *ngIf="addInfoItems">
+        <!-- <ul > -->
 
             <!-- <li *ngFor="let branch of tree"> -->
-            <li *ngIf="addInfoItems">
-                <div class="item-container">
+            <!-- <li *ngIf="addInfoItems"> -->
+                <!-- <div class="item-container">
                     <p>ID: {{ addInfoItems.id }}</p>
-                </div>
-                <div class="item-container">
+                </div> -->
+                <!-- <div class="item-container">
                     <p><i class="icon-add"></i>{{ addInfoItems.createdDate }} {{ truncateText(addInfoItems.createdFrom, 16) }}</p>
                 </div>
                 <div class="item-container">
                     <p><i class="icon-edit"></i>{{ addInfoItems.modifiedDate }} {{ addInfoItems.modifiedFrom }}</p>
+                </div> -->
+            <!-- </li> -->
+        <!-- </ul> -->
+
+        <div class="item-container">
+            <p>ID: {{ addInfoItems.id }}</p>
+        </div>
+
+        <div class="crud-container">
+
+            <div class="chip">
+                <i class="icon-add" style="width: 12px; height: 12px;"></i>
+                <div
+                    style="display: flex; height: 14px; min-width: 25px; padding: 0px 2px; align-items: center; border-radius: 2px; background: #5E7394;">
+                    <span
+                        style="flex: 1 0 0; color: #FFF; text-align: center; font-size: 10px; font-style: normal; font-weight: 500; line-height: normal;">
+                        {{ truncateText(addInfoItems.createdFrom, 12) }}
+                    </span>
                 </div>
-            </li>
-        </ul>
+                <span style="font-size: 12px; font-style: normal; font-weight: 500; line-height: normal;">
+                    {{ addInfoItems.createdDate }}
+                </span>
+            </div>
+
+            <div class="chip">
+                <i class="icon-edit" style="width: 12px; height: 12px;"></i>
+                <div
+                    style="display: flex; height: 14px; min-width: 25px; padding: 0px 2px; align-items: center; border-radius: 2px; background: #59A13F;">
+                    <span
+                        style="flex: 1 0 0; color: #FFF; text-align: center; font-size: 10px; font-style: normal; font-weight: 500; line-height: normal;">
+                        {{ truncateText(addInfoItems.modifiedFrom, 12) }}
+                    </span>
+                </div>
+                <span style="font-size: 12px; font-style: normal; font-weight: 500; line-height: normal;">
+                    {{ addInfoItems.modifiedDate }}
+                </span>
+            </div>
+
+        </div>
+
+
+
     </div>
 </div>
