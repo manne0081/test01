@@ -36,29 +36,25 @@
         <div class="crud-container">
 
             <div class="chip">
-                <i class="icon-add" style="width: 12px; height: 12px;"></i>
-                <div
-                    style="display: flex; height: 14px; min-width: 25px; padding: 0px 2px; align-items: center; border-radius: 2px; background: #5E7394;">
-                    <span
-                        style="flex: 1 0 0; color: #FFF; text-align: center; font-size: 10px; font-style: normal; font-weight: 500; line-height: normal;">
-                        {{ truncateText(addInfoItems.createdFrom, 12) }}
+                <i class="icon-add"></i>
+                <div class="user add">
+                    <span>
+                        {{ truncateText(addInfoItems.createdFrom, 11) }}
                     </span>
                 </div>
-                <span style="font-size: 12px; font-style: normal; font-weight: 500; line-height: normal;">
+                <span class="date">
                     {{ addInfoItems.createdDate }}
                 </span>
             </div>
 
             <div class="chip">
-                <i class="icon-edit" style="width: 12px; height: 12px;"></i>
-                <div
-                    style="display: flex; height: 14px; min-width: 25px; padding: 0px 2px; align-items: center; border-radius: 2px; background: #59A13F;">
-                    <span
-                        style="flex: 1 0 0; color: #FFF; text-align: center; font-size: 10px; font-style: normal; font-weight: 500; line-height: normal;">
-                        {{ truncateText(addInfoItems.modifiedFrom, 12) }}
+                <i class="icon-edit"></i>
+                <div class="user edit">
+                    <span>
+                        {{ truncateText(addInfoItems.modifiedFrom, 11) }}
                     </span>
                 </div>
-                <span style="font-size: 12px; font-style: normal; font-weight: 500; line-height: normal;">
+                <span class="date">
                     {{ addInfoItems.modifiedDate }}
                 </span>
             </div>
