@@ -45,6 +45,10 @@ li.post-active {
     border-radius: 0 6px 0 0;
 }
 
+li:hover:not(.placeholder) {
+    cursor: pointer;
+}
+
 li i {
     min-width: 32px;
     text-align: center;
