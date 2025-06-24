@@ -62,8 +62,10 @@ export class PrivateComponent implements OnInit {
     searchTerm: string = '';
     sortingTerm: string = '';
 
-    activeFilterItems: FilterItem[] = [
-        // { id: 0, name: 'wip-1' },
+    filterItems: FilterItem[] = [
+        { id: 0, name: 'wip-1' },
+        { id: 1, name: 'wip-2' },
+        { id: 2, name: 'wip-3' },
     ];
 
     constructor(
@@ -132,7 +134,7 @@ export class PrivateComponent implements OnInit {
     addSearchTerm(event: Event): void {
         const inputElement = event.target as HTMLInputElement;
         const searchTerm = inputElement.value.trim();
-        const searchTermItem = this.activeFilterItems.find(item => item.id === 'searchTerm');
+        const searchTermItem = this.filterItems.find(item => item.id === 'searchTerm');
 
         // todo
         // little chips to show all filter items

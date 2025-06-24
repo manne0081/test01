@@ -52,21 +52,33 @@
         <!-- ########################################################################################## -->
         <div class="filter-container" *ngIf="!isDashbaord">
 
-            <!-- Quicklinks Toggle-Button -->
-            <button [ngClass]="{'active': isQuicklinksVisible}" (click)="toggleQuicklinks()">
-                <div>Quicklinks</div>
-            </button>
+            <div class="filter-function-container">
+                <!-- Quicklinks Toggle-Button -->
+                <button [ngClass]="{'active': isQuicklinksVisible}" (click)="toggleQuicklinks()">
+                    <div>Quicklinks</div>
+                </button>
 
-            <!-- SEARCHING-FIELD -->
-            <div class="searching-wrapper">
-                <input class="searching-field" type="text" placeholder="Suche nach..." [(ngModel)]="searchTerm" (keyup)="onSearchTermChanged($event)">
-                <div class="icon-cancel" *ngIf="searchTerm !== ''" (click)="removeSearchTerm()"></div>
+                <!-- SEARCHING-FIELD -->
+                <div class="searching-wrapper">
+                    <input class="searching-field" type="text" placeholder="Suche nach..." [(ngModel)]="searchTerm" (keyup)="onSearchTermChanged($event)">
+                    <div class="icon-cancel" *ngIf="searchTerm !== ''" (click)="removeSearchTerm()"></div>
+                </div>
+
+                <!-- AddInfo Toggle-Button -->
+                <button [ngClass]="{'active': isAddInfoVisible}" (click)="toggleAddInfo()">
+                    <div>AddInfo</div>
+                </button>
             </div>
 
-            <!-- AddInfo Toggle-Button -->
-            <button [ngClass]="{'active': isAddInfoVisible}" (click)="toggleAddInfo()">
-                <div>AddInfo</div>
-            </button>
+            <!-- todo -->
+            <!-- Zeile für filter-items erstellen -->
+            <div class="filter-item-wrapper">
+                <div class="filter-item-container" *ngFor="let item of filterItems">
+                    <span>{{ item.name }}</span>
+                    <i class="icon-cancel"></i>
+                </div>
+            </div>
+
         </div>
 
 
