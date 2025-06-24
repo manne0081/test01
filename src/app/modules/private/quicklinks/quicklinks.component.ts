@@ -1,9 +1,10 @@
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 import { Quicklinks, QUICKLINKS_MOCK } from '../../../mock/quicklinks';
+import { PrivateService } from '../private.service';
 
 @Component({
     selector: 'app-quicklinks',
@@ -18,16 +19,64 @@ import { Quicklinks, QUICKLINKS_MOCK } from '../../../mock/quicklinks';
 
 })
 
-export class QuicklinksComponent {
+export class QuicklinksComponent implements OnInit {
     quicklinkItems: Quicklinks[] = [];
+    urlPath?: string;
 
     constructor(
+        private privateService: PrivateService,
     ) {
         this.quicklinkItems = QUICKLINKS_MOCK;
     }
 
+    ngOnInit(): void {
+        this.privateService.getCurrentUrlPath().subscribe(data => {
+            this.urlPath = data;
+
+            this.quicklinkItems.forEach(branch => {
+                if (branch.name === 'Standard') {
+                    branch.expanded = true;
+                } else {
+                    branch.expanded = false;
+
+                    switch (`${branch.name}|${this.urlPath}`) {
+                        case 'Workspace|tasks':
+                            branch.expanded = true;
+                            break;
+                        case 'Workspace|messages':
+                            branch.expanded = true;
+                            break;
+                        case 'Team|employee':
+                            branch.expanded = true;
+                            break;
+                    }
+                }
+            });
+        });
+    }
+
     toggle(node: Quicklinks) {
-        node.expanded = !node.expanded;
+        // Alle Gruppen lassen sich auf- oder zuklappen
+        // --------------------------------------------
+        // node.expanded = !node.expanded;
+
+        // Die Gruppe Standard ist immer aufgeklappt,
+        // von den weiteren lässt sich immer nur eine Gruppe aufklappen
+        // ------------------------------------------------------------
+        let urlPath: string;
+
+        if (node.name != 'Standard') {
+
+            console.log(this.urlPath);
+
+            this.quicklinkItems.forEach(branch => {
+                if (branch.name === 'Standard') {
+                    branch.expanded = true;
+                } else {
+                    branch.expanded = (branch === node) ? !branch.expanded : false;
+                }
+            });
+        }
     }
 
     drop(event: CdkDragDrop<Quicklinks[]>, parent: Quicklinks) {

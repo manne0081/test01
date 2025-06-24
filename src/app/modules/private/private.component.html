@@ -75,7 +75,7 @@
         <div class="content-container">
 
             <!-- Quicklinks -->
-            <div class="quicklinks-outer-container" *ngIf="currentRoute!= '/dashboard'">
+            <div class="quicklinks-outer-container" *ngIf="currentRoute!= 'dashboard'">
                 <aside class="quicklinks-container" *ngIf="isQuicklinksVisible" @fadeInOut-left>
                     <app-quicklinks></app-quicklinks>
                 </aside>
@@ -87,7 +87,7 @@
             </div>
 
             <!-- AddInfo -->
-            <div class="add-info-outer-container" *ngIf="currentRoute!= '/dashboard'">
+            <div class="add-info-outer-container" *ngIf="currentRoute!= 'dashboard'">
                 <aside class="addinfo-container" *ngIf="isAddInfoVisible" @fadeInOut-right>
                     <app-add-info></app-add-info>
                 </aside>
