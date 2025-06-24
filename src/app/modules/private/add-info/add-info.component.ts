@@ -23,7 +23,7 @@ export class AddInfoComponent {
         private dataService: DataService,
     ) {
         this.privateService.getSelectedObject().subscribe((data:any) => {
-            console.log(data);
+            // console.log(data);
             this.addInfoItems = data;
         });
     }

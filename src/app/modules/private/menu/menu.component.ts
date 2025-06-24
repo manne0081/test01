@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 
 import { PrivateService } from '../private.service';
+import { RouteTrackerService } from '../../../core/services/route-tracker.service';
 
 @Component({
     selector: 'app-menu',
@@ -27,22 +28,23 @@ export class MenuComponent implements OnInit {
     activeMenuItem?: string;
 
     constructor(
-        private privateService: PrivateService,
         private router: Router,
+        private privateService: PrivateService,
     ) {
         this.privateService.getIsMenuCollapsed().subscribe(data => {
             this.menuIsCollapsed = data;
         });
 
-        this.privateService.getCurrentRoute().subscribe(data => {
+        this.privateService.getCurrentUrlPath().subscribe(data => {
             // console.log('route', data);
-            if (data == '/tasks' || data == '/calendar' || data == '/messages') {
+
+            if (data == 'tasks' || data == 'calendar' || data == 'messages') {
                 this.activeMenuItem = 'workspace';
             }
-            if (data == '/employee') {
+            if (data == 'employee') {
                 this.activeMenuItem = 'team';
             }
-            if (data == '/clients') {
+            if (data == 'clients') {
                 this.activeMenuItem = 'partner';
             }
         });

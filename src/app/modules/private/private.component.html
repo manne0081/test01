@@ -19,7 +19,7 @@
             <div class="breadcrumbs">{{ breadcrumbs }}</div>
 
             <!-- 2nd Navigation for workspace -->
-            <div class="second-menu" *ngIf="currentRoute == '/tasks' || currentRoute == '/calendar' || currentRoute == '/messages'">
+            <div class="second-menu" *ngIf="currentRoute == 'tasks' || currentRoute == 'calendar' || currentRoute == 'messages'">
                 <p routerLink="/tasks" routerLinkActive="active">Aufgaben</p>
                 <p>|</p>
                 <p routerLink="/messages" routerLinkActive="active">Nachrichten</p>
@@ -28,21 +28,21 @@
             </div>
 
             <!-- 2nd Navigation for team -->
-            <div class="second-menu" *ngIf="currentRoute == '/employee'">
+            <div class="second-menu" *ngIf="currentRoute == 'employee'">
                 <p routerLink="/employee" routerLinkActive="active">Mitarbeiter</p>
                 <p>|</p>
                 <p routerLinkActive="active">Arbeitszeiten</p>
             </div>
 
             <!-- 2nd Navigation for clients -->
-            <div class="second-menu" *ngIf="currentRoute == '/clients'">
+            <div class="second-menu" *ngIf="currentRoute == 'clients'">
                 <p routerLink="/clients" routerLinkActive="active">Kunden</p>
                 <p>|</p>
                 <p routerLinkActive="active">Lieferanten</p>
             </div>
 
             <!-- 2nd Navigation for projects -->
-            <div class="second-menu" *ngIf="currentRoute == '/projects'">
+            <div class="second-menu" *ngIf="currentRoute == 'projects'">
                 <p routerLinkActive="active">Projekte</p>
             </div>
 
@@ -58,7 +58,7 @@
             </button>
 
             <!-- SEARCHING-FIELD -->
-            <input class="searching-field" type="text" placeholder="Suche nach...">
+            <input class="searching-field" type="text" placeholder="Suche nach..." [(ngModel)]="searchTerm" (keyup)="onSearchTermChanged($event)">
 
             <!-- AddInfo Toggle-Button -->
             <button [ngClass]="{'active': isAddInfoVisible}" (click)="toggleAddInfo()">

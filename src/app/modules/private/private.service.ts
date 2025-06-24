@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
-import { RoutingService } from "../../core/services/routing.service";
 import { CookieService } from 'ngx-cookie-service';
 import { RouteTrackerService } from "../../core/services/route-tracker.service";
 import { TestBed } from '@angular/core/testing';
@@ -11,19 +10,15 @@ import { TestBed } from '@angular/core/testing';
 })
 
 export class PrivateService {
-    private currentRoute = new BehaviorSubject<string>('');
+    private currentUrlPath = new BehaviorSubject<string>('');
+    private currentUrlSearchTerm = new BehaviorSubject<string>('');
+    private currentUrlSortTerm = new BehaviorSubject<string>('');
     private isMenuCollapsed = new BehaviorSubject<boolean>(false);
     private isDashboard = new BehaviorSubject<boolean | undefined>(undefined);
     private isQuicklinksVisible = new BehaviorSubject<boolean>(true);
     private isAddInfoVisible = new BehaviorSubject<boolean>(false);
     private breadcrumbs = new BehaviorSubject<string>('Breadcrumbs');
     private selectedObject = new BehaviorSubject<any>('');
-
-    // todo
-    // What i have to save in cookies
-    // - isMenuCollapsed
-    // - isQuicklinksVisible
-    // - isAddInfoVisible
 
     constructor(
         private routeTracker: RouteTrackerService,
@@ -37,34 +32,44 @@ export class PrivateService {
         // Track current URL by RouteTrackerService
         // For setting some Variables after refreshing the app
         // ****************************************************
-        this.routeTracker.currentUrl$.subscribe(url => {
-            this.currentRoute.next(url);
+        this.routeTracker.getUrlPath().subscribe(url => {
+
+            this.routeTracker.getUrlPath().subscribe(data => {
+                this.currentUrlPath.next(data);
+            });
+            this.routeTracker.getUrlSearchTerm().subscribe(data => {
+                this.currentUrlSearchTerm.next(data);
+
+            });
+            this.routeTracker.getUrlSortTerm().subscribe(data => {
+                this.currentUrlSortTerm.next(data);
+            });
 
             switch (url) {
-                case '/dashboard':
+                case 'dashboard':
                     this.setIsDashboard(true);
                     break;
-                case '/tasks':
+                case 'tasks':
                     this.setIsDashboard(false);
                     this.setBreadcrumbs('Workspace > Aufgaben');
                     break;
-                case '/calendar':
+                case 'calendar':
                     this.setIsDashboard(false);
                     this.setBreadcrumbs('Workspace > Kalender');
                     break;
-                case '/messages':
+                case 'messages':
                     this.setIsDashboard(false);
                     this.setBreadcrumbs('Workspace > Nachrichten');
                     break;
-                case '/employee':
+                case 'employee':
                     this.setIsDashboard(false);
                     this.setBreadcrumbs('Team > Mitarbeiter');
                     break;
-                case '/clients':
+                case 'clients':
                     this.setIsDashboard(false);
                     this.setBreadcrumbs('Partner > Kunden');
                     break;
-                case '/projects':
+                case 'projects':
                     this.setIsDashboard(false);
                     this.setBreadcrumbs('Projekte');
                     break;
@@ -142,8 +147,16 @@ export class PrivateService {
 
     // GETTER
     // ++++++
-    getCurrentRoute() {
-        return this.currentRoute.asObservable();
+    getCurrentUrlPath() {
+        return this.currentUrlPath.asObservable();
+    }
+
+    getCurrentUrlSearchTerm() {
+        return this.currentUrlSearchTerm.asObservable();
+    }
+
+    getCurrentUrlSortTerm() {
+        return this.currentUrlSortTerm.asObservable();
     }
 
     getIsMenuCollapsed() {
