@@ -25,13 +25,13 @@
             <li *ngFor="let branch of quicklinkItems">
 
                 <!-- TreeNode - Header -->
-                <div class="header-container" (click)="toggle(branch)">
+                <div class="header-container">
                     <!-- <i class="icon-chevron-down" *ngIf="branch.expanded && branch.name != 'Standard'"></i>
                     <i class="icon-chevron-right" *ngIf="!branch.expanded && branch.name != 'Standard'"></i>
                     <p class="header-title" [ngStyle]="branch.name === 'Standard' ? {'padding-left': '18px'} : {}">{{ branch.name }}</p> -->
-                    <i class="icon-chevron-down" *ngIf="branch.expanded" [ngStyle]="branch.name === 'Standard' ? {'color': 'var(--icon-disabled)'} : {}"></i>
-                    <i class="icon-chevron-right" *ngIf="!branch.expanded"></i>
-                    <p class="header-title">{{ branch.name }}</p>
+                    <i class="icon-chevron-down" (click)="toggle(branch)" *ngIf="branch.expanded" [ngStyle]="branch.name === 'Standard' ? {'color': 'var(--icon-disabled)'} : {}"></i>
+                    <i class="icon-chevron-right" (click)="toggle(branch)" *ngIf="!branch.expanded"></i>
+                    <p class="header-title" style="font-weight: 500;">{{ branch.name }}</p>
                 </div>
 
                 <!-- TreeNode - Item -->

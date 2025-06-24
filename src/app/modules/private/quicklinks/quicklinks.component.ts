@@ -46,7 +46,19 @@ export class QuicklinksComponent implements OnInit {
                         case 'Workspace|messages':
                             branch.expanded = true;
                             break;
+                        case 'Workspace|calendar':
+                            branch.expanded = true;
+                            break;
+
                         case 'Team|employee':
+                            branch.expanded = true;
+                            break;
+
+                        case 'Partner|clients':
+                            branch.expanded = true;
+                            break;
+
+                        case 'Projekte|projects':
                             branch.expanded = true;
                             break;
                     }
@@ -64,11 +76,7 @@ export class QuicklinksComponent implements OnInit {
         // von den weiteren lässt sich immer nur eine Gruppe aufklappen
         // ------------------------------------------------------------
         let urlPath: string;
-
         if (node.name != 'Standard') {
-
-            console.log(this.urlPath);
-
             this.quicklinkItems.forEach(branch => {
                 if (branch.name === 'Standard') {
                     branch.expanded = true;
