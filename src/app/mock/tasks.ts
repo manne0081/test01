@@ -4,7 +4,7 @@ import { Projects } from "./projects";
 export interface Task {
     id: number;                                 // Eindeutige Ticket-ID
 
-    title: string;                              // Titel oder Betreff des Tickets
+    name: string;                              // Titel oder Betreff des Tickets
     description: string;                        // Detaillierte Beschreibung des Problems oder der Anfrage
     creator: string;                            // Name oder ID des Erstellers des Tickets
     status: 'open' | 'in-progress' | 'closed';  // Aktueller Status des Tickets
@@ -23,14 +23,14 @@ export interface Task {
     modifiedDate?: string;
 }
 
-export const taskFieldNames: (keyof Task)[] = ['id', 'title', 'description', 'creator', 'status', 'priority',
+export const taskFieldNames: (keyof Task)[] = ['id', 'name', 'description', 'creator', 'status', 'priority',
     'category', 'assignedTo', 'createdAt', 'dueDate', 'attachments'
 ];
 
 export const TASK_MOCK: Task[] = [
     {
         id: 0,
-        title: 'Login-Probleme',
+        name: 'Login-Probleme',
         description: 'Benutzer kann sich nicht in das System einloggen.',
         creator: 'Max Mustermann',
         status: 'open',
@@ -49,7 +49,7 @@ export const TASK_MOCK: Task[] = [
     },
     {
         id: 1,
-        title: 'Falsche Rechnungsadresse',
+        name: 'Falsche Rechnungsadresse',
         description: 'Die Rechnungsadresse ist im System falsch hinterlegt.',
         creator: 'Julia Fischer',
         status: 'in-progress',
@@ -68,7 +68,7 @@ export const TASK_MOCK: Task[] = [
     },
     {
         id: 2,
-        title: 'Fehler bei der Produktseite',
+        name: 'Fehler bei der Produktseite',
         description: 'Auf der Produktseite wird ein Fehler beim Laden der Bilder angezeigt.',
         creator: 'Anna Bauer',
         status: 'open',
@@ -87,7 +87,7 @@ export const TASK_MOCK: Task[] = [
     },
     {
         id: 3,
-        title: 'Neues Feature für das Dashboard',
+        name: 'Neues Feature für das Dashboard',
         description: 'Bitte ein neues Diagramm für das Benutzer-Dashboard hinzufügen.',
         creator: 'Sabine Neumann',
         status: 'closed',
@@ -106,7 +106,7 @@ export const TASK_MOCK: Task[] = [
     },
     {
         id: 4,
-        title: 'Performance-Probleme im Backend',
+        name: 'Performance-Probleme im Backend',
         description: 'Die Antwortzeiten des Backends sind stark verzögert.',
         creator: 'Jens Bauer',
         status: 'open',
@@ -125,7 +125,7 @@ export const TASK_MOCK: Task[] = [
     },
     {
         id: 5,
-        title: 'E-Mail-Benachrichtigung funktioniert nicht',
+        name: 'E-Mail-Benachrichtigung funktioniert nicht',
         description: 'Benachrichtigungen werden nicht an die Benutzer gesendet.',
         creator: 'Laura Bergmann',
         status: 'in-progress',
@@ -144,7 +144,7 @@ export const TASK_MOCK: Task[] = [
     },
     {
         id: 6,
-        title: 'Neues Design für die Startseite',
+        name: 'Neues Design für die Startseite',
         description: 'Entwicklung eines neuen Designs für die Startseite.',
         creator: 'Martin Schulz',
         status: 'open',
@@ -163,7 +163,7 @@ export const TASK_MOCK: Task[] = [
     },
     {
         id: 7,
-        title: 'Datenbank-Migration',
+        name: 'Datenbank-Migration',
         description: 'Migration der Datenbank auf einen neuen Server.',
         creator: 'Oliver Becker',
         status: 'open',
@@ -182,7 +182,7 @@ export const TASK_MOCK: Task[] = [
     },
     {
         id: 8,
-        title: 'Problem mit Zahlungsabwicklung',
+        name: 'Problem mit Zahlungsabwicklung',
         description: 'Zahlungen werden nicht korrekt verarbeitet.',
         creator: 'Heike Fischer',
         status: 'in-progress',
@@ -201,7 +201,7 @@ export const TASK_MOCK: Task[] = [
     },
     {
         id: 9,
-        title: 'Anpassung der Datenschutzerklärung',
+        name: 'Anpassung der Datenschutzerklärung',
         description: 'Aktualisierung der Datenschutzerklärung aufgrund neuer Vorschriften.',
         creator: 'Lena Wagner',
         status: 'closed',
@@ -220,7 +220,7 @@ export const TASK_MOCK: Task[] = [
     },
     {
         id: 10,
-        title: 'Überprüfung der Datenschutzerklärung durch Rechtsabteilung',
+        name: 'Überprüfung der Datenschutzerklärung durch Rechtsabteilung',
         description: 'Finale Überprüfung der aktualisierten Datenschutzerklärung durch die Rechtsabteilung.',
         creator: 'Lena Wagner',
         status: 'open',
@@ -239,7 +239,7 @@ export const TASK_MOCK: Task[] = [
     },
     {
         id: 11,
-        title: 'Einbindung der neuen Datenschutzerklärung auf der Website',
+        name: 'Einbindung der neuen Datenschutzerklärung auf der Website',
         description: 'Die überarbeitete Datenschutzerklärung soll auf der Unternehmenswebsite veröffentlicht werden.',
         creator: 'Lena Wagner',
         status: 'in-progress',
@@ -258,7 +258,7 @@ export const TASK_MOCK: Task[] = [
     },
     {
         id: 12,
-        title: 'Schulung zum Umgang mit neuen Datenschutzrichtlinien',
+        name: 'Schulung zum Umgang mit neuen Datenschutzrichtlinien',
         description: 'Interne Schulung für Mitarbeiter zur Umsetzung der neuen Datenschutzvorgaben.',
         creator: 'Lena Wagner',
         status: 'open',

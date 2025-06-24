@@ -58,7 +58,10 @@
             </button>
 
             <!-- SEARCHING-FIELD -->
-            <input class="searching-field" type="text" placeholder="Suche nach..." [(ngModel)]="searchTerm" (keyup)="onSearchTermChanged($event)">
+            <div class="searching-wrapper">
+                <input class="searching-field" type="text" placeholder="Suche nach..." [(ngModel)]="searchTerm" (keyup)="onSearchTermChanged($event)">
+                <div class="icon-cancel" *ngIf="searchTerm !== ''" (click)="removeSearchTerm()"></div>
+            </div>
 
             <!-- AddInfo Toggle-Button -->
             <button [ngClass]="{'active': isAddInfoVisible}" (click)="toggleAddInfo()">

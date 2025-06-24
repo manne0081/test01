@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { Task, TASK_MOCK } from '../../../../../mock/tasks'
@@ -15,8 +15,9 @@ import { DataService } from '../../../../../core/services/data.service';
     styleUrl: './task-list.component.scss'
 })
 
-export class TaskListComponent {
+export class TaskListComponent implements OnInit {
     taskItems: Task[] = [];
+    filteredItems: Task[] = [];
     searchTerm: string = '';
     sortingTerm: string = '';
     selectedItemId: number | null = null;
@@ -26,16 +27,25 @@ export class TaskListComponent {
         private dataService: DataService,
     ) {
         this.taskItems = TASK_MOCK;
+        this.filteredItems = this.taskItems;
         this.privateService.getCurrentUrlSearchTerm().subscribe(data => {
             this.searchTerm = data;
+            this.filterItems();
         });
+        this.privateService.getCurrentUrlSearchTerm().subscribe(data => {
+            this.searchTerm = data;
+            this.filterItems();
+        });
+    }
+
+    ngOnInit(): void {
     }
 
     /**
      * Filtering the items
      */
     filterItems(): void {
-        this.taskItems = this.dataService.filterObjectItems(this.taskItems, this.searchTerm);
+        this.filteredItems = this.dataService.filterObjectItems(this.taskItems, this.searchTerm);
     }
 
     /**

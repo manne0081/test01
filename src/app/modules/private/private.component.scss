@@ -101,13 +101,37 @@
                 color: white;
             }
 
-            .searching-field {
+            .searching-wrapper {
                 background-color: rgb(238, 238, 238);
                 border: 1px solid rgb(212, 212, 212);
                 border-radius: 4px;
-                width: 100%;
                 margin: 0px 8px;
                 padding: 0px 6px;
+                display: flex;
+                align-items: center;
+                flex-grow: 1;
+
+                input {
+                    width: 100%;
+                    padding: 4px 2px;
+                    font-size: 1rem;
+                }
+
+                .icon-cancel {
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    height: 20px;
+                    width: 20px;
+                    margin: 0 0 0 4px;
+                    justify-content: space-around;
+                }
+
+                .icon-cancel:hover {
+                    background-color: rgba(168, 40, 40, 0.6);
+                    color: white;
+                    cursor: pointer;
+                }
             }
         }
 
