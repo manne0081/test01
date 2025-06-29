@@ -184,3 +184,20 @@ button {
     background: #2c5067;
     background: rgba(44, 80, 103, .6);
 }
+
+.cdk-overlay-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 3000 !important;
+    position: relative !important;
+    height: 100vh;
+}
+
+.cdk-overlay-backdrop {
+    background-color: darkorange;
+    z-index: 3001 !important;
+}
+
+.cdk-dialog-container {
+    background-color: blue;
+    z-index: 3002 !important;
+}
