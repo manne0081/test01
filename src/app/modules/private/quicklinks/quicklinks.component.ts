@@ -1,33 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { DragDropModule, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { Dialog, DialogRef, DIALOG_DATA, DialogModule } from '@angular/cdk/dialog';
 
 import { DataService } from '../../../core/services/data.service';
 
 import { Quicklinks, QUICKLINKS_MOCK } from '../../../mock/quicklinks';
 import { PrivateService } from '../private.service';
+import { CdkDialogOverviewExampleDialog } from './cdk-dialog-overview-example-dialog';
 
-@Component({
+export interface DialogData {
+    animal: string;
+    name: string;
+}
+
+
+@Component
+    ({
     selector: 'app-quicklinks',
     standalone: true,
     imports: [
         CommonModule,
         FormsModule,
         DragDropModule,
+        CdkDialogOverviewExampleDialog,
     ],
     templateUrl: './quicklinks.component.html',
     styleUrl: './quicklinks.component.scss',
-
 })
 
 export class QuicklinksComponent implements OnInit {
     quicklinkItems: Quicklinks[] = [];
     urlPath?: string;
 
+    animal: string | undefined;
+    name?: string;
+
     constructor(
         private privateService: PrivateService,
         private dataService: DataService,
+        public dialog: Dialog,
     ) {
         this.quicklinkItems = QUICKLINKS_MOCK;
     }
@@ -98,4 +112,21 @@ export class QuicklinksComponent implements OnInit {
     truncateText(text: string) {
         return this.dataService.truncateText(text, 16);
     }
+
+    openDialog(): void {
+        console.log('open dialog...');
+
+        const dialogRef = this.dialog.open<string>(CdkDialogOverviewExampleDialog, {
+          width: '250px',
+          data: {name: this.name, animal: this.animal},
+        });
+
+        console.log(dialogRef);
+
+        dialogRef.closed.subscribe(result => {
+          console.log('The dialog was closed');
+          this.animal = result;
+        });
+    }
+
 }
