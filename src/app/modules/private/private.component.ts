@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
@@ -15,6 +15,7 @@ import { PrivateService } from './private.service';
 interface FilterItem {
     id: number | string;
     name: string;
+    value: string;
 }
 
 @Component({
@@ -63,9 +64,6 @@ export class PrivateComponent implements OnInit {
     sortingTerm: string = '';
 
     filterItems: FilterItem[] = [
-        { id: 0, name: 'wip-1' },
-        { id: 1, name: 'wip-2' },
-        { id: 2, name: 'wip-3' },
     ];
 
     constructor(
@@ -138,6 +136,7 @@ export class PrivateComponent implements OnInit {
 
         // todo
         // little chips to show all filter items
+        this.filterItems.push({ id: 0, name: 'searchTerm', value: searchTerm });
     }
 
     /**
@@ -168,5 +167,20 @@ export class PrivateComponent implements OnInit {
                 // console.log('Navigation failed');
             }
         });
+    }
+
+    toggelFilter(): void {
+
+        if (this.filterItems.length > 0) {
+            this.filterItems = [];
+        } else {
+            this.filterItems = [
+                { id: 0, name: 'Searching: ', value: "wip-1" },
+                { id: 1, name: 'Fieldname: ', value: "wip-2" },
+                { id: 2, name: 'Fieldname: ', value: "wip-3" },
+            ];
+        }
+
+        console.log(this.filterItems);
     }
 }

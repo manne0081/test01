@@ -42,7 +42,8 @@
                             <span cdkDragHandle>
                                 <i class="icon-hand" *ngIf="branch.name!='Standard'"></i>
                             </span>
-                            <span>{{ leaf.name }}</span>
+                            <!-- <span>{{ leaf.name }}</span> -->
+                            <span>{{ truncateText(leaf.name) }}</span>
                         </div>
 
                     </li>

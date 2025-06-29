@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
+import { DataService } from '../../../core/services/data.service';
+
 import { Quicklinks, QUICKLINKS_MOCK } from '../../../mock/quicklinks';
 import { PrivateService } from '../private.service';
 
@@ -25,6 +27,7 @@ export class QuicklinksComponent implements OnInit {
 
     constructor(
         private privateService: PrivateService,
+        private dataService: DataService,
     ) {
         this.quicklinkItems = QUICKLINKS_MOCK;
     }
@@ -90,5 +93,9 @@ export class QuicklinksComponent implements OnInit {
     drop(event: CdkDragDrop<Quicklinks[]>, parent: Quicklinks) {
         if (!parent.children) return;
         moveItemInArray(parent.children, event.previousIndex, event.currentIndex);
+    }
+
+    truncateText(text: string) {
+        return this.dataService.truncateText(text, 16);
     }
 }

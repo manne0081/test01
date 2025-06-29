@@ -48,38 +48,57 @@
 
         </div>
 
-        <!-- Filter-Element => Quicklinks- and AddInfo- Toggle-Button / Searching / Filtering / Sorting -->
-        <!-- ########################################################################################## -->
+        <!-- Filter-Element (w/o active filters) => Quicklinks- and AddInfo- Toggle-Button / Searching / Filtering / Sorting -->
+        <!-- ############################################################################################################### -->
         <div class="filter-container" *ngIf="!isDashbaord">
 
             <div class="filter-function-container">
+
                 <!-- Quicklinks Toggle-Button -->
-                <button [ngClass]="{'active': isQuicklinksVisible}" (click)="toggleQuicklinks()">
+                <button class="quicklinks" [ngClass]="{'active': isQuicklinksVisible}" (click)="toggleQuicklinks()">
+                    <i class="icon-chevron-left quicklinks" *ngIf="isQuicklinksVisible"></i>
+                    <i class="icon-chevron-right quicklinks" *ngIf="!isQuicklinksVisible"></i>
                     <div>Quicklinks</div>
                 </button>
 
                 <!-- SEARCHING-FIELD -->
                 <div class="searching-wrapper">
-                    <input class="searching-field" type="text" placeholder="Suche nach..." [(ngModel)]="searchTerm" (keyup)="onSearchTermChanged($event)">
+                    <input #myInput class="searching-field" type="text" placeholder="Suche nach..." [(ngModel)]="searchTerm" (keyup)="onSearchTermChanged($event)">
                     <div class="icon-cancel" *ngIf="searchTerm !== ''" (click)="removeSearchTerm()"></div>
                 </div>
 
+                <button (click)="toggelFilter()">toggel filter-items</button>
+
+                <!-- FILTER and SORT Button -->
+                <div class="filter-button-container">
+                    <button class="filter-button">
+                        Filter
+                    </button>
+                    <button class="sort-button">
+                        Sort
+                    </button>
+                </div>
+
                 <!-- AddInfo Toggle-Button -->
-                <button [ngClass]="{'active': isAddInfoVisible}" (click)="toggleAddInfo()">
+                <button class="add-info" [ngClass]="{'active': isAddInfoVisible}" (click)="toggleAddInfo()">
                     <div>AddInfo</div>
+                    <i class="icon-chevron-right add-info" *ngIf="isAddInfoVisible"></i>
+                    <i class="icon-chevron-left add-info" *ngIf="!isAddInfoVisible"></i>
                 </button>
             </div>
 
-            <!-- todo -->
-            <!-- Zeile für filter-items erstellen -->
-            <div class="filter-item-wrapper">
-                <div class="filter-item-container" *ngFor="let item of filterItems">
-                    <span>{{ item.name }}</span>
-                    <i class="icon-cancel"></i>
+            <div class="filter-item-wrapper" *ngIf="filterItems.length > 0">
+                <div class="test">
+                    <div class="filter-item-container" *ngFor="let item of filterItems">
+                        <span>{{ item.name }}</span>
+                        <span>{{ item.value }}</span>
+                        <i class="icon-cancel"></i>
+                    </div>
                 </div>
             </div>
 
         </div>
+
 
 
         <!-- Content-Container => Quicklinks / Object-Tiles / AddInfo / Actions -->
