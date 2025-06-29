@@ -188,8 +188,9 @@ button {
 .cdk-overlay-container {
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 3000 !important;
-    position: relative !important;
+    position: fixed !important;
     height: 100vh;
+    width: 100vw;
 }
 
 .cdk-overlay-backdrop {

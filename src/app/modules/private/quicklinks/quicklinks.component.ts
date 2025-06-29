@@ -121,8 +121,6 @@ export class QuicklinksComponent implements OnInit {
           data: {name: this.name, animal: this.animal},
         });
 
-        console.log(dialogRef);
-
         dialogRef.closed.subscribe(result => {
           console.log('The dialog was closed');
           this.animal = result;
