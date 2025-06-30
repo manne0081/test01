@@ -117,6 +117,10 @@ body {
     width: 100%;
 }
 
+hr {
+    margin: 24px 0;
+}
+
 p, span {
     // color: var(--font-default);
 }
@@ -152,6 +156,66 @@ button {
 }
 
 
+
+.cdk-overlay-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;                  // Versteckt den Container, wenn kein Dialog aktiv ist
+    z-index: 1000 !important;       // Sicherstellen, dass der Container über allem liegt
+}
+
+.cdk-overlay-container:has(.cdk-overlay-pane) {
+    display: block;                 // Zeigt den Container an, sobald ein Dialog aktiv ist
+}
+
+.custom-backdrop {
+    // background: rgba(0, 0, 0, 0.5);
+    background: lime;
+    position: fixed !important;
+    /* Unbedingt notwendig! */
+    top: 100px;
+    left: 100px;
+    // right: 0;
+    // bottom: 0;
+    // pointer-events: all;
+    /* Falls es ignoriert wird */
+    z-index: 1000 !important;
+}
+
+.cdk-overlay-backdrop {
+    // background-color: rgba(0, 0, 0, .4);
+    background-color: lime;
+    /* Schwarzer, transparenter Hintergrund */
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    /* Der Backdrop sollte knapp unter dem Dialog sein */
+}
+
+// .custom-backdrop {
+//     background: rgba(0, 0, 0, 0.5);
+// }
+
+.cdk-overlay-pane {
+    background-color: lime;
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1001 !important;
+}
+
+
+
 // Specialy for Scrollbar
 // **********************
 ::-webkit-scrollbar {
@@ -185,20 +249,20 @@ button {
     background: rgba(44, 80, 103, .6);
 }
 
-.cdk-overlay-container {
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 3000 !important;
-    position: fixed !important;
-    height: 100vh;
-    width: 100vw;
-}
+// .cdk-overlay-container {
+//     background-color: rgba(0, 0, 0, 0.6);
+//     z-index: 3000 !important;
+//     position: fixed !important;
+//     height: 100vh;
+//     width: 100vw;
+// }
 
-.cdk-overlay-backdrop {
-    background-color: darkorange;
-    z-index: 3001 !important;
-}
+// .cdk-overlay-backdrop {
+//     background-color: darkorange;
+//     z-index: 3001 !important;
+// }
 
-.cdk-dialog-container {
-    background-color: blue;
-    z-index: 3002 !important;
-}
+// .cdk-dialog-container {
+//     background-color: blue;
+//     z-index: 3002 !important;
+// }

@@ -1,0 +1,39 @@
+/* :host {
+    display: block;
+}
+
+.dialog-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    min-width: 300px;
+}
+
+.actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+} */
+
+
+:host {
+    display: block;
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    max-width: 500px;
+    animation: custom-dialog-enter 400ms ease;
+    z-index: 1000 !important;
+}
+
+@keyframes custom-dialog-enter {
+    from {
+        transform: scale(0) rotate(180deg);
+    }
+
+    to {
+        transform: none;
+    }
+}

@@ -175,12 +175,10 @@ export class PrivateComponent implements OnInit {
             this.filterItems = [];
         } else {
             this.filterItems = [
-                { id: 0, name: 'Searching: ', value: "wip-1" },
-                { id: 1, name: 'Fieldname: ', value: "wip-2" },
-                { id: 2, name: 'Fieldname: ', value: "wip-3" },
+                { id: 0, name: 'Searching: ', value: "WIP" },
+                { id: 1, name: 'Fieldname: ', value: "WIP" },
+                { id: 2, name: 'Fieldname: ', value: "WIP" },
             ];
         }
-
-        console.log(this.filterItems);
     }
 }
