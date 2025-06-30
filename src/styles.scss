@@ -207,11 +207,16 @@ button {
 // }
 
 .cdk-overlay-pane {
-    background-color: lime;
+    // background-color: lime;
     margin-top: 80px;
-    display: flex;
-    justify-content: space-around;
+    // display: flex;
+    // justify-content: space-around;
     z-index: 1001 !important;
+}
+
+.cdk-dialog-container {
+    display: flex !important;
+    justify-content: space-around !important;
 }
 
 
