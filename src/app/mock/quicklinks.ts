@@ -12,10 +12,10 @@ export const QUICKLINKS_MOCK: Quicklinks[] = [
         name: 'Standard',
         expanded: true,
         children: [
-            { id: 0, name: 'Angebot erstellen', value: 'TASK-101' },
-            { id: 1, name: 'Rechnung prüfen', value: 'TASK-102' },
-            { id: 2, name: 'Meeting vorbereiten', value: 'TASK-103' },
-            { id: 3, name: 'Kundenfeedback einholen', value: 'TASK-104' },
+            { id: 0, name: 'Angebot erstellen', value: '/' },
+            { id: 1, name: 'Rechnung prüfen', value: '/' },
+            { id: 2, name: 'Meeting vorbereiten', value: '/' },
+            { id: 3, name: 'Kundenfeedback einholen', value: '/' },
         ]
     },
     {
@@ -23,13 +23,13 @@ export const QUICKLINKS_MOCK: Quicklinks[] = [
         name: 'Workspace',
         expanded: false,
         children: [
-            { id: 0, name: 'Projektplan Q3', value: 'DOC-201' },
-            { id: 1, name: 'Urlaubsantrag', value: 'FORM-202' },
-            { id: 2, name: 'Firmenhandbuch', value: 'DOC-203' },
-            { id: 3, name: 'Onboarding-Checkliste', value: 'CHECK-204' },
-            { id: 4, name: 'Meetingraum buchen', value: 'TOOL-205' },
-            { id: 5, name: 'Zeiterfassung', value: 'TOOL-206' },
-            { id: 6, name: 'Abteilungs-Chat', value: 'CHAT-207' },
+            { id: 0, name: 'Enthält pro', value: '/tasks?search=pro&sort=' },
+            { id: 1, name: 'Enthält login', value: '/tasks?search=login&sort=' },
+            { id: 2, name: 'Enthält fehler', value: '/tasks?search=fehler&sort=' },
+            { id: 3, name: 'Enthält mail', value: '/tasks?search=mail&sort=' },
+            { id: 4, name: 'Enthält daten', value: '/tasks?search=daten&sort=' },
+            { id: 5, name: 'Enthält neu', value: '/tasks?search=neu&sort=' },
+            { id: 6, name: 'Enthält prüfung', value: '/tasks?search=prüfung&sort=' },
         ]
     },
     {
@@ -37,10 +37,10 @@ export const QUICKLINKS_MOCK: Quicklinks[] = [
         name: 'Team',
         expanded: false,
         children: [
-            { id: 0, name: 'Max Mustermann', value: 'USER-301' },
-            { id: 1, name: 'Erika Musterfrau', value: 'USER-302' },
-            { id: 2, name: 'Lars Beispiel', value: 'USER-303' },
-            { id: 3, name: 'Sven Teamlead', value: 'USER-304' },
+            { id: 0, name: 'Max Mustermann', value: '/' },
+            { id: 1, name: 'Erika Musterfrau', value: '/' },
+            { id: 2, name: 'Lars Beispiel', value: '/' },
+            { id: 3, name: 'Sven Teamlead', value: '/' },
         ]
     },
     {
@@ -48,13 +48,9 @@ export const QUICKLINKS_MOCK: Quicklinks[] = [
         name: 'Partner',
         expanded: false,
         children: [
-            { id: 0, name: 'Acme GmbH', value: 'PARTNER-401' },
-            { id: 1, name: 'Muster AG', value: 'PARTNER-402' },
-            { id: 2, name: 'Beispiel Solutions', value: 'PARTNER-403' },
-            { id: 3, name: 'Partner IT', value: 'PARTNER-404' },
-            { id: 4, name: 'Netzwerk GmbH', value: 'PARTNER-405' },
-            { id: 5, name: 'Consulting AG', value: 'PARTNER-406' },
-            { id: 6, name: 'Marketing Experts', value: 'PARTNER-407' },
+            { id: 0, name: 'Acme GmbH', value: '/' },
+            { id: 1, name: 'Muster AG', value: '/' },
+            { id: 2, name: 'Beispiel Solutions', value: '/' },
         ]
     },
     {
@@ -62,9 +58,9 @@ export const QUICKLINKS_MOCK: Quicklinks[] = [
         name: 'Projekte',
         expanded: false,
         children: [
-            { id: 0, name: 'Website Relaunch', value: 'PROJECT-501' },
-            { id: 1, name: 'App Entwicklung', value: 'PROJECT-502' },
-            { id: 2, name: 'Cloud Migration', value: 'PROJECT-503' },
+            { id: 0, name: 'Website Relaunch', value: '/' },
+            { id: 1, name: 'App Entwicklung', value: '/' },
+            { id: 2, name: 'Cloud Migration', value: '/' },
         ]
     },
 ];

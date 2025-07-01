@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { DragDropModule, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
@@ -26,11 +27,13 @@ import { CdkDialogEditQuicklink } from './dialog-edit-quicklink';
 
 export class QuicklinksComponent implements OnInit {
     quicklinkItems: Quicklinks[] = [];
+    quicklinkSearchTerm?: string;
     urlPath?: string;
 
     constructor(
         private privateService: PrivateService,
         private dataService: DataService,
+        private router: Router,
         public dialog: Dialog,
     ) {
         this.quicklinkItems = QUICKLINKS_MOCK;
@@ -74,11 +77,15 @@ export class QuicklinksComponent implements OnInit {
         });
     }
 
+    removeQuicklinkSearchTerm(): void {
+        this.quicklinkSearchTerm = "";
+    }
+
     /**
      *
      * @param node
      */
-    toggle(node: Quicklinks) {
+    toggleQuicklinkGroup(node: Quicklinks) {
         // Version 1 - Alle Gruppen lassen sich auf- oder zuklappen
         // --------------------------------------------------------
         // node.expanded = !node.expanded;
@@ -120,36 +127,29 @@ export class QuicklinksComponent implements OnInit {
 
     /**
      *
+     * @param quicklink
+     */
+    openQuicklink(quicklink: Quicklinks): void {
+        if (quicklink.value != '/') {
+            this.router.navigateByUrl(quicklink.value || "");
+        }
+    }
+
+    /**
+     *
      * @param item
      */
     openDialog(quicklink: Quicklinks): void {
-        // const dialogRef =
-        //     this.dialog.open<Quicklinks>(CdkDialogEditQuicklink, {
-        //         data: quicklink    // <--- Hier wird das Objekt übergeben
-        //     });
-
-        // dialogRef.closed.subscribe((result: Quicklinks | undefined) => {
-        //     if (result) {
-        //     // Hier kannst du die geänderten Daten übernehmen
-        //     console.log('Geänderte Daten:', result);
-        //     // z.B. in ein Array zurückschreiben, speichern, etc.
-        //     }
-        // });
-
-
 
         const dialogRef2 = this.dialog.open<Quicklinks, Quicklinks, CdkDialogEditQuicklink>(CdkDialogEditQuicklink, {
             data: { ...quicklink } // <--- Kopie, nicht das Original!
         });
 
-          dialogRef2.closed.subscribe((result: Quicklinks | undefined) => {
+        dialogRef2.closed.subscribe((result: Quicklinks | undefined) => {
             if (result) {
-              // Nur wenn gespeichert wurde, die Änderungen übernehmen!
-              Object.assign(quicklink, result);
+                // Nur wenn gespeichert wurde, die Änderungen übernehmen!
+                Object.assign(quicklink, result);
             }
         });
-
-
-
     }
 }

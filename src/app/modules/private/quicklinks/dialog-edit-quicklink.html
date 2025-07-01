@@ -10,8 +10,11 @@
 
 <div class="content-container">
     <!-- <span>{{ quicklinkToEdit?.name }}</span> -->
-    <input type="text" [(ngModel)]="quicklinkToEdit!.name">
-    <input type="text" [(ngModel)]="quicklinkToEdit!.value">
+    <label for="quicklink-name">Name:</label>
+    <input id="quicklink-name" type="text" [(ngModel)]="quicklinkToEdit!.name">
+
+    <label for="quicklink-value">URL:</label>
+    <input id="quicklink-value" type="text" [(ngModel)]="quicklinkToEdit!.value">
 </div>
 
 
