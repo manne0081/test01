@@ -7,7 +7,10 @@ import { Quicklinks } from '../../../mock/quicklinks';
 @Component({
     selector: 'cdk-dialog-edit-quicklink',
     standalone: true,
-    imports: [CommonModule, FormsModule],
+    imports: [
+        CommonModule,
+        FormsModule
+    ],
     templateUrl: './dialog-edit-quicklink.html',
     styleUrls: ['./dialog-edit-quicklink.scss'],
 })
@@ -19,11 +22,13 @@ export class CdkDialogEditQuicklink {
     quicklinkToEdit?: Quicklinks;
 
     constructor(
+        @Inject(DIALOG_DATA) public data: any,
         public dialogRef: DialogRef,
-        @Inject(DIALOG_DATA) public data: any
     ) {
         this.quicklinkToEdit = data;
-        console.log(data.name);
     }
 
+    save() {
+        this.dialogRef.close(this.quicklinkToEdit);
+    }
 }

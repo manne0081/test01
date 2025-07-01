@@ -139,12 +139,18 @@
                         }
                     }
 
+                    span:hover {
+
+                        i {
+                                color: white;
+                        }
+                    }
+
                     .edit-quicklink {
                         border-radius: 4px;
                         display: none;
-                        position: absolute;
-                        right: 1px;
-                        padding-left: 4px
+                        margin-left: auto;
+                        padding-left: 4px;
                     }
                 }
 
@@ -158,14 +164,22 @@
                         i {
                             color: var(--font-default);
                         }
+
+                        i:hover {
+                            color: rgb(6, 54, 8);
+                        }
                     }
 
                     .edit-quicklink {
+                        // border-radius: 4px;
+                        // display: none;
+                        // margin-left: auto;
+                        // padding-left: 4px;
                         display: block;
                     }
 
                     .edit-quicklink:hover {
-                        background-color: rgba(46, 125, 50, .4);
+                        background-color: rgba(46, 125, 50, .6);
                         i {
                             color: white
                         }
@@ -233,6 +247,13 @@
 
     i {
         margin-right: 6px;
+    }
+
+    .edit-quicklink {
+        // border-radius: 4px;
+        // display: none;
+        margin-left: auto;
+        padding-left: 4px;
     }
 }
 

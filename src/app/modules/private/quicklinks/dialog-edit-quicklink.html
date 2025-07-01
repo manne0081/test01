@@ -1,3 +1,21 @@
-<span>{{ quicklinkToEdit?.name }}</span>
-<hr>
-<button (click)="dialogRef.close()">Close</button>
+<header class="header-container">
+    <span>
+        Edit Quicklink
+    </span>
+    <div>
+        <i class="icon-cancel" (click)="dialogRef.close()"></i>
+    </div>
+</header>
+
+
+<div class="content-container">
+    <!-- <span>{{ quicklinkToEdit?.name }}</span> -->
+    <input type="text" [(ngModel)]="quicklinkToEdit!.name">
+    <input type="text" [(ngModel)]="quicklinkToEdit!.value">
+</div>
+
+
+<footer class="footer-container">
+    <button (click)="save()">Speichern</button>
+    <button (click)="dialogRef.close()">Abbrechen</button>
+</footer>

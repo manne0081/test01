@@ -34,16 +34,6 @@ export class QuicklinksComponent implements OnInit {
         public dialog: Dialog,
     ) {
         this.quicklinkItems = QUICKLINKS_MOCK;
-
-        // this.overlayRef.backdropClick().subscribe((event: MouseEvent) => {
-        //     this.closeDialog();
-        // });
-
-    }
-
-    closeDialog() {
-        console.log('close dialog...');
-        // this.overlayRef.dispose(); // oder .detach(), je nach gewünschtem Verhalten
     }
 
     ngOnInit(): void {
@@ -84,12 +74,16 @@ export class QuicklinksComponent implements OnInit {
         });
     }
 
+    /**
+     *
+     * @param node
+     */
     toggle(node: Quicklinks) {
-        // Alle Gruppen lassen sich auf- oder zuklappen
-        // --------------------------------------------
+        // Version 1 - Alle Gruppen lassen sich auf- oder zuklappen
+        // --------------------------------------------------------
         // node.expanded = !node.expanded;
 
-        // Die Gruppe Standard ist immer aufgeklappt,
+        // Version 2 - Die Gruppe Standard ist immer aufgeklappt,
         // von den weiteren lässt sich immer nur eine Gruppe aufklappen
         // ------------------------------------------------------------
         let urlPath: string;
@@ -104,25 +98,58 @@ export class QuicklinksComponent implements OnInit {
         }
     }
 
+    /**
+     *
+     * @param event
+     * @param parent
+     * @returns
+     */
     drop(event: CdkDragDrop<Quicklinks[]>, parent: Quicklinks) {
         if (!parent.children) return;
         moveItemInArray(parent.children, event.previousIndex, event.currentIndex);
     }
 
+    /**
+     *
+     * @param text
+     * @returns
+     */
     truncateText(text: string) {
-        return this.dataService.truncateText(text, 16);
+        return this.dataService.truncateText(text, 17);
     }
-
 
     /**
      *
+     * @param item
      */
-    openDialog(item: any): void {
-        console.log(item);
-        // this.dialog.open<string>(CdkDialogEditQuicklink);
-        this.dialog.open(CdkDialogEditQuicklink, {
-            data: item    // <--- Hier wird das Objekt übergeben
-        });
-    }
+    openDialog(quicklink: Quicklinks): void {
+        // const dialogRef =
+        //     this.dialog.open<Quicklinks>(CdkDialogEditQuicklink, {
+        //         data: quicklink    // <--- Hier wird das Objekt übergeben
+        //     });
 
+        // dialogRef.closed.subscribe((result: Quicklinks | undefined) => {
+        //     if (result) {
+        //     // Hier kannst du die geänderten Daten übernehmen
+        //     console.log('Geänderte Daten:', result);
+        //     // z.B. in ein Array zurückschreiben, speichern, etc.
+        //     }
+        // });
+
+
+
+        const dialogRef2 = this.dialog.open<Quicklinks, Quicklinks, CdkDialogEditQuicklink>(CdkDialogEditQuicklink, {
+            data: { ...quicklink } // <--- Kopie, nicht das Original!
+        });
+
+          dialogRef2.closed.subscribe((result: Quicklinks | undefined) => {
+            if (result) {
+              // Nur wenn gespeichert wurde, die Änderungen übernehmen!
+              Object.assign(quicklink, result);
+            }
+        });
+
+
+
+    }
 }

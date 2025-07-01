@@ -72,6 +72,13 @@ $brand-font-3: #dfe0e2;
     --filter-item-background: #{$bx-white-110};
     --input-background: #{$bx-white-110};
 
+
+    --header-height: 48px;
+    --menu-width: 200px;
+    --quicklinks-width: 200px;
+    --add-info-width: 200px;
+
+
     // BUTTONS
     // #######
     --button-default-bg: #{$bx-white-110};
@@ -80,17 +87,22 @@ $brand-font-3: #dfe0e2;
     --button-default-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.08);
 
     --button-highlight-bg: #{$bx-green};
-
     --button-danger-bg: #{$bx-red};
 
 
+    // DIALOG
+    // ######
+    --dialog-bg: #{$bx-white};
+    --dialog-header-bg: var(--primary-color);
+    --dialog-footer-bg: var(--secondary-color);
+    --dialog-footer-button-bg: #{$bx-white-110};
+    --dialog-footer-button-bg-hover: #{$bx-white-120};
+
+
+    // SCROLL-BAR
+    // ##########
     --scrollbar-track: #{$bx-white-110};
     --scrollbar-thumb: var(--highlight);
-
-    --header-height: 48px;
-    --menu-width: 200px;
-    --quicklinks-width: 200px;
-    --add-info-width: 200px;
 }
 
 // Generally TAG-CSS
@@ -156,7 +168,8 @@ button {
 }
 
 
-
+// Specialy for Dialog-Container
+// *****************************
 .cdk-overlay-container {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(1.2px);
@@ -197,12 +210,25 @@ button {
 
 .cdk-overlay-pane {
     margin-top: 80px;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+            "Segoe UI Symbol";
     z-index: 1001 !important;
+
+    button {
+        outline: none;
+    }
 }
 
 .cdk-dialog-container {
     display: flex !important;
     justify-content: space-around !important;
+
+    button {
+        background-color: var(--dialog-footer-button-bg);
+        border: 1px solid #b9b9b9;
+        margin-left: 6px;
+    }
 }
 
 
