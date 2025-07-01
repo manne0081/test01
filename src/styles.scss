@@ -159,6 +159,7 @@ button {
 
 .cdk-overlay-container {
     background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(1.2px);
     position: fixed;
     top: 0;
     left: 0;
@@ -173,22 +174,14 @@ button {
 }
 
 .custom-backdrop {
-    // background: rgba(0, 0, 0, 0.5);
-    background: lime;
     position: fixed !important;
     /* Unbedingt notwendig! */
     top: 100px;
     left: 100px;
-    // right: 0;
-    // bottom: 0;
-    // pointer-events: all;
-    /* Falls es ignoriert wird */
     z-index: 1000 !important;
 }
 
 .cdk-overlay-backdrop {
-    // background-color: rgba(0, 0, 0, .4);
-    background-color: lime;
     /* Schwarzer, transparenter Hintergrund */
     width: 100vw;
     height: 100vh;
@@ -202,15 +195,8 @@ button {
     /* Der Backdrop sollte knapp unter dem Dialog sein */
 }
 
-// .custom-backdrop {
-//     background: rgba(0, 0, 0, 0.5);
-// }
-
 .cdk-overlay-pane {
-    // background-color: lime;
     margin-top: 80px;
-    // display: flex;
-    // justify-content: space-around;
     z-index: 1001 !important;
 }
 
@@ -253,21 +239,3 @@ button {
     background: #2c5067;
     background: rgba(44, 80, 103, .6);
 }
-
-// .cdk-overlay-container {
-//     background-color: rgba(0, 0, 0, 0.6);
-//     z-index: 3000 !important;
-//     position: fixed !important;
-//     height: 100vh;
-//     width: 100vw;
-// }
-
-// .cdk-overlay-backdrop {
-//     background-color: darkorange;
-//     z-index: 3001 !important;
-// }
-
-// .cdk-dialog-container {
-//     background-color: blue;
-//     z-index: 3002 !important;
-// }

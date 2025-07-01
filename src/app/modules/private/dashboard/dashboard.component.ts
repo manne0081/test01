@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
-import { DialogService } from './dialog.service';
-import {Dialog, DialogModule, DialogRef} from '@angular/cdk/dialog';
+import { Dialog, DialogModule } from '@angular/cdk/dialog';
 
+import { CdkDialogStylingExample } from './cdk-dialog-overview-example-dialog';
 
 @Component({
     selector: 'app-dashboard',
@@ -22,7 +22,6 @@ import {Dialog, DialogModule, DialogRef} from '@angular/cdk/dialog';
     styleUrl: './dashboard.component.scss'
 })
 
-
 export class DashboardComponent {
     today: number = Date.now();
     pi: number = 3.14159265359;
@@ -34,18 +33,6 @@ export class DashboardComponent {
     ){}
 
     openDialog(): void {
-        this.dialog.open<string>(CdkDialogStylingExampleDialog);
+        this.dialog.open<string>(CdkDialogStylingExample);
     }
-}
-
-
-@Component({
-    selector: 'cdk-dialog-styling-example-dialog',
-    templateUrl: './cdk-dialog-overview-example-dialog.html',
-    styleUrl: './cdk-dialog-overview-example-dialog.css',
-    standalone: true,
-})
-
-export class CdkDialogStylingExampleDialog {
-    constructor(public dialogRef: DialogRef) {}
 }
