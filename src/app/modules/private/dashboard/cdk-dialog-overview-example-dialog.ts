@@ -12,7 +12,7 @@ import { DialogRef } from '@angular/cdk/dialog';
 })
 
 export class CdkDialogStylingExample {
-    // @Input() initialValue = '';
+    @Input() initialValue = '';
     // @Output() closed = new EventEmitter<string | null>();
 
     // value = '';

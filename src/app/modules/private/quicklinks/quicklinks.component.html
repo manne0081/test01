@@ -38,14 +38,17 @@
                 <ul class="tree-node-item-container" *ngIf="branch.expanded">
                     <li class="tree-node-item" cdkDropList [cdkDropListData]="branch.children || []" (cdkDropListDropped)="drop($event, branch)">
 
-                        <div class="tree-node" *ngFor="let leaf of branch.children" cdkDrag>
+                        <div class="tree-node" *ngFor="let leaf of branch.children" cdkDrag style="position: relative;">
                             <span cdkDragHandle>
                                 <i class="icon-hand" *ngIf="branch.name!='Standard'"></i>
                             </span>
                             <!-- <span>{{ leaf.name }}</span> -->
                             <span>{{ truncateText(leaf.name) }}</span>
+                            <!-- <div class="icon-edit" (click)="openDialog(leaf)" style="position: absolute; right: 0px;"></div> -->
+                            <span class="edit-quicklink">
+                                <i class="icon-edit" (click)="openDialog(leaf)" style=""></i>
+                            </span>
                         </div>
-
                     </li>
                 </ul>
             </li>

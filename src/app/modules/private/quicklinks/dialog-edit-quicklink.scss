@@ -1,0 +1,23 @@
+:host {
+    display: block;
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    max-width: 500px;
+    animation: custom-dialog-enter 400ms ease;
+    z-index: 1000 !important;
+}
+
+@keyframes custom-dialog-enter {
+    from {
+        transform: scale(0) rotate(180deg);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+button:hover {
+    cursor: pointer;
+}

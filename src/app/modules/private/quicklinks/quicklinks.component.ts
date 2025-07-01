@@ -8,6 +8,8 @@ import { DataService } from '../../../core/services/data.service';
 
 import { Quicklinks, QUICKLINKS_MOCK } from '../../../mock/quicklinks';
 import { PrivateService } from '../private.service';
+import { Dialog } from '@angular/cdk/dialog';
+import { CdkDialogEditQuicklink } from './dialog-edit-quicklink';
 
 @Component
     ({
@@ -29,6 +31,7 @@ export class QuicklinksComponent implements OnInit {
     constructor(
         private privateService: PrivateService,
         private dataService: DataService,
+        public dialog: Dialog,
     ) {
         this.quicklinkItems = QUICKLINKS_MOCK;
 
@@ -109,4 +112,17 @@ export class QuicklinksComponent implements OnInit {
     truncateText(text: string) {
         return this.dataService.truncateText(text, 16);
     }
+
+
+    /**
+     *
+     */
+    openDialog(item: any): void {
+        console.log(item);
+        // this.dialog.open<string>(CdkDialogEditQuicklink);
+        this.dialog.open(CdkDialogEditQuicklink, {
+            data: item    // <--- Hier wird das Objekt übergeben
+        });
+    }
+
 }

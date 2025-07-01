@@ -138,6 +138,14 @@
                             color: #b1b1b1;
                         }
                     }
+
+                    .edit-quicklink {
+                        border-radius: 4px;
+                        display: none;
+                        position: absolute;
+                        right: 1px;
+                        padding-left: 4px
+                    }
                 }
 
                 .tree-node:hover {
@@ -149,6 +157,17 @@
 
                         i {
                             color: var(--font-default);
+                        }
+                    }
+
+                    .edit-quicklink {
+                        display: block;
+                    }
+
+                    .edit-quicklink:hover {
+                        background-color: rgba(46, 125, 50, .4);
+                        i {
+                            color: white
                         }
                     }
                 }

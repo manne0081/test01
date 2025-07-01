@@ -32,7 +32,7 @@ export class DashboardComponent {
         public dialog: Dialog,
     ){}
 
-    openDialog(): void {
+    openDialog(text: string): void {
         this.dialog.open<string>(CdkDialogStylingExample);
     }
 }
