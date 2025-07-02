@@ -26,9 +26,6 @@
 
                 <!-- TreeNode - Header -->
                 <div class="header-container">
-                    <!-- <i class="icon-chevron-down" *ngIf="branch.expanded && branch.name != 'Standard'"></i>
-                    <i class="icon-chevron-right" *ngIf="!branch.expanded && branch.name != 'Standard'"></i>
-                    <p class="header-title" [ngStyle]="branch.name === 'Standard' ? {'padding-left': '18px'} : {}">{{ branch.name }}</p> -->
                     <i class="icon-chevron-down" (click)="toggleQuicklinkGroup(branch)" *ngIf="branch.expanded" [ngStyle]="branch.name === 'Standard' ? {'color': 'var(--icon-disabled)'} : {}"></i>
                     <i class="icon-chevron-right" (click)="toggleQuicklinkGroup(branch)" *ngIf="!branch.expanded"></i>
                     <p class="header-title" style="font-weight: 500;">{{ branch.name }}</p>
@@ -42,11 +39,11 @@
                             <span cdkDragHandle>
                                 <i class="icon-hand" *ngIf="branch.name!='Standard'"></i>
                             </span>
-                            <!-- <span>{{ leaf.name }}</span> -->
+
                             <span>{{ truncateText(leaf.name) }}</span>
-                            <!-- <div class="icon-edit" (click)="openDialog(leaf)" style="position: absolute; right: 0px;"></div> -->
+
                             <span class="edit-quicklink" *ngIf="branch.name!='Standard'">
-                                <i class="icon-edit" (click)="openDialog(leaf)"></i>
+                                <i class="icon-edit" (click)="openDialog(leaf); $event.stopPropagation()"></i>
                             </span>
                         </div>
 

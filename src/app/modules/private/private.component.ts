@@ -91,7 +91,9 @@ export class PrivateComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
+        if (this.searchTerm) {
+            this.filterItems.push({ id: 'searchTerm', name: 'Suche: ', value: this.searchTerm });
+        }
     }
 
     toggleQuicklinks(): void {
@@ -132,11 +134,33 @@ export class PrivateComponent implements OnInit {
     addSearchTerm(event: Event): void {
         const inputElement = event.target as HTMLInputElement;
         const searchTerm = inputElement.value.trim();
-        const searchTermItem = this.filterItems.find(item => item.id === 'searchTerm');
+
+
+
+        // Suche das Filter-Item mit id 'searchTerm'
+        let searchTermItem = this.filterItems.find(item => item.id === 'searchTerm');
+
+        if (!searchTermItem && searchTerm.length > 0) {
+            // Noch kein Filter-Item vorhanden und mindestens ein Zeichen eingegeben -> anlegen
+            this.filterItems.push({ id: 'searchTerm', name: 'Suche: ', value: searchTerm });
+        } else if (searchTermItem) {
+            // Filter-Item existiert -> Wert aktualisieren
+            searchTermItem.value = searchTerm;
+            // Optional: Wenn Eingabe wieder leer ist, Filter-Item entfernen
+            if (searchTerm.length === 0) {
+                this.filterItems = this.filterItems.filter(item => item.id !== 'searchTerm');
+            }
+        }
+
+
+
+
 
         // todo
         // little chips to show all filter items
-        this.filterItems.push({ id: 0, name: 'searchTerm', value: searchTerm });
+        // this.filterItems.push({ id: 0, name: 'searchTerm', value: searchTerm });
+
+
     }
 
     /**

@@ -5,10 +5,10 @@ import { BehaviorSubject, filter } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 
 export class RouteTrackerService {
-    // private currentUrlSubject = new BehaviorSubject<string>(this.router.url);
-    // public currentUrl$ = this.currentUrlSubject.asObservable();
-
+    private angularUrl = new BehaviorSubject<string>('');
+    private urlPathQueryString = new BehaviorSubject<string>('');
     private urlPath = new BehaviorSubject<string>('');
+    private urlRequestUri = new BehaviorSubject<string>('');
     private urlSearchTerm = new BehaviorSubject<string>('');
     private urlSortTerm = new BehaviorSubject<string>('');
 
@@ -21,23 +21,43 @@ export class RouteTrackerService {
                 filter((event): event is NavigationEnd => event instanceof NavigationEnd)
             )
             .subscribe((event) => {
-                // this.currentUrlSubject.next(event.urlAfterRedirects);
+                const angularUrl = event.urlAfterRedirects;
+                this.angularUrl.next(angularUrl);
 
-                const partUrl = event.urlAfterRedirects.split('/');
-                const url = partUrl[1];
+                const urlArray = event.urlAfterRedirects.split('/');
+                const urlHost = urlArray[0];
+                const urlRequestUri = urlArray[1];
 
-                const partPath = url.split('?');
-                const path = partPath[0];
+                this.urlRequestUri.next(urlRequestUri);
 
-                // console.log('path: ', path);
-                this.urlPath.next(path);
+                const urlRequestUriArray = urlRequestUri.split('?');
+                const urlPath = urlRequestUriArray[0];
+                const urlQueryString = urlRequestUriArray[1];
+
+                this.urlPath.next(urlPath);
+                this.urlPathQueryString.next(urlQueryString);
+
+                // console.log(
+                //     'angularUrl: ', this.angularUrl.getValue(),
+                //     '\nRequestUri: ', this.urlRequestUri.getValue(),
+                //     '\nPath: ', this.urlPath.getValue(),
+                //     '\nQueryString: ', this.urlPathQueryString.getValue(),
+                // );
 
             });
 
             this.activatedRoute.queryParams.subscribe(params => {
                 this.urlSearchTerm.next(params['search'] || '');
-                this.urlSortTerm.next(params['sort'] || 'id-asc');      // for example: 'name-asc', 'name-desc', 'id-asc', 'id-desc'
+                this.urlSortTerm.next(params['sort'] || '');      // 'sort'] || 'id-asc' => for example: 'name-asc', 'name-desc', 'id-asc', 'id-desc'
             });
+    }
+
+    getAngularUrl() {
+        return this.angularUrl.asObservable();
+    }
+
+    getRequestUri() {
+        return this.urlRequestUri.asObservable();
     }
 
     /**
@@ -48,10 +68,18 @@ export class RouteTrackerService {
         return this.urlPath.asObservable();
     }
 
+    /**
+     *
+     * @returns
+     */
     getUrlSearchTerm() {
         return this.urlSearchTerm.asObservable();
     }
 
+    /**
+     *
+     * @returns
+     */
     getUrlSortTerm() {
         return this.urlSortTerm.asObservable();
     }
