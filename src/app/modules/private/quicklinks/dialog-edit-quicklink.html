@@ -13,8 +13,9 @@
     <label for="quicklink-name">Name:</label>
     <input id="quicklink-name" type="text" [(ngModel)]="quicklinkToEdit!.name">
 
-    <label for="quicklink-value">URL:</label>
-    <input id="quicklink-value" type="text" [(ngModel)]="quicklinkToEdit!.value">
+    <label for="quicklink-value">Path:</label>
+    <input id="quicklink-value" type="text" [(ngModel)]="quicklinkToEdit!.value">    <!-- disabled="true" -->
+    <span style="margin-left: 4px; font-size: .8rem;">URL: {{ addHost(quicklinkToEdit?.value!) }}</span>
 </div>
 
 

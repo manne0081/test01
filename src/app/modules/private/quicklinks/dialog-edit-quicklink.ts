@@ -28,6 +28,10 @@ export class CdkDialogEditQuicklink {
         this.quicklinkToEdit = data;
     }
 
+    addHost(path: string): string {
+        return 'http://localhost:4402/' + path;
+    }
+
     save() {
         this.dialogRef.close(this.quicklinkToEdit);
     }
