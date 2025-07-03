@@ -135,8 +135,6 @@ export class PrivateComponent implements OnInit {
         const inputElement = event.target as HTMLInputElement;
         const searchTerm = inputElement.value.trim();
 
-
-
         // Suche das Filter-Item mit id 'searchTerm'
         let searchTermItem = this.filterItems.find(item => item.id === 'searchTerm');
 
@@ -152,14 +150,9 @@ export class PrivateComponent implements OnInit {
             }
         }
 
-
-
-
-
-        // todo
-        // little chips to show all filter items
+        // comment
+        // maybe its better to use this syntax for quicklinks
         // this.filterItems.push({ id: 0, name: 'searchTerm', value: searchTerm });
-
 
     }
 
@@ -168,7 +161,7 @@ export class PrivateComponent implements OnInit {
      */
     removeSearchTerm(): void {
         this.searchTerm = '';
-        // this.activeFilterItems = this.activeFilterItems.filter(filterItem => filterItem.id !== 'searchTerm');
+        this.filterItems = this.filterItems.filter(item => item.id !== 'searchTerm');
         this.updateRoute();
     }
 
@@ -194,7 +187,6 @@ export class PrivateComponent implements OnInit {
     }
 
     toggelFilter(): void {
-
         if (this.filterItems.length > 0) {
             this.filterItems = [];
         } else {
