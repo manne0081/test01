@@ -3,6 +3,7 @@ import { BehaviorSubject } from "rxjs";
 import { CookieService } from 'ngx-cookie-service';
 import { RouteTrackerService } from "../../core/services/route-tracker.service";
 import { TestBed } from '@angular/core/testing';
+import { Quicklinks } from "../../mock/quicklinks";
 // import { RouteTrackerService } from "../../core/services/route-tracker.service";
 
 @Injectable({
@@ -19,6 +20,7 @@ export class PrivateService {
     private isAddInfoVisible = new BehaviorSubject<boolean>(false);
     private breadcrumbs = new BehaviorSubject<string>('Breadcrumbs');
     private selectedObject = new BehaviorSubject<any>('');
+    private selectedQuicklink = new BehaviorSubject<Quicklinks | undefined>(undefined);
 
     constructor(
         private routeTracker: RouteTrackerService,
@@ -128,6 +130,10 @@ export class PrivateService {
         this.selectedObject.next(selectedObject);
     }
 
+    setSelectedQuicklink(selectedQuicklink: Quicklinks): void {
+        this.selectedQuicklink.next(selectedQuicklink);
+    }
+
     /**
      * Set Cookie => With or Without duration
      * @param cookieName
@@ -181,6 +187,10 @@ export class PrivateService {
 
     getSelectedObject(): any {
         return this.selectedObject.asObservable();
+    }
+
+    getSelectedQuicklink() {
+        return this.selectedQuicklink.asObservable();
     }
 
     /**

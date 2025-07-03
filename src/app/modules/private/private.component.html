@@ -67,7 +67,7 @@
                     <div class="icon-cancel" *ngIf="searchTerm !== ''" (click)="removeSearchTerm()"></div>
                 </div>
 
-                <button (click)="toggelFilter()">toggel filter-items</button>
+                <!-- <button (click)="toggelFilter()">toggel filter-items</button> -->
 
                 <!-- FILTER and SORT Button -->
                 <div class="filter-button-container">
@@ -92,7 +92,7 @@
                     <div class="filter-item-container" *ngFor="let item of filterItems">
                         <span>{{ item.name }}</span>
                         <span>{{ item.value }}</span>
-                        <i class="icon-cancel"></i>
+                        <i class="icon-cancel" (click)="removeSearchTerm()"></i>
                     </div>
                 </div>
             </div>

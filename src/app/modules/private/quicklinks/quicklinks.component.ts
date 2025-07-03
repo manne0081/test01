@@ -130,8 +130,7 @@ export class QuicklinksComponent implements OnInit {
      * @param quicklink
      */
     openQuicklink(quicklink: Quicklinks): void {
-        // todo
-        // filterItem in private should be updated by clicking a quicklink
+        this.privateService.setSelectedQuicklink(quicklink);
 
         if (quicklink.value != '/') {
             this.router.navigateByUrl(quicklink.value || "");

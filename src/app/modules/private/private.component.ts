@@ -94,6 +94,23 @@ export class PrivateComponent implements OnInit {
         if (this.searchTerm) {
             this.filterItems.push({ id: 'searchTerm', name: 'Suche: ', value: this.searchTerm });
         }
+
+        this.privateService.getCurrentUrlSearchTerm().subscribe(data => {
+            if(this.searchTerm) {
+                this.filterItems = this.filterItems.filter(item => item.id !== 'searchTerm');
+                this.filterItems.push({ id: 'searchTerm', name: 'Suche: ', value: data });
+            }
+        });
+
+        this.privateService.getCurrentUrlPath().subscribe(data => {
+            if (this.searchTerm) {
+                // todo
+                // Beim wechseln des menüpunktes oder der 2ten Navigation
+                // müssen alle filterItems entfernt werden.
+
+                // this.filterItems = this.filterItems.filter(item => item.id !== 'searchTerm');
+            }
+        });
     }
 
     toggleQuicklinks(): void {
