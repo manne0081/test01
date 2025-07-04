@@ -12,10 +12,10 @@ export const QUICKLINKS_MOCK: Quicklinks[] = [
         name: 'Standard',
         expanded: true,
         children: [
-            { id: 0, name: 'Angebot erstellen', value: '/' },
-            { id: 1, name: 'Rechnung prüfen', value: '/' },
-            { id: 2, name: 'Meeting vorbereiten', value: '/' },
-            { id: 3, name: 'Kundenfeedback einholen', value: '/' },
+            { id: 0, name: 'Angebot erstellen', value: '/tasks?search=Angebot erstellen&sort=' },
+            { id: 1, name: 'Rechnung prüfen', value: '/tasks?search=Rechnung prüfen&sort=' },
+            { id: 2, name: 'Meeting vorbereiten', value: '/tasks?search=Meeting vorbereiten&sort=' },
+            { id: 3, name: 'Kundenfeedback einholen', value: '/tasks?search=Kundenfeedback einholen&sort=' },
         ]
     },
     {

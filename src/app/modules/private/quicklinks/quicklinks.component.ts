@@ -134,6 +134,8 @@ export class QuicklinksComponent implements OnInit {
 
         if (quicklink.value != '/') {
             this.router.navigateByUrl(quicklink.value || "");
+        } else {
+            console.log(quicklink);
         }
     }
 

@@ -63,6 +63,8 @@ export class PrivateComponent implements OnInit {
     searchTerm: string = '';
     sortingTerm: string = '';
 
+    private lastRoute?: string;         // Use this to clear the filterItemArray by path changing
+
     filterItems: FilterItem[] = [
     ];
 
@@ -95,20 +97,18 @@ export class PrivateComponent implements OnInit {
             this.filterItems.push({ id: 'searchTerm', name: 'Suche: ', value: this.searchTerm });
         }
 
+        this.privateService.getCurrentUrlPath().subscribe(data => {
+            if (this.lastRoute !== undefined && this.lastRoute !== data) {
+                this.filterItems = [];          // Nur wenn der Pfad sich wirklich geändert hat:
+            }
+            this.lastRoute = data;              // Aktuellen Pfad merken
+        });
+
         this.privateService.getCurrentUrlSearchTerm().subscribe(data => {
+            // console.log(data);
             if(this.searchTerm) {
                 this.filterItems = this.filterItems.filter(item => item.id !== 'searchTerm');
                 this.filterItems.push({ id: 'searchTerm', name: 'Suche: ', value: data });
-            }
-        });
-
-        this.privateService.getCurrentUrlPath().subscribe(data => {
-            if (this.searchTerm) {
-                // todo
-                // Beim wechseln des menüpunktes oder der 2ten Navigation
-                // müssen alle filterItems entfernt werden.
-
-                // this.filterItems = this.filterItems.filter(item => item.id !== 'searchTerm');
             }
         });
     }

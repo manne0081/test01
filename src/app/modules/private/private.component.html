@@ -90,9 +90,12 @@
             <div class="filter-item-wrapper" *ngIf="filterItems.length > 0">
                 <div class="test">
                     <div class="filter-item-container" *ngFor="let item of filterItems">
+                        <span style="background-color: lightcoral; border-radius: 2px; padding: 0 4px; margin-right: 4px; color: white;">WIP:</span>
                         <span>{{ item.name }}</span>
                         <span>{{ item.value }}</span>
-                        <i class="icon-cancel" (click)="removeSearchTerm()"></i>
+                        <span style="position: relative;">
+                            <i class="icon-cancel" style="position: relative;" (click)="removeSearchTerm()"></i>
+                        </span>
                     </div>
                 </div>
             </div>
