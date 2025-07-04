@@ -171,8 +171,8 @@ button {
 // Specialy for Dialog-Container
 // *****************************
 .cdk-overlay-container {
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(1.2px);
+    // background-color: rgba(0, 0, 0, 0.6);
+    // backdrop-filter: blur(1.2px);
     position: fixed;
     top: 0;
     left: 0;
@@ -196,15 +196,17 @@ button {
 
 .cdk-overlay-backdrop {
     /* Schwarzer, transparenter Hintergrund */
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(1.2px);
     width: 100vw;
     height: 100vh;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10000;
+    // position: fixed;
+    // display: flex;
+    // justify-content: center;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    z-index: 1000;
     /* Der Backdrop sollte knapp unter dem Dialog sein */
 }
 

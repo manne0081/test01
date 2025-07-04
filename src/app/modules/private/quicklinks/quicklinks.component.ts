@@ -145,11 +145,12 @@ export class QuicklinksComponent implements OnInit {
      */
     openDialog(quicklink: Quicklinks): void {
 
-        const dialogRef2 = this.dialog.open<Quicklinks, Quicklinks, CdkDialogEditQuicklink>(CdkDialogEditQuicklink, {
-            data: { ...quicklink } // <--- Kopie, nicht das Original!
+        const dialogRef = this.dialog.open<Quicklinks, Quicklinks, CdkDialogEditQuicklink>(CdkDialogEditQuicklink, {
+            data: { ...quicklink }, // <--- Kopie, nicht das Original!
+            hasBackdrop: true,
         });
 
-        dialogRef2.closed.subscribe((result: Quicklinks | undefined) => {
+        dialogRef.closed.subscribe((result: Quicklinks | undefined) => {
             if (result) {
                 // Nur wenn gespeichert wurde, die Änderungen übernehmen!
                 Object.assign(quicklink, result);

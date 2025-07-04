@@ -5,12 +5,15 @@ import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Quicklinks } from '../../../mock/quicklinks';
 import { RouteTrackerService } from '../../../core/services/route-tracker.service';
 
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @Component({
     selector: 'cdk-dialog-edit-quicklink',
     standalone: true,
     imports: [
         CommonModule,
-        FormsModule
+        FormsModule,
+        // BrowserAnimationsModule,
     ],
     templateUrl: './dialog-edit-quicklink.html',
     styleUrls: ['./dialog-edit-quicklink.scss'],

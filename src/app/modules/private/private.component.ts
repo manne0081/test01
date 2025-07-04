@@ -2,15 +2,19 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
+import { Dialog } from '@angular/cdk/dialog';
 
 import { trigger, transition, style, animate, state } from '@angular/animations';
 
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
+import { FilterBuilderComponent } from './query-builder/filter-builder/filter-builder.component';
+import { FilterDialogResult } from './query-builder/filter-builder/filter-builder.component';
 import { QuicklinksComponent } from './quicklinks/quicklinks.component';
 import { AddInfoComponent } from './add-info/add-info.component';
 
 import { PrivateService } from './private.service';
+
 
 interface FilterItem {
     id: number | string;
@@ -27,6 +31,7 @@ interface FilterItem {
         RouterModule,
         HeaderComponent,
         MenuComponent,
+        FilterBuilderComponent,
         QuicklinksComponent,
         AddInfoComponent,
     ],
@@ -70,6 +75,7 @@ export class PrivateComponent implements OnInit {
 
     constructor(
         private router: Router,
+        private dialog: Dialog,
         private privateService: PrivateService,
     ) {
         this.privateService.getCurrentUrlPath().subscribe(data => {
@@ -180,6 +186,22 @@ export class PrivateComponent implements OnInit {
         this.searchTerm = '';
         this.filterItems = this.filterItems.filter(item => item.id !== 'searchTerm');
         this.updateRoute();
+    }
+
+    openFilterBuilder(): void {
+        // this.dialog.open(FilterBuilderComponent, {
+        //     width: '600px',
+        // });
+
+        const dialogRef = this.dialog.open<FilterDialogResult>(FilterBuilderComponent, {
+            hasBackdrop: false
+        });
+
+        dialogRef.closed.subscribe(result => {
+            if (result) {
+                console.log(result.filter);
+            }
+        });
     }
 
     /**
