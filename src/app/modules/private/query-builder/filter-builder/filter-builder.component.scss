@@ -1,0 +1,129 @@
+:host {
+    // background: #fff;
+    // border: 1px solid white;
+    box-shadow: 0 0 16px 0px rgb(201, 201, 201);
+    border-radius: 8px;
+    min-height: 200px;
+    min-width: 400px;
+    max-width: 800px;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    z-index: 1000 !important;
+
+    // Erste Animation mit drehung
+    // animation: custom-dialog-enter 400ms ease;
+
+    // Zweite Animation mit fade
+    // animation: custom-dialog-enter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Optional für 3D-Effekt: */
+    // transform-style: preserve-3d;
+    /* Optional, falls translateZ genutzt wird: */
+    // perspective: 800px;
+}
+
+// @keyframes custom-dialog-enter {
+//     from {
+//         transform: scale(0) rotate(180deg);
+//     }
+
+//     to {
+//         transform: none;
+//     }
+// }
+
+// @keyframes custom-dialog-enter {
+//     from {
+//         transform: scale(0.8);
+
+//         opacity: 0;
+//     }
+
+//     to {
+//         transform: scale(1);
+//         opacity: 1;
+//     }
+// }
+
+.header-container {
+    background-color: var(--dialog-header-bg);
+    border-bottom: 1px solid #b9b9b9;
+    padding: 8px 8px;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+        color: var(--font-invert);
+    }
+
+    div>i {
+        border-radius: 4px;
+        color: var(--font-invert);
+        padding: 4px;
+    }
+
+    div:hover>i {
+        background-color: rgba(255, 255, 255, .4);
+        cursor: pointer;
+    }
+}
+
+.content-container {
+    background-color: white;
+    padding: 8px 12px;
+    // height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    label {
+        padding: 0px 4px;
+    }
+
+    input {
+        background-color: rgb(238, 238, 238);
+        border: 1px solid rgb(196, 196, 196);
+        border-radius: 4px;
+        box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, .2);
+        font-size: 1rem;
+        padding: 6px 4px;
+        width: 100%;
+    }
+
+    .path {
+        // background-color: lime;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        i {
+            // background-color: orange;
+            border-radius: 4px;
+            margin-left: 6px;
+            font-size: 1.2rem;
+            padding: 2px;
+        }
+
+        i:hover {
+            background-color: rgba(0, 0, 0, .16);
+            cursor: pointer;
+        }
+    }
+
+}
+
+.footer-container {
+    background-color: var(--dialog-footer-bg);
+    border-top: 1px solid #b9b9b9;
+    padding: 8px 8px;
+    margin-left: auto;
+    // position: absolute;
+    // bottom: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    button:hover {
+        background-color: var(--dialog-footer-bg-hover);
+        cursor: pointer;
+    }
+}

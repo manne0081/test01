@@ -200,6 +200,12 @@ button {
     backdrop-filter: blur(1.2px);
     width: 100vw;
     height: 100vh;
+
+        display: block !important;
+        /* Or whatever display value you need */
+        height: 100% !important;
+        /* Or auto, depending on desired behavior */
+
     // position: fixed;
     // display: flex;
     // justify-content: center;
@@ -233,6 +239,15 @@ button {
     }
 }
 
+.cdk-dialog-container>.ng-star-inserted {
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+
+    .content-container {
+        height: 100%;
+    }
+}
 
 
 // Specialy for Scrollbar
