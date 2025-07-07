@@ -42,8 +42,8 @@
 
                             <span>{{ truncateText(leaf.name) }}</span>
 
-                            <span class="edit-quicklink" *ngIf="branch.name!='Standard'">
-                                <i class="icon-edit" (click)="openDialog(leaf); $event.stopPropagation()"></i>
+                            <span class="edit-quicklink" *ngIf="branch.name!='Standard'" (click)="openDialog(leaf); $event.stopPropagation()">
+                                <i class="icon-edit"></i>
                             </span>
                         </div>
 

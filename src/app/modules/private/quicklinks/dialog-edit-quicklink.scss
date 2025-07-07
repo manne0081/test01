@@ -15,11 +15,11 @@
     // animation: custom-dialog-enter 400ms ease;
 
     // Zweite Animation mit fade
-    // animation: custom-dialog-enter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: custom-dialog-enter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     /* Optional für 3D-Effekt: */
-    // transform-style: preserve-3d;
+    transform-style: preserve-3d;
     /* Optional, falls translateZ genutzt wird: */
-    // perspective: 800px;
+    perspective: 800px;
 }
 
 // @keyframes custom-dialog-enter {
@@ -32,18 +32,18 @@
 //     }
 // }
 
-// @keyframes custom-dialog-enter {
-//     from {
-//         transform: scale(0.8);
+@keyframes custom-dialog-enter {
+    from {
+        transform: scale(0.8);
 
-//         opacity: 0;
-//     }
+        opacity: 0;
+    }
 
-//     to {
-//         transform: scale(1);
-//         opacity: 1;
-//     }
-// }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
 .header-container {
     background-color: var(--dialog-header-bg);

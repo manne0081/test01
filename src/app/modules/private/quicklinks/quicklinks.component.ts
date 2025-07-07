@@ -147,7 +147,9 @@ export class QuicklinksComponent implements OnInit {
 
         const dialogRef = this.dialog.open<Quicklinks, Quicklinks, CdkDialogEditQuicklink>(CdkDialogEditQuicklink, {
             data: { ...quicklink }, // <--- Kopie, nicht das Original!
-            // hasBackdrop: true,
+            hasBackdrop: true,
+            panelClass: 'my-dialog-panel',
+            backdropClass: 'my-dialog-backdrop',
         });
 
         dialogRef.closed.subscribe((result: Quicklinks | undefined) => {
@@ -156,5 +158,22 @@ export class QuicklinksComponent implements OnInit {
                 Object.assign(quicklink, result);
             }
         });
+
+
+        setTimeout(() => {
+            const backdrop = document.querySelector('.cdk-overlay-backdrop') as HTMLElement;
+            if (backdrop) {
+              Object.assign(backdrop.style, {
+                clipPath: 'none',
+                transform: 'none',
+                display: 'block',
+                height: '100vh',
+                overflow: 'visible',
+              });
+            }
+          }, 0);
+
+
+
     }
 }

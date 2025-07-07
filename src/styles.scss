@@ -1,21 +1,20 @@
 // Import Font from IcoMoon
 // ************************
-//@use '@angular/material' as mat;
 
-// CSS VARIABLES
-// *************
-$bx-white: #ffffff;
+// CSS COLOR VARIABLES
+// *******************
+$bx-white: hsl(0, 0%, 100%);
 $bx-white-108: hsl(0, 0%, 92%);
 $bx-white-110: hsl(0, 0%, 90%);
 $bx-white-120: hsl(0, 0%, 80%);
 $bx-white-166: hsl(0, 0%, 44%);
 $bx-gray: #edf0f5;
 $bx-gray-11: #d5d8dd;
-$bx-anthracit: #404040;
-$bx-anthracit-11: #3a3a3a;
-$bx-anthracit-13: #2d2d2d;
-$bx-anthracit-05: #a0a0a0;
-$bx-anthracit-06: #b3b3b3;
+$bx-anthracit: hsl(0, 0%, 25%);
+$bx-anthracit-11: hsl(0, 0%, 23%);
+$bx-anthracit-13: hsl(0, 0%, 18%);
+$bx-anthracit-05: hsl(0, 0%, 63%);
+$bx-anthracit-06: hsl(0, 0%, 70%);
 $bx-blue-ice: #f9fcff;
 $bx-green: #16c68d;
 $bx-red: #e87a7a;
@@ -37,25 +36,43 @@ $brand-font-3: #dfe0e2;
 // Generally Angular Variables
 // ***************************
 :root {
+    // PRIMITIVE COLOR VARIABLES
+    // -------------------------
     --primary-color: #2e7d32;
     --secondary-color: #f4f4f4;
-    --text-color: #333333;
-    --text-color-invert: #ffffff;
-    --border-color: #cccccc;
-    --background-color: #ffffff;
+    --highlight: #{$brand-orange};
 
     --error: #{$bx-red-fire};
     --warning: #{$bx-orange};
     --success: #{$bx-green-apple};
 
-    --highlight: #{$brand-orange};
-    --primary: #{$brand-anthracit};
-    --secondary: #{$brand-anthracit-light-2};
+    // SEMANTIC COLOR VARIABLES
+    // ------------------------
+    --body-bg: #{$bx-gray};
 
-    --icon-default: #{$bx-anthracit};
-    --icon-invert: #{$bx-white};
-    --icon-disabled: #{$bx-anthracit-05};
-    --icon-highlight: var(--highlight);
+    --header-bg: #{$bx-white};
+    --header-height: 48px;
+
+    --menu-width: 200px;
+    --menu-item-bg: #{var(--primary-color)};
+    --menu-item-color: #{var(--text-color-invert)};
+
+    --quicklinks-width: 200px;
+
+    --add-info-width: 200px;
+
+    --filter-item-background: #{$bx-white-110};
+
+    --bottom-menu-background: #{$bx-white};
+
+    --input-background: #{$bx-white-110};
+
+    // FONT-VARIABLES
+    // --------------
+    // --text-color: #333333;
+    // --text-color-invert: #ffffff;
+    // --border-color: #cccccc;
+    // --background-color: #ffffff;
 
     --font-default: #{$bx-anthracit};
     --font-invert: #{$bx-white};
@@ -63,20 +80,12 @@ $brand-font-3: #dfe0e2;
     --font-highlight: var(--highlight);
     --font-placeholder: #{$brand-font-3};
 
-    --body-bg: #{$bx-gray};
-    --header-bg: #{$bx-white};
-    --menu-item-bg: #{var(--primary-color)};
-    --menu-item-color: #{var(--text-color-invert)};
-
-    --bottom-menu-background: #{$bx-white};
-    --filter-item-background: #{$bx-white-110};
-    --input-background: #{$bx-white-110};
-
-
-    --header-height: 48px;
-    --menu-width: 200px;
-    --quicklinks-width: 200px;
-    --add-info-width: 200px;
+    // ICON-VARIABLES
+    // --------------
+    --icon-default: #{$bx-anthracit};
+    --icon-invert: #{$bx-white};
+    --icon-disabled: #{$bx-anthracit-05};
+    --icon-highlight: var(--highlight);
 
 
     // BUTTONS
@@ -183,16 +192,22 @@ button {
 }
 
 .cdk-overlay-container:has(.cdk-overlay-pane) {
-    display: block;                 // Zeigt den Container an, sobald ein Dialog aktiv ist
+    display: flex;                 // Zeigt den Container an, sobald ein Dialog aktiv ist
+    flex-direction: column;
+    position: relative;
 }
 
-.custom-backdrop {
-    position: fixed !important;
-    /* Unbedingt notwendig! */
-    top: 100px;
-    left: 100px;
-    z-index: 1000 !important;
-}
+// .custom-backdrop {
+//     background-color: orange !important;
+//     position: fixed !important;
+//     top: 100px;
+//     left: 100px;
+//     z-index: 1000 !important;
+//     display: block !important;
+//     width: 100vw;
+//     height: 100vh;
+//     z-index: 1000;
+// }
 
 .cdk-overlay-backdrop {
     /* Schwarzer, transparenter Hintergrund */
@@ -201,22 +216,29 @@ button {
     width: 100vw;
     height: 100vh;
 
-        display: block !important;
-        /* Or whatever display value you need */
-        height: 100% !important;
-        /* Or auto, depending on desired behavior */
+    // display: block !important;
+    display: flex !important;
+    /* Or whatever display value you need */
+    height: 100% !important;
+    /* Or auto, depending on desired behavior */
 
-    // position: fixed;
+    position: fixed;
     // display: flex;
     // justify-content: center;
-    // top: 0;
-    // left: 0;
-    // right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     /* Der Backdrop sollte knapp unter dem Dialog sein */
 }
 
+.cdk-global-overlay-wrapper {
+    // background-color: lime;
+    // z-index: 1001 !important;
+}
+
 .cdk-overlay-pane {
+    // background-color: orange;
     margin-top: 80px;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
             Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
@@ -240,7 +262,7 @@ button {
 }
 
 .cdk-dialog-container>.ng-star-inserted {
-    background-color: orange;
+    // background-color: orange;
     display: flex;
     flex-direction: column;
 
