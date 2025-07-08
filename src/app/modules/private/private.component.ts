@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
@@ -6,14 +6,19 @@ import { Dialog } from '@angular/cdk/dialog';
 
 import { trigger, transition, style, animate, state } from '@angular/animations';
 
+import { Overlay, OverlayRef, OverlayConfig, FlexibleConnectedPositionStrategy, OverlayPositionBuilder } from '@angular/cdk/overlay';
+
+
+
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
-import { FilterBuilderComponent } from './query-builder/filter-builder/filter-builder.component';
-import { FilterDialogResult } from './query-builder/filter-builder/filter-builder.component';
+// import { FilterBuilderComponent } from './query-builder/filter-builder/filter-builder.component';
+// import { FilterDialogResult } from './query-builder/filter-builder/filter-builder.component';
 import { QuicklinksComponent } from './quicklinks/quicklinks.component';
 import { AddInfoComponent } from './add-info/add-info.component';
 
 import { PrivateService } from './private.service';
+import { TemplatePortal } from '@angular/cdk/portal';
 
 
 interface FilterItem {
@@ -31,7 +36,7 @@ interface FilterItem {
         RouterModule,
         HeaderComponent,
         MenuComponent,
-        FilterBuilderComponent,
+        // FilterBuilderComponent,
         QuicklinksComponent,
         AddInfoComponent,
     ],
@@ -73,9 +78,14 @@ export class PrivateComponent implements OnInit {
     filterItems: FilterItem[] = [
     ];
 
+    private overlayRef: OverlayRef | null = null;
+
     constructor(
         private router: Router,
         private dialog: Dialog,
+        private overlay: Overlay,
+        private overlayPositionBuilder: OverlayPositionBuilder,
+        private vcr: ViewContainerRef,
         private privateService: PrivateService,
     ) {
         this.privateService.getCurrentUrlPath().subscribe(data => {
@@ -188,22 +198,6 @@ export class PrivateComponent implements OnInit {
         this.updateRoute();
     }
 
-    openFilterBuilder(): void {
-        // this.dialog.open(FilterBuilderComponent, {
-        //     width: '600px',
-        // });
-
-        const dialogRef = this.dialog.open<FilterDialogResult>(FilterBuilderComponent, {
-            hasBackdrop: false
-        });
-
-        dialogRef.closed.subscribe(result => {
-            if (result) {
-                console.log(result.filter);
-            }
-        });
-    }
-
     /**
      * Change the route, so you can set this as quicklink
      */
@@ -224,6 +218,59 @@ export class PrivateComponent implements OnInit {
             }
         });
     }
+
+
+
+
+
+
+    // openFilterBuilder(): void {
+    //     // this.dialog.open(FilterBuilderComponent, {
+    //     //     width: '600px',
+    //     // });
+
+    //     const dialogRef = this.dialog.open<FilterDialogResult>(FilterBuilderComponent, {
+    //         hasBackdrop: false
+    //     });
+
+    //     dialogRef.closed.subscribe(result => {
+    //         if (result) {
+    //             console.log(result.filter);
+    //         }
+    //     });
+    // }
+
+
+    openFilterOverlay(trigger: HTMLElement, template: TemplateRef<any>) {
+        const positionStrategy = this.overlayPositionBuilder
+            .flexibleConnectedTo(trigger)
+            .withPositions([
+                {
+                    originX: 'start',
+                    originY: 'bottom',
+                    overlayX: 'start',
+                    overlayY: 'top'
+                }
+            ]);
+
+        const overlayConfig = new OverlayConfig({
+            hasBackdrop: false,
+            positionStrategy,
+            scrollStrategy: this.overlay.scrollStrategies.reposition()
+        });
+
+        this.overlayRef = this.overlay.create(overlayConfig);
+        this.overlayRef.attach(new TemplatePortal(template, this.vcr));
+    }
+
+    closeOverlay() {
+        this.overlayRef?.dispose();
+    }
+
+
+
+
+
 
     toggelFilter(): void {
         if (this.filterItems.length > 0) {

@@ -71,10 +71,26 @@
 
                 <!-- FILTER and SORT Button -->
                 <div class="filter-button-container">
-                    <button class="filter-button" (click)="openFilterBuilder()">
-                        <span style="background-color: lightcoral; border-radius: 2px; padding: 0 4px; margin-right: 4px; color: white;">WIP</span>
+                    <!-- <button class="filter-button" (click)="openFilterBuilder()">
+                        <span style="background-color: red; border-radius: 2px; padding: 1px 4px 0 4px; margin-right: 4px; color: white;">WIP</span>
+                        <span>Filter</span>
+                    </button> -->
+
+                    <button #triggerBtn class="filter-button" (click)="openFilterOverlay(triggerBtn, filterTemplate)">
+                        <span style="background-color: red; border-radius: 2px; padding: 1px 4px 0 4px; margin-right: 4px; color: white;">WIP</span>
                         <span>Filter</span>
                     </button>
+
+                    <ng-template #filterTemplate>
+                        <!-- Dein Filter-Dialog-Inhalt -->
+
+                        <div style="background-color: lime;">
+                            <span>TEST OVERLAY FOR FILTER-BUILDER</span><br>
+                            <button (click)="closeOverlay()">Close</button>
+                        </div>
+
+                    </ng-template>
+
                     <button class="sort-button">
                         Sort
                     </button>
@@ -91,7 +107,7 @@
             <div class="filter-item-wrapper" *ngIf="filterItems.length > 0">
                 <div class="test">
                     <div class="filter-item-container" *ngFor="let item of filterItems">
-                        <span style="background-color: lightcoral; border-radius: 2px; padding: 0 4px; margin-right: 4px; color: white;">WIP:</span>
+                        <span style="background-color: red; border-radius: 2px; padding: 0 4px; margin-right: 4px; color: white;">WIP:</span>
                         <span>{{ item.name }}</span>
                         <span>{{ item.value }}</span>
                         <span style="position: relative;">
