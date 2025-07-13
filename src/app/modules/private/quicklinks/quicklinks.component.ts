@@ -163,16 +163,15 @@ export class QuicklinksComponent implements OnInit {
         setTimeout(() => {
             const backdrop = document.querySelector('.cdk-overlay-backdrop') as HTMLElement;
             if (backdrop) {
-              Object.assign(backdrop.style, {
-                clipPath: 'none',
-                transform: 'none',
-                display: 'block',
-                height: '100vh',
-                overflow: 'visible',
-              });
+                Object.assign(backdrop.style, {
+                    clipPath: 'none',
+                    transform: 'none',
+                    display: 'block',
+                    height: '100vh',
+                    overflow: 'visible',
+                });
             }
-          }, 0);
-
+        }, 0);
 
 
     }
