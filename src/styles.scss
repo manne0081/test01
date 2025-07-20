@@ -180,25 +180,25 @@ button {
 // Specialy for Dialog-Container
 // *****************************
 .cdk-overlay-container {
-    // background-color: rgba(0, 0, 0, 0.6);
-    // backdrop-filter: blur(1.2px);
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    // top: 0;
+    // left: 0;
+    // width: 100%;
+    // height: 100%;
     display: none;                  // Versteckt den Container, wenn kein Dialog aktiv ist
     z-index: 1000 !important;       // Sicherstellen, dass der Container über allem liegt
+
+    inset: 0;
 }
 
 .cdk-overlay-container:has(.cdk-overlay-pane) {
     display: flex;                 // Zeigt den Container an, sobald ein Dialog aktiv ist
-    flex-direction: column;
-    position: relative;
+    // flex-direction: column;
+    // position: relative;
 }
 
 // .custom-backdrop {
-//     background-color: orange !important;
+    // background-color: orange !important;
 //     position: fixed !important;
 //     top: 100px;
 //     left: 100px;
@@ -206,69 +206,94 @@ button {
 //     display: block !important;
 //     width: 100vw;
 //     height: 100vh;
-//     z-index: 1000;
+    // z-index: 1000;
 // }
 
 .cdk-overlay-backdrop {
-    /* Schwarzer, transparenter Hintergrund */
+    // /* Schwarzer, transparenter Hintergrund */
     background-color: rgba(0, 0, 0, 0.6) !important;
-    backdrop-filter: blur(1.2px);
     width: 100vw;
     height: 100vh;
+    backdrop-filter: blur(1.2px);
 
     // display: block !important;
-    display: flex !important;
+    // display: flex !important;
     /* Or whatever display value you need */
-    height: 100% !important;
+    // height: 100% !important;
     /* Or auto, depending on desired behavior */
 
-    position: fixed;
+    // position: fixed;
     // display: flex;
     // justify-content: center;
-    top: 0;
-    left: 0;
-    right: 0;
+    // top: 0;
+    // left: 0;
+    // right: 0;
     z-index: 1000;
     /* Der Backdrop sollte knapp unter dem Dialog sein */
+    position: fixed;
+    inset: 0;
 }
 
 .cdk-global-overlay-wrapper {
     // background-color: lime;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative !important;
     // z-index: 1001 !important;
 }
 
 .cdk-overlay-pane {
     // background-color: orange;
-    margin-top: 80px;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-            Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-            "Segoe UI Symbol";
-    z-index: 1001 !important;
+    // margin-top: 80px;
+    // font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    //         Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    //         "Segoe UI Symbol";
+    // z-index: 1001 !important;
 
-    button {
-        outline: none;
-    }
+    // button {
+    //     outline: none;
+    // }
+
+        position: static;
+        pointer-events: auto;
+        max-width: 80vw;
+
+        position: absolute !important;
+        // top: 80px !important;
 }
 
 .cdk-dialog-container {
-    display: flex !important;
-    justify-content: space-around !important;
+    // display: flex !important;
+    // justify-content: space-around !important;
 
-    button {
-        background-color: var(--dialog-footer-button-bg);
-        border: 1px solid #b9b9b9;
-        margin-left: 6px;
-    }
+    // button {
+    //     background-color: var(--dialog-footer-button-bg);
+    //     border: 1px solid #b9b9b9;
+    //     margin-left: 6px;
+    // }
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    outline: 0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 24px;
+    overflow: auto;
+    background: #fff;
 }
 
 .cdk-dialog-container>.ng-star-inserted {
     // background-color: orange;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
 
-    .content-container {
-        height: 100%;
-    }
+    // .content-container {
+    //     height: 100%;
+    // }
 }
 
 

@@ -242,15 +242,18 @@ export class PrivateComponent implements OnInit {
 
 
     openFilterOverlay(trigger: HTMLElement, template: TemplateRef<any>) {
+        console.log(trigger);
+
         const positionStrategy = this.overlayPositionBuilder
             .flexibleConnectedTo(trigger)
             .withPositions([
                 {
-                    originX: 'start',
+                    originX: 'end',
                     originY: 'bottom',
-                    overlayX: 'start',
-                    overlayY: 'top'
-                }
+                    overlayX: 'end',
+                    overlayY: 'top',
+                },
+
             ]);
 
         const overlayConfig = new OverlayConfig({
