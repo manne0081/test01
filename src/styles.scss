@@ -187,7 +187,6 @@ button {
     // height: 100%;
     display: none;                  // Versteckt den Container, wenn kein Dialog aktiv ist
     z-index: 1000 !important;       // Sicherstellen, dass der Container über allem liegt
-
     inset: 0;
 }
 
@@ -257,11 +256,10 @@ button {
     //     outline: none;
     // }
 
-        position: static;
         pointer-events: auto;
-        max-width: 80vw;
+        // max-width: 80vw;
 
-        position: absolute !important;
+        // position: absolute !important;
         // top: 80px !important;
 }
 
